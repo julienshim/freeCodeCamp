@@ -117,8 +117,13 @@ div#image-blur {
     background-color: green; */
 }
 
+hr {
+    border: 0.5px solid #ccc;
+    margin: 40px 20px;
+}
+
 .timeline-date {
- /* font-weight: bold; */
+ font-weight: bold;
 }
 
 blockquote p {
