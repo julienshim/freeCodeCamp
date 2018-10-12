@@ -20,16 +20,22 @@ div#header {
  box-sizing: border-box; /*retains 142px height*/
 }
 
-div#header h1 {
+div#header div h1 {
     font-size: 2.67rem;
     font-weight: 700;
     line-height: 1;
   
 }
 
-div#header p {
+div#header div p {
     font-size: 2.063rem;
     line-height: 1.231;
+}
+
+div#header div img {
+    height: 64px;
+    float: right;
+    margin-top: 8px;
 }
 
 div#main {
@@ -117,9 +123,18 @@ div#image-blur {
     background-color: green; */
 }
 
+h2 {
+    /* font-weight: 700; */
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
+}
+
 hr {
-    border: 0.5px solid #ccc;
-    margin: 40px 20px;
+    border-top: 1px solid #ccc;
+    margin: 40px 0;
+
 }
 
 .timeline-date {
@@ -128,15 +143,19 @@ hr {
 
 blockquote p {
     font-size: 1.875rem;
-    margin: 30px 10px;
+    font-weight: 700;
+    margin: 40px;
     text-align: center;
+    line-height: 1.2em;
 }
 
-cite {
+p#cite {
     text-align: right;
+    margin: 40px;
 }
 
 footer {
     text-align: center;
     background: white;
+    color: #999;
 }
