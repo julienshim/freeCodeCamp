@@ -1,23 +1,35 @@
-/* User Story #8: The img element should responsively resize, relative to the width of its parent element, without exceeding its original size. */
-
-/* User Story #9: The img element should be centered within its parent element. */
+/* Fonts */
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
-body {
- background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/merely_cubed.png");
- font-family: "Roboto", sans-serif;
- font-size: 1rem;
- color: #666;
- /* border: 10px solid black; */
+/* Color Palette */
+
+:root {
+    --leica-red: #cf2e24;
+    --black: #000;
+    --charcoal: #333;
+    --grey: #666;
+    --dark-ash: #999;
+    --ash: #ccc;
+    --white: #fff;
+    --cream: #f3f3f3;
 }
 
+body {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/merely_cubed.png");
+    color: var(--grey);
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+/* Header */
+
 div#header {
-    color: #000;
- background-color: white;
- height: 142px;
- padding: 30px 40px 35px 40px;
- box-sizing: border-box; /*retains 142px height*/
+    color: var(--black);
+    background-color: var(--white);
+    box-sizing: border-box; /*retains 142px height*/
+    height: 142px;
+    padding: 30px 40px 35px 40px;
 }
 
 div#header div h1 {
@@ -33,125 +45,123 @@ div#header div p {
 }
 
 div#header div img {
-    height: 64px;
     float: right;
+    height: 64px;
     margin-top: 8px;
 }
 
 div#main {
- margin: 0 auto;
- background: white;
- max-width: 960px;
- /* border: 1px solid #999; */
+    background: var(--white);
+    margin: 0 auto;
+    max-width: 960px;
 }
 
+/* Image Div */
+
 div#img-div {
- position: initial;
- height: 640px;
- background-color: black;
- overflow: hidden;
+    background-color: var(--black);
+    height: 640px;
+    overflow: hidden;
+    position: initial;
 }
 
 div#image-container, div#caption-container {
- position: relative;
- top: 50%;
- transform: translateY(-50%);
- left: 55px;
- z-index: 1;
- width: 70%;
+    left: 55px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    z-index: 1;
 }
 
 img {
- display: block;
- margin: 0 auto;
-
- max-height: 100%;
- max-width: 100%;
- /* border: 1px solid #ccc; */
+    display: block; /* User Story #8: The img element should responsively resize, relative to the width of its parent element, without exceeding its original size. */
+    margin: 0 auto; /* User Story #9: The img element should be centered within its parent element. */
+    max-height: 100%;
+    max-width: 100%;
 }
 
 div#img-caption {
-    position: absolute;
     bottom: 55px;
-    width: 200x;
+    position: absolute;
     right: -185px;
+    width: 200x;
 }
 
 div#img-caption p {
     margin: 10px;
-
 }
 
 div#img-caption p span {
+    background: var(--leica-red);
+    color: var(--white);
     font-size: 1.5rem;
-    background: #cf2e24;
     padding: 3px;
-    color: white;
 }
 
 div#image-bg {
- position: relative;
- top: -482px; /*codepen compensation from -476px*/
- left: 0px;
- height: 150%;
+    height: 150%;
+    left: 0px;
+    position: relative;
+    top: -482px;
 }
 
 div#image-blur {
- background-image: url("http://static.leica-camera.com/var/leica/storage/images/media/media-asset-management-mam/global-international/world-of-leica/leica-100-years/iconic-photos/campaign-images/oskar-barnack-at-his-workplace/1133178-2-eng-MA/Oskar-Barnack-at-his-workplace_teaser-1200x800.jpg");
- background-position: center;
- background-size: cover;
-
- width: 110%;
- height: 110%;
- margin-left: -5%;
- margin-top: -5%;
- opacity: 0.7;
-
- filter: blur(12px);
- -webkit-filter: blur(12px);
- -moz-filter: blur(12px);
- -o-filter: blur(12px);
- -ms-filter: blur(12px);
+    background-image: url("http://static.leica-camera.com/var/leica/storage/images/media/media-asset-management-mam/global-international/world-of-leica/leica-100-years/iconic-photos/campaign-images/oskar-barnack-at-his-workplace/1133178-2-eng-MA/Oskar-Barnack-at-his-workplace_teaser-1200x800.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 110%;
+    margin-left: -5%;
+    margin-top: -5%;
+    opacity: 0.7;
+    width: 110%;
+    /* blur */
+    filter: blur(12px);
+    -webkit-filter: blur(12px);
+    -moz-filter: blur(12px);
+    -o-filter: blur(12px);
+    -ms-filter: blur(12px);
 }
 
-#tribute-info, footer {
- background-color: #f3f3f3;
- padding: 50px;
+/* Tribute Info */
 
- /* position: relative;
-    margin: 200px auto;
-    background-color: green; */
+#tribute-info, footer {
+    background-color: var(--cream);
+    padding: 50px;
 }
 
 h2 {
-    /* font-weight: 700; */
-    margin-bottom: 10px;
+    color: var(--black);
     font-size: 1.25rem;
     font-weight: 700;
-    color: black;
+    margin-bottom: 10px;
+}
+
+p#about {
+    line-height: 1.8rem;
 }
 
 hr {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--ash);
     margin: 40px 0;
 
 }
 
 .timeline-date {
- font-weight: bold;
+    font-weight: bold;
 }
 
 blockquote p {
     font-size: 1.875rem;
     font-weight: 700;
+    line-height: 1.2em;
     margin: 40px;
     text-align: center;
-    line-height: 1.2em;
 }
 
 p#cite {
-    text-align: right;
     margin: 40px;
+    text-align: right;
 }
 
 ul {
@@ -164,33 +174,50 @@ ul > li {
 }
 
 p.date {
-    font-weight: 700;
-    width: 64px;
     float: left;
+    font-weight: 700;
     margin-top: 20px;
+    width: 64px;
 }
 
 p.content {
+    border-left: 3px solid var(--ash);
+    float: left;
+    padding-left: 24px;
     padding-top: 20px;
     width: 75%;
-    float: left;
-    border-left: 3px #ccc solid;
-    padding-left: 24px;
 }
 
 p.content:before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #cf2e24;
-    position: absolute;
-    left: 60px;
-    top: 24px;
+    background: var(--leica-red);
     border-radius: 100%;
+    content: '';
+    height: 12px;
+    left: 60px;
+    position: absolute;
+    top: 24px;
+    width: 12px;
 }
 
+/* Footer */
+
 footer {
-    /* text-align: center; */
-    background: white;
-    color: #999;
+    background: var(--white);
+    color: var(--dark-ash);
+}
+
+/* Links */
+
+a:link {
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+a:visited, a:active {
+    color: var(--charcoal);
+}
+
+a:hover {
+    color: var(--dark-ash);
 }
