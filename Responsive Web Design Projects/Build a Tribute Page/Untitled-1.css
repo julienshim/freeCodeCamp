@@ -154,8 +154,43 @@ p#cite {
     margin: 40px;
 }
 
+ul {
+    list-style: none;
+}
+
+ul > li {
+    overflow: hidden;
+    position: relative;
+}
+
+p.date {
+    font-weight: 700;
+    width: 64px;
+    float: left;
+    margin-top: 20px;
+}
+
+p.content {
+    padding-top: 20px;
+    width: 75%;
+    float: left;
+    border-left: 3px #ccc solid;
+    padding-left: 24px;
+}
+
+p.content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #cf2e24;
+    position: absolute;
+    left: 60px;
+    top: 24px;
+    border-radius: 100%;
+}
+
 footer {
-    text-align: center;
+    /* text-align: center; */
     background: white;
     color: #999;
 }
