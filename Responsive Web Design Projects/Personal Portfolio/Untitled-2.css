@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+}
+
+nav {
+    /* User Story #11: The navbar should always be at the top of the viewport. */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#welcome-section {
+    /* User Story #10: The height of the welcome section should be equal to the height of the viewport. */
+    height: 100vh;
+}
+
+/* User Story #9: My portfolio should have at least one media query. */
+/* Note: This section does not pass if running locally, but does if saved on CodePen. */
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
