@@ -34,9 +34,12 @@ div.fieldset div {
 #content {
     background-color: #fff;
     /* box-sizing: border-box; */
-    width: 854px;
+    width: 565px;
     padding: 60px;
     margin: 0 auto;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    box-shadow: 1px 1px #eeeeee;
 }
 
 h1 {
@@ -45,7 +48,7 @@ h1 {
 
 #description, #policy {
     font-size: 12px;
-    width: 450px;
+    width: 405px;
 }
 
 select#dropdown {
@@ -85,6 +88,23 @@ textarea {
     height: 50px;
 }
 
+#hr-bottom {
+    margin: 40px 0 20px 0;
+}
+
+.fake-link {
+    color: #0088cc;
+}
+
+div#submit-area {
+    display: flex;
+}
+
+p#policy {
+    margin: 0;
+    width: 320px;
+    margin-right: 77px;
+}
 
 button[type="submit"] {
     width: 168px;
@@ -92,6 +112,7 @@ button[type="submit"] {
     color: #fff;
     background-image: linear-gradient(to bottom, #52b9f2, #3791d9);
     border-radius: 5px;
+    font-size: 1em;
 }
 
 /*Placeholder*/

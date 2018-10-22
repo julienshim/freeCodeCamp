@@ -11,8 +11,8 @@
 <body>
     <div id="content">
         <!-- User Story #1: I can see a title with id="title" in H1 sized text. -->
-        <h1 id="title">Mapple MyPhone Market Research Survey Feedback</h1>
-        <hr>
+        <h1 id="title">MyPhone Market Research Survey Feedback</h1>
+        <hr id="hr-top">
         <p id="description">Please use this form to send us your comments. We read all feedback carefully, but we cannot respond directly to your comments.</p>
 
         <form id="survey-form">
@@ -37,7 +37,7 @@
 
             <label for="dropdown">What option best describes your current smartphone use?</label>
             <select id="dropdown">
-                <option>Select an Option</option>
+                <option selected disabled>Select an Option</option>
                 <option value="basic">Basic</option>
                 <option value="minimalist">Minimalist</option>
                 <option value="enthusiast">Enthusiast</option>
@@ -91,10 +91,11 @@
                   <textarea id="comment" name="comment"></textarea>
                 </span>
             </div>
-            <hr>
-
-            <p id="policy">Please read Mapple's Unsolicited Idea Submission Policy before you send us your feedback.</p>
-            <button type="submit" id="submit">Submit Feedback</button>
+            <hr id="hr-bottom">
+            <div id="submit-area">
+                <p id="policy">Please read <span class="fake-link">Mapple's Unsolicited Idea Submission Policy</span> before you send us your feedback.</p>
+                <button type="submit" id="submit">Submit Feedback</button>
+             </div>
         </form>
     </div>
 
