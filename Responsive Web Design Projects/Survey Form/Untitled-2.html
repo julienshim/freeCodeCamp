@@ -4,61 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
     <link rel="stylesheet" type="text/css" href="Untitled-1.css">
 </head>
 
 <body>
     <!-- User Story #1: I can see a title with id="title" in H1 sized text. -->
-    <h1 id="title">Survey</h1>
-
-    <p id="description">Description</p>
+    <h1 id="title">Mapple MyPhone User Experience Research Survey</h1>
+    <hr>
+    <p id="description">Please use this form to send us your comments. We read all feedback carefully, but we cannot respond directly to your comments.</p>
 
     <form id="survey-form">
         <div>
-            <label for="name" id="name-label">Name:</label>
+            <label for="name" id="name-label">* Name:</label>
             <input type="text" id="name" placeholder="Enter your name" required>
         </div>
         <div>
-            <label for="email" id="email-label">Email:</label>
+            <label for="email" id="email-label">* Email:</label>
             <input type="email" id="email" placeholder="Enter your email" required>
         </div>
         <div>
-            <label for="number" id="number-label">Age:</label>
+            <label for="number" id="number-label">* Age:</label>
             <input type="number" id="number" placeholder="Age" required min="1" max="125">
         </div>
 
-        <label for="dropdown">What option best describes your current role?</label>
+        <label for="dropdown">What option best describes your current smartphone use?</label>
         <select id="dropdown">
-            <option value="first">first</option>
-            <option value="second">second</option>
-            <option value="third">third</option>
-            <option value="fourth">fourth</option>
+            <option>Select an Option</option>
+            <option value="basic">Basic</option>
+            <option value="minimalist">Minimalist</option>
+            <option value="enthusiast">Enthusiast</option>
+            <option value="obsessive">Obsessive</option>
+            <option value="obsessive">Pro</option>
         </select>
 
-        <fieldset>
-            <legend>Select a maintenance drone:</legend>
+        <div id="radio-area">
+            <legend>* How likely would you purchase this product?</legend>
             <div>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label>
+                <input type="radio" id="definitely" name="purchase" value="definitely">
+                <label for="definitely">Definitely</label>
             </div>
             <div>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label>
+                <input type="radio" id="maybe" name="purchase" value="maybe">
+                <label for="maybe">Maybe</label>
             </div>
             <div>
-                <input type="radio" id="other" name="gender" value="other">
-                <label for="other">Other</label>
+                <input type="radio" id="unsure" name="purchase" value="unsure">
+                <label for="unsure">Not sure</label>
             </div>
-        </fieldset>
+        </div>
 
-        <input type="checkbox" name="vehicle" value="bmw">
-        <input type="checkbox" name="vehicle" value="audi">
-        <input type="checkbox" name="vehicle" value="mercedes-benz">
+        <div id="checkbox-area">
+            <legend>Things that should be improved in the future (Check all that apply):</legend>
+            <div>
+                <input type="checkbox" id="performance" name="features" value="performance">
+                <label for="performance">Performance</label>
+            </div>
+            <div>
+                <input type="checkbox" id="camera" name="features" value="camera">
+                <label for="camera">Camera</label>
+            </div>
+            <div>
+                <input type="checkbox" id="battery" name="features" value="battery">
+                <label for="battery">Battery Life</label>
+            </div>
+            <div>
+                <input type="checkbox" id="display" name="features" value="display">
+                <label for="display">Display</label>
+            </div>
+            <div>
+                <input type="checkbox" id="build" name="features" value="build">
+                <label for="build">Build Quality</label>
+            </div>
+        </div>
 
-        <textarea name="comment"></textarea>
+        <div id="text-area">
+            <label for="comment">Additional Comments:</label>
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+      
 
-        <input type="submit" id="submit">
+        <button type="submit" id="submit">Submit</button>
     </form>
 
     <!-- freeCodeCamp Project Requirements Check -->
