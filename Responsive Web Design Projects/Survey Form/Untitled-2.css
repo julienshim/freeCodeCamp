@@ -88,6 +88,12 @@ textarea {
     height: 50px;
 }
 
+hr {
+    border: 0;
+    height: 0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
 #hr-bottom {
     margin: 40px 0 20px 0;
 }
@@ -113,6 +119,24 @@ button[type="submit"] {
     background-image: linear-gradient(to bottom, #52b9f2, #3791d9);
     border-radius: 5px;
     font-size: 1em;
+}
+
+#developer-box {
+    width: 685px;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    height: 36px;
+    padding-top: 20px; 
+    border-radius: 5px 5px 0 0;
+
+}
+
+#logo {
+    height: 14px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    margin-left: 60px;
 }
 
 /*Placeholder*/
