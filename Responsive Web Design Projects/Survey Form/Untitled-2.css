@@ -125,6 +125,7 @@ button[type="submit"] {
 }
 
 #developer-box {
+  font-size: 13px;
   width: 685px;
   margin: 0 auto;
   background-color: #000;
@@ -139,6 +140,7 @@ button[type="submit"] {
   -webkit-filter: invert(100%);
   filter: invert(100%);
   margin-left: 60px;
+  margin-right: 6px;
 }
 
 /*Placeholder*/
