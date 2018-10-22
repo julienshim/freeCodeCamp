@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="Untitled-1.css">
+</head>
+
+<body>
+    <!-- User Story #1: I can see a title with id="title" in H1 sized text. -->
+    <h1 id="title">Survey</h1>
+
+    <p id="description">Description</p>
+
+    <form id="survey-form">
+        <div>
+            <label for="name" id="name-label">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div>
+            <label for="email" id="email-label">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div>
+            <label for="number" id="number-label">Age:</label>
+            <input type="number" id="number" placeholder="Age" required min="1" max="125">
+        </div>
+
+        <label for="dropdown">What option best describes your current role?</label>
+        <select id="dropdown">
+            <option value="first">first</option>
+            <option value="second">second</option>
+            <option value="third">third</option>
+            <option value="fourth">fourth</option>
+        </select>
+
+        <fieldset>
+            <legend>Select a maintenance drone:</legend>
+            <div>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+        </fieldset>
+
+        <input type="checkbox" name="vehicle" value="bmw">
+        <input type="checkbox" name="vehicle" value="audi">
+        <input type="checkbox" name="vehicle" value="mercedes-benz">
+
+        <textarea name="comment"></textarea>
+
+        <input type="submit" id="submit">
+    </form>
+
+    <!-- freeCodeCamp Project Requirements Check -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+</body>
+
+</html>
