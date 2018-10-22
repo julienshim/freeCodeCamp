@@ -1,6 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700');
+
 body {
     background-color: #F7F7F7;
+    font-family: 'Maven Pro', sans-serif;
 }
+
+.fieldset {
+    background-color: #F7F7F7;
+    border: 1px solid #c0c0c0;
+    width: 438px;
+    margin: 0 0 20px 0;
+    /* padding: 0; */
+}
+
+label, legend {
+    font-size: 12px;
+}
+
+div.input-item label, label[for="dropdown"], label[for="comment"], legend {
+    font-weight: bold;
+}
+
+div.fieldset {
+    margin-top: 4px;
+    width: 462px;
+}
+
+div.fieldset div {
+    padding: 4px;
+}
+
 
 #content {
     background-color: #fff;
@@ -14,16 +43,34 @@ h1 {
     font-size: 18px;
 }
 
-#description {
+#description, #policy {
     font-size: 12px;
     width: 450px;
+}
+
+select#dropdown {
+    width: 302px;
+    display: block;
+    cursor: pointer;
+    height: 26px;
+    border-radius: 6px;
+    margin: 4px 0 20px 0;
+}
+
+.input-item {
+    margin-bottom: 20px;
 }
 
 .inputwrap {
     border: 6px solid #f0f0f0;
     width: 452px;
-    height: 27px;
+    height: 28px;
     display: block;    
+    margin-top: 4px;
+}
+
+div#text-area .inputwrap {
+    height: 54px;
 }
 
 input[type="text"], input[type="email"], input[type="number"], textarea {
@@ -34,6 +81,8 @@ input[type="text"], input[type="email"], input[type="number"], textarea {
 
 textarea {
     padding: 1px;
+    resize: none;
+    height: 50px;
 }
 
 
@@ -43,4 +92,19 @@ button[type="submit"] {
     color: #fff;
     background-image: linear-gradient(to bottom, #52b9f2, #3791d9);
     border-radius: 5px;
+}
+
+/*Placeholder*/
+
+::-webkit-input-placeholder {
+padding-left: 6px;
+}
+::-moz-placeholder {
+padding-left: 6px;
+}
+:-ms-input-placeholder {
+padding-left: 6px;
+}
+:-moz-placeholder {
+padding-left: 6px;
 }

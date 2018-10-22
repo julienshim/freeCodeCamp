@@ -16,20 +16,20 @@
         <p id="description">Please use this form to send us your comments. We read all feedback carefully, but we cannot respond directly to your comments.</p>
 
         <form id="survey-form">
-            <div>
-                <label for="name" id="name-label">* Name:</label>
+            <div class="input-item">
+                <label for="name" id="name-label">Name:</label>
                 <span class="inputwrap">
                     <input type="text" id="name" placeholder="Enter your name" required>
                 </span>
             </div>
-            <div>
-                <label for="email" id="email-label">* Email:</label>
+            <div class="input-item">
+                <label for="email" id="email-label">Email:</label>
                 <span class="inputwrap">
                     <input type="email" id="email" placeholder="Enter your email" required>
                 </span>
             </div>
-            <div>
-                <label for="number" id="number-label">* Age:</label>
+            <div class="input-item">
+                <label for="number" id="number-label">Age:</label>
                 <span class="inputwrap">
                     <input type="number" id="number" placeholder="Age" required min="1" max="125">
                 </span>
@@ -45,8 +45,8 @@
                 <option value="obsessive">Pro</option>
             </select>
 
-            <fieldset id="radio-area">
-                <legend>* How likely would you purchase this product?</legend>
+            <legend>How likely would you purchase this product?</legend>
+            <div class="fieldset" id="radio-area">
                 <div>
                     <input type="radio" id="definitely" name="purchase" value="definitely">
                     <label for="definitely">Definitely</label>
@@ -59,10 +59,10 @@
                     <input type="radio" id="unsure" name="purchase" value="unsure">
                     <label for="unsure">Not sure</label>
                 </div>
-            </fieldset>
+            </div>
 
-            <fieldset id="checkbox-area">
-                <legend>Things that should be improved in the future (Check all that apply):</legend>
+            <legend>Things that should be improved in the future (Check all that apply):</legend>
+            <div class="fieldset" id="checkbox-area">
                 <div>
                     <input type="checkbox" id="performance" name="features" value="performance">
                     <label for="performance">Performance</label>
@@ -83,7 +83,7 @@
                     <input type="checkbox" id="build" name="features" value="build">
                     <label for="build">Build Quality</label>
                 </div>
-            </fieldset>
+            </div>
 
             <div id="text-area">
                 <label for="comment">Additional Comments:</label>
@@ -93,7 +93,7 @@
             </div>
             <hr>
 
-            <p>Please read Mapple's Unsolicited Idea Submission Policy before you send us your feedback.</p>
+            <p id="policy">Please read Mapple's Unsolicited Idea Submission Policy before you send us your feedback.</p>
             <button type="submit" id="submit">Submit Feedback</button>
         </form>
     </div>
