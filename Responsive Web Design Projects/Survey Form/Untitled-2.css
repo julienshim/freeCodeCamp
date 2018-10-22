@@ -1,155 +1,168 @@
-@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,700');
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,700");
 
 body {
-    background-color: #F7F7F7;
-    font-family: 'Maven Pro', sans-serif;
+  background-color: #f7f7f7;
+  font-family: "Maven Pro", sans-serif;
 }
 
 .fieldset {
-    background-color: #F7F7F7;
-    border: 1px solid #c0c0c0;
-    width: 438px;
-    margin: 0 0 20px 0;
-    /* padding: 0; */
+  background-color: #f7f7f7;
+  border: 1px solid #c0c0c0;
+  width: 438px;
+  margin: 0 0 20px 0;
+  /* padding: 0; */
 }
 
-label, legend {
-    font-size: 12px;
+label,
+legend {
+  font-size: 12px;
 }
 
-div.input-item label, label[for="dropdown"], label[for="comment"], legend {
-    font-weight: bold;
+div.input-item label,
+label[for="dropdown"],
+label[for="comment"],
+legend {
+  font-weight: bold;
 }
 
 div.fieldset {
-    margin-top: 4px;
-    width: 462px;
+  margin-top: 4px;
+  width: 462px;
 }
 
 div.fieldset div {
-    padding: 4px;
+  padding: 4px;
 }
 
-
 #content {
-    background-color: #fff;
-    /* box-sizing: border-box; */
-    width: 565px;
-    padding: 60px;
-    margin: 0 auto;
-    border: 1px solid #eeeeee;
-    border-radius: 5px;
-    box-shadow: 1px 1px #eeeeee;
+  background-color: #fff;
+  /* box-sizing: border-box; */
+  width: 565px;
+  padding: 60px;
+  margin: 0 auto;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  box-shadow: 1px 1px #eeeeee;
 }
 
 h1 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-#description, #policy {
-    font-size: 12px;
-    width: 405px;
+#description,
+#policy {
+  font-size: 12px;
+  width: 405px;
 }
 
 select#dropdown {
-    width: 302px;
-    display: block;
-    cursor: pointer;
-    height: 26px;
-    border-radius: 6px;
-    margin: 4px 0 20px 0;
+  width: 302px;
+  display: block;
+  cursor: pointer;
+  height: 26px;
+  border-radius: 6px;
+  margin: 4px 0 20px 0;
 }
 
 .input-item {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .inputwrap {
-    border: 6px solid #f0f0f0;
-    width: 452px;
-    height: 28px;
-    display: block;    
-    margin-top: 4px;
+  border: 6px solid #f0f0f0;
+  width: 452px;
+  height: 28px;
+  display: block;
+  margin-top: 4px;
 }
 
 div#text-area .inputwrap {
-    height: 54px;
+  height: 54px;
 }
 
-input[type="text"], input[type="email"], input[type="number"], textarea {
-    border: 1px solid #c0c0c0;
-    width: 450px;
-    height: 25px;
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  border: 1px solid #c0c0c0;
+  width: 450px;
+  height: 25px;
 }
 
 textarea {
-    padding: 1px;
-    resize: none;
-    height: 50px;
+  padding: 1px;
+  resize: none;
+  height: 50px;
 }
 
 hr {
-    border: 0;
-    height: 0;
-    border-bottom: 1px solid #c0c0c0;
+  border: 0;
+  height: 0;
+  border-bottom: 1px solid #c0c0c0;
 }
 
 #hr-bottom {
-    margin: 40px 0 20px 0;
-}
-
-.fake-link {
-    color: #0088cc;
+  margin: 40px 0 20px 0;
 }
 
 div#submit-area {
-    display: flex;
+  display: flex;
 }
 
 p#policy {
-    margin: 0;
-    width: 320px;
-    margin-right: 77px;
+  margin: 0;
+  width: 320px;
+  margin-right: 77px;
 }
 
 button[type="submit"] {
-    width: 168px;
-    height: 36px;
-    color: #fff;
-    background-image: linear-gradient(to bottom, #52b9f2, #3791d9);
-    border-radius: 5px;
-    font-size: 1em;
+  width: 168px;
+  height: 36px;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #52b9f2, #3791d9);
+  border-radius: 5px;
+  font-size: 1em;
 }
 
 #developer-box {
-    width: 685px;
-    margin: 0 auto;
-    background-color: #000;
-    color: #fff;
-    height: 36px;
-    padding-top: 20px; 
-    border-radius: 5px 5px 0 0;
-
+  width: 685px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+  height: 36px;
+  padding-top: 20px;
+  border-radius: 5px 5px 0 0;
 }
 
 #logo {
-    height: 14px;
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-    margin-left: 60px;
+  height: 14px;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  margin-left: 60px;
 }
 
 /*Placeholder*/
 
 ::-webkit-input-placeholder {
-padding-left: 6px;
+  padding-left: 6px;
 }
 ::-moz-placeholder {
-padding-left: 6px;
+  padding-left: 6px;
 }
 :-ms-input-placeholder {
-padding-left: 6px;
+  padding-left: 6px;
 }
 :-moz-placeholder {
-padding-left: 6px;
+  padding-left: 6px;
+}
+
+footer {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+a:link, a:visited, a:active, a:hover {
+    color: #0088cc;
+    text-decoration: none;
 }
