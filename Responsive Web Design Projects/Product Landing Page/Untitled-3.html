@@ -8,10 +8,50 @@
     <link rel="stylesheet" type="text/css" href="Untitled-3.css">
 </head>
 <body>
-   <h1>This is just a test.</h1>
+    <!-- User Story #1: My product landing page should have a header element with a corresponding id="header". -->
+    <header id="header">
+        <!-- User Story #2: I can see an image within the header element with a corresponding id="header-img". A company logo would make a good image here. -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/YASHICA_LOGO.svg/1458px-YASHICA_LOGO.svg.png" id="header-img"/>
+        <!-- User Story #3: Within the #header element I can see a nav element with a corresponding id="nav-bar". -->
+        <nav id="nav-bar">
+            <ul>
+                <!-- User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link. -->
+                <!-- User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page. -->
+                <li><a class="nav-link" href="#specifications">Specifications</a></li>
+                <li><a class="nav-link" href="#how-it-works">How it Works</a></li>
+                <li><a class="nav-link" href="#pricing">Pricing</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="specifications">
+
+    </div>
+    <div id="how-it-works">
+        
+    </div>
+    <div id="pricing">
+        
+    </div>
+    <!-- User Story #6: I can watch an embedded product video with id="video". -->
+    <div >
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/TzwenXbTIm8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- User Story #7: My landing page has a form element with a corresponding id="form". -->
+        <!-- User Story #8: Within the form, there is an input field with id="email" where I can enter an email address. -->
+    <!-- User Story #12: When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address was entered and that it posted successfully. -->
+    <form id="form" action="https://www.freecodecamp.com/email-submit">
+        E-mail:
+        <!-- User Story #9: The #email input field should have placeholder text to let the user know what the field is for. -->
+        <!-- User Story #10: The #email input field uses HTML5 validation to confirm that the entered text is an email address. -->
+        <input id="email" type="email" name="email" placeholder="Enter your email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
+        <!-- User Story #11: Within the form, there is a submit input with a corresponding id="submit". -->
+        <input id="submit" type="submit" value="Send Request">
+    </form>
+
+  
 
     <!-- freeCodeCamp Project Requirements Check -->
-    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <script src="Untitled-3.js"></script>
 </body>
 
