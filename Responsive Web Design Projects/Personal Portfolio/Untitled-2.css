@@ -140,6 +140,11 @@ footer {
 /* Note: This section does not pass if running locally, but does if saved on CodePen. */
 
 @media only screen and (max-width: 768px) {
+  
+    h1 {
+        font-size: 36px;
+    }
+  
     #welcome-section, #projects, #contact {
         background-color: #1f0e29;
     }
