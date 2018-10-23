@@ -14,20 +14,20 @@ nav {
     text-align: center;
 }
 
-nav ul {
+nav ul, ul#social-media {
     margin: 0 auto;
     width: 400px;
     display: flex;
-    /* text-align: center; */
-    /* background-color: pink; */
-    /* border-bottom: 1px solid #c0c0c0; */
 }
 
 ul li {
     margin: 30px auto;
-    /* margin: 20px 10px; */
     list-style: none;
-    /* background-color: green; */
+    text-transform: uppercase;
+}
+
+ul#social-media li {
+    margin: 120px auto;
 }
 
 #welcome-section, #projects, #contact {
@@ -37,6 +37,10 @@ ul li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#contact {
+    position: relative;
 }
 
 #welcome-section {
@@ -53,7 +57,6 @@ ul li {
     padding: 0 10%;
     display: flex;
     justify-content: center;
-    /* flex-direction: row; */
     flex-wrap: wrap;
 }
 
@@ -63,14 +66,16 @@ ul li {
 
 .project-title img {
     width: 275px;
+    border: 6px solid rgba(220, 157, 17, 0.1);
 }
 
 .caption {
     text-align: center;
+    margin-top: 15px;
 }
 
 #contact {
-    background-color: #358696;
+    background-color: #903412;
 }
 
 h1 {
@@ -98,21 +103,46 @@ h2 {
 #contact-line {
     display: inline-block;
     padding: 0 10%;
+    color: #e7e5e6;
+    margin-top: 40px;
 }
 
 
 a:link, a:visited, a:active, a:hover {
     border-bottom: 1px solid #609a78;
-    color: #dc9d11;
+    color: #d7b88b;
     text-decoration: none;
     font-weight: bold;
+}
+
+#name, #hire, #selected-works {
+    color: #dc9d11;
+}
+
+footer {
+    height: 63px;
+    padding-top: 37px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    background-color: #e7e5e6;
+    width: 100%;
+
 }
 
 /* User Story #9: My portfolio should have at least one media query. */
 /* Note: This section does not pass if running locally, but does if saved on CodePen. */
 
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
+@media only screen and (max-width: 768px) {
+    #welcome-section, #projects, #contact {
+        background-color: #1f0e29;
+    }
+
+    a:link, a:visited, a:active, a:hover {
+        color: #d7b88b;
+    }
+
+    #hire, #selected-works, #name {
+        color: #dc9d11;
     }
 }
