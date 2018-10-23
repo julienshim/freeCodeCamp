@@ -11,33 +11,58 @@
     <nav id="navbar">
         <ul>
             <!-- User Story #7: The navbar should contain at least one link that I can click on to navigate to different sections of the page. -->
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#welcome-section">About</a></li>
+            <li><a href="#projects">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <!-- User Story #1: My portfolio should have a welcome section with an id of welcome-section. -->
     <div id="welcome-section">
-        <!-- User Story #2: The welcome section should have an h1 element that contains text. -->
-        <h1>Weclome section text.</h1>
+
+                <!-- User Story #2: The welcome section should have an h1 element that contains text. -->
+                <h1>Hi, my name is <a id="name" href="http://www.julienshim.com" target="blank">Julien Shim</a>, a user-focused full-stack developer based in the San Francisco Bay Area.</h1>
+                <p id="description">I love designing and building full-stack web applications.</p>
+
     </div>
     <!-- User Story #3: My portfolio should have a projects section with an id of projects. -->
     <!-- User Story #4: The projects section should contain at least one element with a class of project-tile to hold a project. -->
     <div id="projects">
-        <div class="project-title">
-            Project 1 - Build a Tribute Page
-            <!-- User Story #5: The projects section should contain at least one link to a project. -->
-            <a href="https://codepen.io/julienshim/pen/aRwGzB" target="_blank">Live</a>
-        </div>
-        <div class="project-title">
-            Project 2?
-        </div>
-        <div class="project-title">
-            Project 3?
+        <h2>Selected freeCodeCamp Works</h2>
+        <div id="project-container">
+            <div class="project-title">
+                
+                <!-- User Story #5: The projects section should contain at least one link to a project. -->
+                <img src="https://place-hold.it/250x250"/>
+                <p class="caption"><a href="https://codepen.io/julienshim/pen/aRwGzB" target="_blank">Personal Portfolio</a></p>
+            </div>
+            <div class="project-title">
+                <img src="https://place-hold.it/250x250"/>
+                <p class="caption"><a href="https://codepen.io/julienshim/pen/aRwGzB" target="_blank">Personal Portfolio</a></p>
+            </div>
+            <div class="project-title">
+                <img src="https://place-hold.it/250x250"/>
+                
+                    <p class="caption"><a href="https://codepen.io/julienshim/pen/aRwGzB" target="_blank">Personal Portfolio</a></p>
+                </a>
+            </div>
         </div>
     </div>
-    <!-- User Story #8: My portfolio should have a link with an id of profile-link, which opens my GitHub or FCC profile in a new tab. -->
-    <a href="https://github.com/julienshim" target="_blank" id="profile-link">Github</a>
+    <div id="contact">
+        <h2>Hire Me</h2>
+        <!-- User Story #8: My portfolio should have a link with an id of profile-link, which opens my GitHub or FCC profile in a new tab. -->
+        <p id="contact-line">If you need a professional, communicative, and punctual full-stack developer to take your project to the next level, then get in touch.</p>
+        <ul>
+                <li><a href="https://github.com/julienshim" target="_blank"id="profile-link">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/julienshim/" target="_blank"id="profile-link2">LinkedIn</a></li>
+                <li><a href="mailto:hey@julienshim.com" target="_blank"id="profile-link3">Email</a></li>
+                <li><a href="http://www.julienshim.com" target="_blank"id="profile-link4">Github</a></li>
+            </ul> 
+        
+    </div>
+
     <!-- freeCodeCamp Project Requirements Check -->
     <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="Untitled-2.js"></script>
 </body>
 
 </html>
