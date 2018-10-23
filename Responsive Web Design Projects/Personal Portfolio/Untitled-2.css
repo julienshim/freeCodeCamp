@@ -49,7 +49,7 @@ ul li {
 
 #project-container {
     margin-top: 40px;
-    max-width: 850px;
+    max-width: 925px;
     padding: 0 10%;
     display: flex;
     justify-content: center;
@@ -62,7 +62,7 @@ ul li {
 }
 
 .project-title img {
-    width: 250px;
+    width: 275px;
 }
 
 .caption {
