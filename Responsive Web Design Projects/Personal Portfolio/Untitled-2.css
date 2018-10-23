@@ -86,12 +86,17 @@ h1 {
     text-align: center;
     font-weight: bold;
     color: #e7e5e6;
+    max-width: 925px;
+    line-height: 1.2em;
+
 }
 
 #description {
     font-size: 24px;
     margin-top: 20px;
     color: #d6b78b;
+    padding: 0 10%;
+    text-align: center;
 }
 
 h2 {
@@ -105,6 +110,7 @@ h2 {
     padding: 0 10%;
     color: #e7e5e6;
     margin-top: 40px;
+    text-align: center;
 }
 
 
