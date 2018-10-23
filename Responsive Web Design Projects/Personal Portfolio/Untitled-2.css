@@ -61,6 +61,10 @@ ul li {
     margin: 10px;
 }
 
+.project-title img {
+    width: 250px;
+}
+
 .caption {
     text-align: center;
 }
