@@ -1,31 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700');
+
 body {
     background: url('assets/background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
 }
 
+h1 {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 700px;
+    /* text-shadow: 1px 1px 1px #c0c0c0; */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 700;
+        margin: 24px 0;
+
+}
+
+h4 {
+    font-size: 12px; 
+    margin: 10px 0;
+}
+
+/* Navigation Bar */
+/* User Story #13: The navbar should always be at the top of the viewport. */
+header {
+    position: fixed;
+    top: 1%;
+    width: 100%;
+}
 
 nav {
-    /* User Story #13: The navbar should always be at the top of the viewport. */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#header-img {
+    height: 14px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+#splash, #specifications, #how-it-works, #pricing {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#splash {
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(130,130,130,0.1));
+}
+
+#specifications {
+    background-color: #828282;
+    box-shadow: inset 0 0 1000px #626262;
+}
+
+#spec-outer {
+    margin: 0 120px;
+}  
+
+#spec-shell {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+}
+
+.camera-spec {
+ width: 100%;
+ display: block;
+ margin: 0 auto;
+}
+
+#camera-spec-container {
+    order: 2;
+    border: 1px solid pink;
+}
+
+#specifications-container {
+    order: 1;
+    border: 1px solid purple;
+}
+
+#specs {
+    font-weight: 700;
+    margin-left: 14px;
+}
+
+#dimensions {
+    margin-left: 14px;
+}
+
+/* #specifications-container ul li {
+
+} */
+
+#how-it-works, #pricing {
+    background-color: #F3F3F3;
 }
 
 /* User Story #15: My product landing page should utilize CSS flexbox at least once. */
 nav ul {
     display: flex;
+    margin-right: 40px;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
 }
+
+.nav-link { 
+    margin-left: 40px;
+}
+
+/* Splash Section */
+
+
+
+/* Links */
+
+a:link, a:visited, a:active, a:hover {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 
 /* User Story #14: My product landing page should have at least one media query. */
 
 @media only screen and (max-width: 768px) {
   
-    body {
-        color: #dc9d11;
+    #spec-shell {
+        grid-template-columns: 1fr;
+
+    }
+
+    #camera-spec-container {
+        order: 1;
+    }
+    
+    #specifications-container {
+        order: 2;
     }
 }

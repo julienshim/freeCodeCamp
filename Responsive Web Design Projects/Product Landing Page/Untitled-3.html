@@ -3,17 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="Untitled-3.css">
 </head>
+
 <body>
     <!-- User Story #1: My product landing page should have a header element with a corresponding id="header". -->
     <header id="header">
         <!-- User Story #2: I can see an image within the header element with a corresponding id="header-img". A company logo would make a good image here. -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/YASHICA_LOGO.svg/1458px-YASHICA_LOGO.svg.png" id="header-img"/>
         <!-- User Story #3: Within the #header element I can see a nav element with a corresponding id="nav-bar". -->
         <nav id="nav-bar">
+            <a href="#splash">
+                <img src="assets/logo.png"
+                    id="header-img" />
+            </a>
             <ul>
                 <!-- User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link. -->
                 <!-- User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page. -->
@@ -23,21 +28,61 @@
             </ul>
         </nav>
     </header>
+    <div id="splash">
+        <h1>The Silence of Story</h1>
+    </div>
     <div id="specifications">
+        <div id="spec-outer">
+            <h2>digiFilm™ Camera</h2>
+            <div id="spec-shell">
+                <div id="camera-spec-container">
+                    <img class="camera-spec" src="assets/camera-spec.jpg" />
+                    <img class="camera-spec" src="assets/camera-spec2.jpg" />
+                </div>
+                <div id="specifications-container">
+                    <h3>Specifications:</h3>
+                    <ul id="specs">
+                        <li>1/2.5-inch CMOS sensor</li>
+                        <li>14 megapixel photos</li>
+                        <li>Built-in viewfinder</li>
+                        <li>Filter thread comply with 37mm filter (filter is not included)</li>
+                        <li>Lens cap to protect the Lens</li>
+                        <li>Apertures of f2.0 with a 4G lens</li>
+                        <li>High Speed Electronic Shutter</li>
+                        <li>5 Steps EV control</li>
+                        <li>1-second exposure</li>
+                        <li>Focal Length 35mm</li>
+                        <li>A minimum focusing distance of 1.5m (~4.5 feet) to infinity</li>
+                        <li>SD card storage (wifi card compatible)</li>
+                        <li>Micro USB connectivity for data transfers</li>
+                        <li>Tripod mount ready</li>
+                        <li>Operate with 2 x AA batteries</li>
+                        <li>Image controlled by digiFilm™</li>
+                    </ul>
+                    <h4>Dimensions:</h4>
+                    <ul id="dimensions">
+                        <li>Body Only: 100 (w) x 64 (h) x 28 (d) mm</li>
+                        <li>With lens and switch: 110 (w) x 70 (h) x 55 (d) mm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
     <div id="how-it-works">
-        
+
     </div>
     <div id="pricing">
-        
+
     </div>
     <!-- User Story #6: I can watch an embedded product video with id="video". -->
-    <div >
-        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/TzwenXbTIm8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div>
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/TzwenXbTIm8" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
     <!-- User Story #7: My landing page has a form element with a corresponding id="form". -->
-        <!-- User Story #8: Within the form, there is an input field with id="email" where I can enter an email address. -->
+    <!-- User Story #8: Within the form, there is an input field with id="email" where I can enter an email address. -->
     <!-- User Story #12: When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address was entered and that it posted successfully. -->
     <form id="form" action="https://www.freecodecamp.com/email-submit">
         E-mail:
@@ -48,10 +93,10 @@
         <input id="submit" type="submit" value="Send Request">
     </form>
 
-  
+
 
     <!-- freeCodeCamp Project Requirements Check -->
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
     <script src="Untitled-3.js"></script>
 </body>
 
