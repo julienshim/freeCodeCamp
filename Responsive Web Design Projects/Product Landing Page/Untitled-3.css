@@ -65,7 +65,7 @@ nav {
     margin-left: 35px;
 }
 
-#splash, #specifications, #images, #pricing, #yourmum {
+#splash, #specifications, #images, #pricing, #expect-the-unexpected {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@ nav {
     align-items: center;
 }
 
-#yourmum {
+#expect-the-unexpected {
     height: 80vh;
     background-color: #F3F3F3;
 
@@ -252,6 +252,18 @@ nav ul {
 }
 
 
+::-webkit-input-placeholder {
+    padding-left: 6px;
+  }
+  ::-moz-placeholder {
+    padding-left: 6px;
+  }
+  :-ms-input-placeholder {
+    padding-left: 6px;
+  }
+  :-moz-placeholder {
+    padding-left: 6px;
+  }
 
 /* Links */
 
@@ -260,6 +272,8 @@ a:link, a:visited, a:active, a:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
+
 
 
 /* User Story #14: My product landing page should have at least one media query. */
@@ -278,4 +292,22 @@ a:link, a:visited, a:active, a:hover {
     #specifications-container {
         order: 2;
     }
+}
+
+@media only screen and (min-width: 1024px) {
+  
+    #spec-outer, #images-outer, #pricing-outer {
+        max-width: 920px;
+    }
+
+    .resp-iframe {
+        width: 720px;
+        height: 405px;
+    }
+
+    #expect-the-unexpected {
+        height: 500px;
+        /* background-color: purple; */
+    }
+
 }
