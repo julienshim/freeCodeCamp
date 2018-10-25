@@ -28,7 +28,7 @@ h2 {
 
 h2.section-header {
     /* margin-top: 140px; */
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 h3 {
@@ -98,7 +98,7 @@ nav {
 }
 
 #digifilm-desc {
-    margin: 30px 0 40px 0;
+    margin: 0 0 20px 0;
 
 }
 
@@ -232,7 +232,7 @@ nav ul {
 }
 
 #camera-pricing-container {
-    margin: 112px 40px 0 0;
+    margin: 142px 40px 0 0;
 }
 
 /* Your mum */
