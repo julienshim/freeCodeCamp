@@ -7,7 +7,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     font-family: 'Muli', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 h1 {
@@ -18,25 +18,31 @@ h1 {
     letter-spacing: 2px;
     font-size: 24px;
     font-weight: 700px;
-    /* text-shadow: 1px 1px 1px #c0c0c0; */
 }
 
 h2 {
+
     font-size: 24px;
     font-weight: 700;
 }
 
+h2.section-header {
+    /* margin-top: 140px; */
+    margin-bottom: 20px;
+}
+
 h3 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-        margin: 24px 0;
+        margin: 24px 0 12px;
 
 }
 
 h4 {
-    font-size: 12px; 
-    margin: 10px 0;
+    font-size: 16px; 
+    margin: 24px 0 12px;
 }
+
 
 /* Navigation Bar */
 /* User Story #13: The navbar should always be at the top of the viewport. */
@@ -56,16 +62,59 @@ nav {
     height: 14px;
     display: inline-block;
     margin-top: 10px;
-    margin-left: 25px;
+    margin-left: 35px;
 }
 
-#splash, #specifications, #how-it-works, #pricing {
+#splash, #specifications, #images, #pricing, #yourmum {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+#yourmum {
+    height: 80vh;
+    background-color: #F3F3F3;
+
+}
+
+#images {
+    height: 100vh;
+    background-color: #F3F3F3;
+
+}
+
+
+#images-outer {
+    margin: 0 120px;
+    /* border: 1px solid yellow; */
+}  
+
+#images-shell {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+}
+
+#digifilm-desc {
+    margin: 30px 0 40px 0;
+
+}
+
+.digfilm {
+    width: 100%;
+}
+
+.digifilm-container {
+    margin: 20px;
+}
+
+.film-caption {
+    background-color: peachpuff;
+}
+
+
 
 #splash {
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(130,130,130,0.1));
@@ -78,10 +127,11 @@ nav {
 
 #spec-outer {
     margin: 0 120px;
+    /* border: 1px solid yellow; */
 }  
 
 #spec-shell {
-    max-width: 1200px;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(350px, 1fr));
 }
@@ -94,17 +144,18 @@ nav {
 
 #camera-spec-container {
     order: 2;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 }
 
 #specifications-container {
     order: 1;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
 }
 
 #specs {
     font-weight: 700;
     margin-left: 14px;
+    /* font-size: 14px; */
 }
 
 #dimensions {
@@ -115,17 +166,48 @@ nav {
 
 } */
 
-#how-it-works, #pricing {
+svg#dcolor {
+    fill: #cacaca;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+svg#ucolor {
+    fill: #dc6400;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+svg#bcolor {
+    fill: #3c3c3c;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+
+.resp-iframe {
+    /* position: absolute; */
+    /* top: 0;
+    left; 0; */
+    width: 67vw;
+    height: 37.69vw;
+    /* padding: 0 120px; */
+    border: 0;
+    /* marginwidth: 120px; */
+    }
+
+#images, #pricing {
     background-color: #F3F3F3;
 }
 
 /* User Story #15: My product landing page should utilize CSS flexbox at least once. */
 nav ul {
     display: flex;
-    margin-right: 40px;
+    margin-right: 35px;
     flex-direction: row;
     justify-content: flex-end;
     list-style: none;
+    font-size: 14px;
 }
 
 .nav-link { 
@@ -133,6 +215,41 @@ nav ul {
 }
 
 /* Splash Section */
+
+/* #pricing {
+    background-color: pink;
+} */
+
+#pricing-outer {
+    margin: 0 120px;
+    /* border: 1px solid yellow; */
+}  
+
+#pricing-shell {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+}
+
+#camera-pricing-container {
+    margin: 112px 40px 0 0;
+}
+
+/* Your mum */
+
+#camera-pricing-container ul {
+    display: flex;
+
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    font-size: 14px;
+}
+
+#camera-pricing-container ul li { 
+    margin-left: 6px;
+}
 
 
 
@@ -149,7 +266,7 @@ a:link, a:visited, a:active, a:hover {
 
 @media only screen and (max-width: 768px) {
   
-    #spec-shell {
+    #spec-shell, #images-shell {
         grid-template-columns: 1fr;
 
     }
