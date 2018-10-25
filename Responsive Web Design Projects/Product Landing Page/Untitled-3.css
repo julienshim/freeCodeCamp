@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:400,700');
 
 body {
-    background: url('assets/background.jpg') no-repeat center center fixed;
+    background: url('https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
