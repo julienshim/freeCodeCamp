@@ -22,10 +22,10 @@
             <ul>
                 <!-- User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link. -->
                 <!-- User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page. -->
-                <li><a class="nav-link" href="#specifications">Specifications</a></li>
-                <li><a class="nav-link" href="#images">digiFilm™</a></li>
-                <li><a class="nav-link" href="#pricing">Pricing</a></li>
-                <li><svg style="margin-left: 40px;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg></li>
+                <li class="nav-link-text"><a class="nav-link" href="#specifications">Specifications</a></li>
+                <li class="nav-link-text"><a class="nav-link" href="#images">digiFilm™</a></li>
+                <li class="nav-link-text"><a class="nav-link" href="#pricing">Pricing</a></li>
+                <li><svg id="shopping-cart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg></li>
             </ul>
         </nav>
     </header>
@@ -127,12 +127,6 @@
             <div id="pricing-shell">
                 <div id="camera-pricing-container">
                     <img id="display-camera" class="camera-spec" src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35silentblack.jpg" />
-                    <ul>    
-                        <li style="font-weight: 700;">Select Option: </li>
-                        <li data-style="Deluxe" data-limited="no" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35deluxe.jpg" class="color-links"><svg id="dcolor" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
-                        <li data-style="Unexpected" data-limited="yes" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35unexpected.jpg" class="color-links"><svg id="ucolor" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
-                        <li data-style="Silence Black" data-limited="yes" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35silentblack.jpg" class="color-links"><svg id="bcolor"xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
-                    </ul>
                 </div>
                 <div id="specifications-container">
                     <div style="height: 112px; margin-bottom: 30px;">
@@ -144,7 +138,13 @@
                     
                     <p>Coupled with the masterpiece design of the first electronic controlled shutter camera in the world, the YASHICA Electro 35, featuring with the Unprecedented digiFilm system, YASHICA Y35 camera brings in an extraordinary photography experience. In both appearance and sensation, YASHICA Y35 recaptures the joy and meaning of analogue-photography but eliminating the time and expense required for film development. Taste as analogue camera, need to load a “digiFilm”  to create your album. A brief pause is required to wind on the film before shooting.  At this millisecond of pulse, it grants us time to inspire and think, the exact moment the shutter snaps.</p>
               
-                    <p style="font-size: 24px; font-weight: 700; margin-top: 20px;">$328</p>
+                    <p id="price">$328</p>
+                    <ul>    
+                        <li style="font-weight: 700;">Select Option: </li>
+                        <li data-style="Deluxe" data-limited="no" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35deluxe.jpg" class="color-links"><svg id="dcolor" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
+                        <li data-style="Unexpected" data-limited="yes" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35unexpected.jpg" class="color-links"><svg id="ucolor" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
+                        <li data-style="Silence Black" data-limited="yes" data-src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Product%20Landing%20Page/assets/y35silentblack.jpg" class="color-links"><svg id="bcolor"xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg></li>
+                    </ul>
                     <p style="height: 30px; background-color: #0C4A47; text-align: center; font-weight: 700; font-size: 14px; color: #fff; padding-top: 10px; margin-top: 20px;">Add to Cart</p>
                     <p style="height: 30px; background-color: #0E87B3; text-align: center; font-weight: 700; font-size: 14px; color: #fff; padding-top: 10px; margin-top: 20px;">Buy Now</p>
                 </div>
@@ -152,8 +152,8 @@
         </div>
     </div>
 
-    <div style="height: 200px; text-align: center;">
-        <h1 style="margin: 40px 0 20px 0">Stay up on all things Yashica</h1>
+    <div id="contact">
+        <h1>Stay up on all things Yashica</h1>
                         <!-- User Story #7: My landing page has a form element with a corresponding id="form". -->
                 <!-- User Story #8: Within the form, there is an input field with id="email" where I can enter an email address. -->
                 <!-- User Story #12: When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address was entered and that it posted successfully. -->
@@ -163,7 +163,7 @@
                     <!-- User Story #10: The #email input field uses HTML5 validation to confirm that the entered text is an email address. -->
                     <input id="email" type="email" name="email" placeholder="Enter your email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
                     <!-- User Story #11: Within the form, there is a submit input with a corresponding id="submit". -->
-                    <input style="background-color: black; color: white; height: 22px; width: 66px;" id="submit" type="submit" value="Submit">
+                    <input id="submit" type="submit" value="Submit">
                 </form>
     </div>
 
