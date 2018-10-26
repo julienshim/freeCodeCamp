@@ -301,8 +301,16 @@ a:link, a:visited, a:active, a:hover {
     font-weight: bold;
 }
 
+/* Footer */
 
-
+footer {
+    padding: 4px 0;
+    background-color: #dc6400;
+    color: #f0f0f0;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
 
 /* User Story #14: My product landing page should have at least one media query. */
 
