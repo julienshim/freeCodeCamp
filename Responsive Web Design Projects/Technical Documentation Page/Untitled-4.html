@@ -51,16 +51,16 @@
             <p>Pass EJS a template string and some data. BOOM, you've got some HTML.</p>
             <code class="code-block">
                 <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
-                <span class="line">people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
-                <span class="line">html = ejs.render(<span class="string">'&lt;%=people.join(", "); %&gt;'</span>, {people: people});</span>
+                <span class="line indent-4">people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line indent-4">html = ejs.render(<span class="string">'&lt;%=people.join(", "); %&gt;'</span>, {people: people});</span>
             </code>
             <h3>Browser Support</h3>
             <p>Download a browser build from the latest release, and use it in a script tag.</p>
             <code class="code-block">
                 <span class="line">&lt;<span class="tag">script</span> <span class="attr">src</span>="ejs.js"&gt;&lt;/<span class="tag">script</span>&gt;</span>
                 <span class="line">&lt;<span class="tag">script</span>&gt;</span>
-                <span class="line"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
-                <span class="line">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
+                <span class="line indent-2"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line indent-6">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
                 <span class="line">&lt;/<span class="tag">script</span>&gt;</span>
             </code>
         </section>
@@ -70,7 +70,7 @@
             <hr>
             <code class="code-block">
                 <span class="line">&lt;% if (user) { %&gt;</span>
-                <span class="line"> &lt;<span class="tag">h2</span>&gt;&lt;%= user.name %&gt;&lt;/<span class="tag">h2</span>&gt;</span>
+                <span class="line indent-2"> &lt;<span class="tag">h2</span>&gt;&lt;%= user.name %&gt;&lt;/<span class="tag">h2</span>&gt;</span>
                 <span class="line">&lt;% } %&;gt;</span>
             </code>
         </section>
@@ -82,10 +82,12 @@
                 <span class="line"><span class="statement">let</span> template = ejs.compile(str, options);</span>
                 <span class="line">template(data);</span>
                 <span class="line"><span class="comment">// => Rendered HTML string</span></span>
+                <span class="line"></span>
                 <span class="line">ejs.render(str, data, options);</span>
                 <span class="line"><span class="comment">// => Rendered HTML string</span></span>
+                <span class="line"></span>
                 <span class="line">ejs.renderFile(filename, data, options, <span class="function">function</span>(err, str){</span>
-                <span class="line"><span class="comment">// str => Rendered HTML string</span></span>
+                <span class="line"><span class="comment indent-4">// str => Rendered HTML string</span></span>
                 <span class="line">});</span>
             </code>
         </section>
@@ -157,9 +159,9 @@
                 include to avoid double-escaping the HTML output.</p>
             <code class="code-block">
                 <span class="line">&lt;<span class="tag">ul</span>&gt;</span>
-                <span class="line">&lt;% users.forEach(function(user){ %&gt;</span>
-                <span class="line">&lt;%- include('user/show', {user: user}); %&gt;</span>
-                <span class="line">&lt;% }); %&gt;</span>
+                <span class="line indent-2">&lt;% users.forEach(function(user){ %&gt;</span>
+                <span class="line indent-4">&lt;%- include('user/show', {user: user}); %&gt;</span>
+                <span class="line indent-2">&lt;% }); %&gt;</span>
                 <span class="line">&lt;/<span class="tag">ul</span>&gt;</span>
             </code>
         </section>
@@ -170,11 +172,13 @@
             <p>Custom delimiters can be applied on a per-template basis, or globally:</p>
             <code class="code-block">
                     <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
-                    <span class="line">users = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>];</span>
+                    <span class="line indent-4">users = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>];</span>
+                    <span class="line"></span>
                     <span class="line"><span class="comment">// Just one template</span></span>
                     <span class="line">ejs.render(<span class="string">'&lt;?= users.join(" | "); ?&gt;'</span>, {users: users},</span>
-                    <span class="line">{delimiter: <span class="string">'?'</span>});</span>
+                    <span class="line indent-4">{delimiter: <span class="string">'?'</span>});</span>
                     <span class="line"><span class="comment">// =&gt; 'geddy | neil | alex'</span></span>
+                    <span class="line"></span>
                     <span class="line"><span class="comment">// Or globally</span></span>
                     <span class="line">ejs.delimiter = <span class="string">'$'</span>;</span>
                     <span class="line">ejs.render(<span class="string">'&lt;$= users.join(" | "); $&gt;'</span>, {users: users});</span>
@@ -189,7 +193,7 @@
                 templates. It's easy to plug in LRU caching using Node's `lru-cache` library:</p>
             <code class="code-block">
                 <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
-                <span class="line">LRU = require(<span class="string">'lru-cache'</span>);</span>
+                <span class="line indent-4">LRU = require(<span class="string">'lru-cache'</span>);</span>
                 <span class="line">ejs.cache = LRU(<span class="num">100</span>); <span class="comment">// LRU cache with 100-item limit;</span></span>
             </code>
             <p>If you want to clear the EJS cache, call <code class="inline-highlight">ejs.clearCache</code>. If you're using the LRU cache and
@@ -203,8 +207,9 @@
             <code class="code-block">
                 <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
                 <span class="line"><span class="statement">let</span> myFileLoader = <span class="function">function</span> (filePath) {</span>
-                <span class="line"><span class="statement">return</span> <span class="string">'myFileLoader: '</span> + fs.readFileSync(filePath);</span>
+                <span class="line indent-2"><span class="statement">return</span> <span class="string">'myFileLoader: '</span> + fs.readFileSync(filePath);</span>
                 <span class="line">};</span>
+                <span class="line"></span>
                 <span class="line">ejs.fileLoader = myFileLoad;</span>
             </code>
             <p>With this feature, you can preprocess the template before reading it.</p>
@@ -218,10 +223,10 @@
             <code class="code-block">
                 <span class="line">&lt;%- include(<span class="string">'header'</span>); -%&gt;</span>
                 <span class="line">&lt;h1&gt;</span>
-                <span class="line">Title</span>
+                <span class="line indent-2">Title</span>
                 <span class="line">&lt;/h1&gt;</span>
                 <span class="line">&lt;p&gt;</span>
-                <span class="line">My page</span>
+                <span class="line indent-2">My page</span>
                 <span class="line">&lt;/p&gt;</span>
                 <span class="line">&lt;%- include(<span class="string">'footer'</span>); -%&gt;</span>
             </code>
@@ -239,12 +244,12 @@
                 <span class="line">&lt;div id=<span class="string">"output"</span>&gt;&lt;/div&gt;</span>
                 <span class="line">&lt;script src=<span class="string">"ejs.min.js"</span>&gt;&lt;/script&gt;</span>
                 <span class="line">&lt;script&gt;</span>
-                <span class="line"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
-                <span class="line">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
-                <span class="line"><span class="comment">// With jQuery:</span></span>
-                <span class="line">$(<span class="string">'#output'</span>).html(html);</span>
-                <span class="line"><span class="comment">// Vanilla JS:</span></span>
-                <span class="line">document.getElementById(<span class="string">'output'</span>).innerHTML = html;</span>
+                <span class="line indent-2"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line indent-6">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
+                <span class="line indent-2"><span class="comment">// With jQuery:</span></span>
+                <span class="line indent-2">$(<span class="string">'#output'</span>).html(html);</span>
+                <span class="line indent-2"><span class="comment">// Vanilla JS:</span></span>
+                <span class="line indent-2">document.getElementById(<span class="string">'output'</span>).innerHTML = html;</span>
                 <span class="line">&lt;/script&gt;</span>
             </code>
             <h3>Caveats</h3>
@@ -255,12 +260,13 @@
             </ol>
             <code class="code-block">
                 <span class="line"><span class="statement">let</span> str = <span class="string">"Hello &lt;%= include('file', {person: 'John'}); %&gt;"</span>,</span>
-                <span class="line">fn = ejs.compile(str, {client: <span class="boolean">true</span>});</span>
+                <span class="line indent-6">fn = ejs.compile(str, {client: <span class="boolean">true</span>});</span>
+                <span class="line"></span>
                 <span class="line">fn(data, <span class="value">null</span>, <span class="function">function</span>(path, d){ <span class="comment">// include callback</span></span>
-                <span class="line"><span class="comment">// path -&gt; 'file'</span></span>
-                <span class="line"><span class="comment">// d -&gt; {person: 'John'}</span></span>
-                <span class="line"><span class="comment">// Put your code here</span></span>
-                <span class="line"><span class="comment">// Return the contents of file as a string</span></span>
+                <span class="line indent-2"><span class="comment">// path -&gt; 'file'</span></span>
+                <span class="line indent-2"><span class="comment">// d -&gt; {person: 'John'}</span></span>
+                <span class="line indent-2"><span class="comment">// Put your code here</span></span>
+                <span class="line indent-2"><span class="comment">// Return the contents of file as a string</span></span>
                 <span class="line">}); <span class="comment">// returns rendered string</span></span>
             </code>
         </section>
