@@ -41,11 +41,11 @@ function bold(selection, willBold){
     a.addEventListener('click', highlight);
     if (willBold === 'yes') {
         a.setAttribute('class', 'nav-link active');
-        a.innerHTML = `<span class="active-marker"></span>${selection}`
+        li.innerHTML = `<span class="active-marker"></span>${selection}`
     } else {
         a.setAttribute('class', 'nav-link');
-        a.innerText = selection;
+        li.innerText = selection;
     }
-    li.append(a);
-    navlist.append(li);
+    a.append(li);
+    navlist.append(a);
 };

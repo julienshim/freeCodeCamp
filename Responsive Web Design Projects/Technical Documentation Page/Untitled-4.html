@@ -10,28 +10,25 @@
 
 <body>
     <nav id="navbar">
-        
-        <header>Embedded Javascript Documentation</header>
+        <header><h1>EJS</h1><p>Embedded Javascript Documentation</p></header>
         <ul id="navlist">
-        <li><a class="nav-link" href="#What_is_EJS?">What is EJS?</a></li>
-        <li><a class="nav-link" href="#Getting_Started">Getting Started</a></li>
-        <li><a class="nav-link" href="#Example">Example</a></li>
-        <li><a class="nav-link" href="#Usage">Usage</li>
-        <li><a class="nav-link" href="#Options">Options</a></li>
-        <li><a class="nav-link" href="#Tags">Tags</a></li>
-        <li><a class="nav-link" href="#Includes">Includes</a></li>
-        <li><a class="nav-link" href="#Custom_delimiters">Custom delimiters</a></li>
-        <li><a class="nav-link" href="#Caching">Caching</a></li>
-        <li><a class="nav-link" href="#Custom_file_loader">Custom file loader</a></li>
-        <li><a class="nav-link" href="#Layouts">Layouts</a></li>
-        <li><a class="nav-link" href="#Client-side_support">Client-side support</a></li>
-        <li><a class="nav-link" href="#Using_EJS_with_Express">Using EJS with Express</a></li>
-        <li><a class="nav-link" href="#Support">Support</a></li>
-        <li><a class="nav-link" href="#License">License</a></li>
-
+            <!-- freeCodeCamp is weird in which you need the a.nav-link on the outside -->
+            <a class="nav-link" href="#What_is_EJS?"><li>What is EJS?</li></a>
+            <a class="nav-link" href="#Getting_Started"><li>Getting Started</li></a>
+            <a class="nav-link" href="#Example"><li>Example</li></a>
+            <a class="nav-link" href="#Usage"><li>Usage</li>
+            <a class="nav-link" href="#Options"><li>Options</li></a>
+            <a class="nav-link" href="#Tags"><li>Tags</li></a>
+            <a class="nav-link" href="#Includes"><li>Includes</li></a>
+            <a class="nav-link" href="#Custom_delimiters"><li>Custom delimiters</li></a>
+            <a class="nav-link" href="#Caching"><li>Caching</li></a>
+            <a class="nav-link" href="#Custom_file_loader"><li>Custom file loader</li></a>
+            <a class="nav-link" href="#Layouts"><li>Layouts</li></a>
+            <a class="nav-link" href="#Client-side_support"><li>Client-side support</li></a>
+            <a class="nav-link" href="#Using_EJS_with_Express"><li>Using EJS with Express</li></a>
+            <a class="nav-link" href="#Support"><li>Support</li></a>
+            <a class="nav-link" href="#License"><li>License</li></a>
         </ul>
-
-
     </nav>
     <!-- User Story #1: I can see a main element with a corresponding id="main-doc", which contains the page's main content (technical documentation). -->
     <main id="main-doc">
@@ -44,54 +41,91 @@
                 about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript.</p>
         </section>
         <section class="main-section" id="Getting_Started">
-            <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Getting Started</header>
             <hr>
+            <h3>Install</h3>
             <p>It's easy to install EJS with NPM.</p>
-            <code>There is some code here.</code>
+            <code class="code-block">
+                <span class="line">$ npm install ejs</span>
+            </code>
+            <h3>Use</h3>
             <p>Pass EJS a template string and some data. BOOM, you've got some HTML.</p>
-            <code>There is some code here.</code>
+            <code class="code-block">
+                <span class="line">let ejs = require('ejs'),</span>
+                <span class="line">people = ['geddy', 'neil', 'alex'],</span>
+                <span class="line">html = ejs.render('&lt;%=people.join(", "); %&gt;', {people: people});</span>
+            </code>
+            <h3>Browser Support</h3>
             <p>Download a browser build from the latest release, and use it in a script tag.</p>
-            <code>There is some code here.</code>
+            <code class="code-block">
+                <span class="line">&lt;script src="ejs.js"&gt;&lt;/script&gt;</span>
+                <span class="line">&lt;script&gt;</span>
+                <span class="line">let people = ['geddy', 'neil', 'alex'],</span>
+                <span class="line">html = ejs.render('&lt;%= people.join(", "); %&gt;', {people: people});</span>
+                <span class="line">&lt;/script&gt;</span>
+            </code>
         </section>
         <section class="main-section" id="Example">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Example</header>
             <hr>
-            <code>There is some code here.</code>
+            <code class="code-block">
+                <span class="line">&lt;% if (user) { %&gt;</span>
+                <span class="line"> &lt;h2&gt;&lt;%= user.name %&gt;&lt;/h2&gt;</span>
+                <span class="line">&lt;% } %&;gt;</span>
+            </code>
         </section>
         <section class="main-section" id="Usage">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Usage</header>
             <hr>
-            <code>There is some code here.</code>
+            <code class="code-block">
+                <span class="line">let template = ejs.compile(str, options);</span>
+                <span class="line">template(data);</span>
+                <span class="line">// => Rendered HTML string</span>
+                <span class="line">ejs.render(str, data, options);</span>
+                <span class="line">// => Rendered HTML string</span>
+                <span class="line">ejs.renderFile(filename, data, options, function(err, str){</span>
+                <span class="line">// str => Rendered HTML string</span>
+                <span class="line">});</span>
+            </code>
         </section>
         <section class="main-section" id="Options">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Options</header>
             <hr>
             <ul>
-                <li><code>cache</code> Compiled functions are cached, requires <code>filename</code></li>
-                <li><code>filename</code> Used by <code>cache</code> to key caches, and for includes</li>
-                <li><code>context</code> Function execution context</li>
-                <li><code>compileDebug</code> When <code>false</code> no debug instrumentation is compiled</li>
-                <li><code>client</code> Returns standalone compiled function</li>
-                <li><code>delimiter</code> Character to use with angle brackets for open/close</li>
-                <li><code>debug</code> Output generated function body</li>
-                <li><code>_with</code> Whether or not to use <code>with() {}</code> constructs. If <code>false</code>
+                <li><code class="inline-highlight">cache</code> Compiled functions are cached, requires <code class="inline-highlight">filename</code></li>
+                <li><code class="inline-highlight">filename</code> Used by <code class="inline-highlight">cache</code>
+                    to key caches, and for includes</li>
+                <li><code class="inline-highlight">context</code> Function execution context</li>
+                <li><code class="inline-highlight">compileDebug</code> When <code class="inline-highlight">false</code>
+                    no debug instrumentation is compiled</li>
+                <li><code class="inline-highlight">client</code> Returns standalone compiled function</li>
+                <li><code class="inline-highlight">delimiter</code> Character to use with angle brackets for open/close</li>
+                <li><code class="inline-highlight">debug</code> Output generated function body</li>
+                <li><code class="inline-highlight">_with</code> Whether or not to use <code class="inline-highlight">with() {}</code>
+                    constructs. If <code class="inline-highlight">false</code>
                     then the locals will be stored in the</li>
-                <li><code>locals</code> object.</li>
-                <li><code>localsName</code> Name to use for the object storing local variables when not using <code>with</code>>
+                <li><code class="inline-highlight">locals</code> object.</li>
+                <li><code class="inline-highlight">localsName</code> Name to use for the object storing local variables
+                    when not using <code class="inline-highlight">with</code>>
                     Defaults to locals</li>
-                <li><code>rmWhitespace</code> Remove all safe-to-remove whitespace, including leading and trailing
-                    whitespace. It also enables a safer version of <code>-%&gt;</code> line slurping for all scriptlet
+                <li><code class="inline-highlight">rmWhitespace</code> Remove all safe-to-remove whitespace, including
+                    leading and trailing
+                    whitespace. It also enables a safer version of <code class="inline-highlight">-%&gt;</code> line
+                    slurping for all scriptlet
                     tags (it does not strip new lines of tags in the middle of a line).</li>
-                <li><code></code>escape The escaping function used with <code>&lt;%=</code> construct. It is used in
-                    rendering and is <code>.toString()</code>ed in the generation of client functions. (By default
+                <li><code class="inline-highlight"></code>escape The escaping function used with <code class="inline-highlight">&lt;%=</code>
+                    construct. It is used in
+                    rendering and is <code class="inline-highlight">.toString()</code>ed in the generation of client
+                    functions. (By default
                     escapes XML).</li>
-                <li><code>outputFunctionName</code> Set to a string (e.g., <code>'echo'</code> or <code>'print'</code>)
+                <li><code class="inline-highlight">outputFunctionName</code> Set to a string (e.g., <code class="inline-highlight">'echo'</code>
+                    or <code class="inline-highlight">'print'</code>)
                     for a function to print output inside scriptlet tags.</li>
-                <li><code>async</code> When <code>true</code>, EJS will use an async function for rendering. (Depends
+                <li><code class="inline-highlight">async</code> When <code class="inline-highlight">true</code>, EJS
+                    will use an async function for rendering. (Depends
                     on async/await support in the JS runtime.</li>
             </ul>
         </section>
@@ -100,88 +134,159 @@
             <header>Tags</header>
             <hr>
             <ul>
-                <li><code>&lt;%</code>'Scriptlet' tag, for control-flow, no output</li>
-                <li><code>&lt;%_</code> ‘Whitespace Slurping’ Scriptlet tag, strips all whitespace before it</li>
-                <li><code>&lt;%=</code> Outputs the value into the template (HTML escaped)</li>
-                <li><code>&lt;%-</code> Outputs the unescaped value into the template</li>
-                <li><code>&lt;%#</code> Comment tag, no execution, no output</li>
-                <li><code>&lt;%%</code> Outputs a literal ' &lt;%'</li>
-                <li><code>%></code> Plain ending tag</li>
-                <li><code>-%></code> Trim-mode ('newline slurp') tag, trims following newline</li>
-                <li><code>_%></code> ‘Whitespace Slurping’ ending tag, removes all whitespace after it</li>
+                <li><code class="inline-highlight">&lt;%</code> 'Scriptlet' tag, for control-flow, no output</li>
+                <li><code class="inline-highlight">&lt;%_</code> ‘Whitespace Slurping’ Scriptlet tag, strips all
+                    whitespace before it</li>
+                <li><code class="inline-highlight">&lt;%=</code> Outputs the value into the template (HTML escaped)</li>
+                <li><code class="inline-highlight">&lt;%-</code> Outputs the unescaped value into the template</li>
+                <li><code class="inline-highlight">&lt;%#</code> Comment tag, no execution, no output</li>
+                <li><code class="inline-highlight">&lt;%%</code> Outputs a literal ' &lt;%'</li>
+                <li><code class="inline-highlight">%></code> Plain ending tag</li>
+                <li><code class="inline-highlight">-%></code> Trim-mode ('newline slurp') tag, trims following newline</li>
+                <li><code class="inline-highlight">_%></code> ‘Whitespace Slurping’ ending tag, removes all whitespace
+                    after it</li>
             </ul>
         </section>
         <section class="main-section" id="Includes">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Includes</header>
             <hr>
-            <p>Includes are relative to the template with the <code>include</code>> call. (This requires the 'filename' option.) For example if you have "./views/users.ejs" and "./views/user/show.ejs" you would use <code>%lt;%- include('user/show'); %></code>.</p>
-            <p>You'll likely want to use the raw output tag (<code>&lt;%-</code>) with your include to avoid double-escaping the HTML output.</p>
-            <code>There is code in here.</code>
+            <p>Includes are relative to the template with the <code class="inline-highlight">include</code>> call.
+                (This requires the 'filename' option.) For example if you have "./views/users.ejs" and
+                "./views/user/show.ejs" you would use <code class="inline-highlight">%lt;%- include('user/show'); %></code>.</p>
+            <p>You'll likely want to use the raw output tag (<code class="inline-highlight">&lt;%-</code>) with your
+                include to avoid double-escaping the HTML output.</p>
+            <code class="code-block">
+                <span class="line">&lt;ul&gt;</span>
+                <span class="line">&lt;% users.forEach(function(user){ %&gt;</span>
+                <span class="line">&lt;%- include('user/show', {user: user}); %&gt;</span>
+                <span class="line">&lt;% }); %&gt;</span>
+                <span class="line">&lt;/ul&gt;</span>
+            </code>
         </section>
         <section class="main-section" id="Custom_delimiters">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
-            <header>Custom_delimiters</header>
-            <p>Custom delimiters can be applied on a per-template basis, or globally:</p>
-            <code>There is code in here.</code>
+            <header>Custom delimiters</header>
             <hr>
+            <p>Custom delimiters can be applied on a per-template basis, or globally:</p>
+            <code class="code-block">
+                    <span class="line">let ejs = require('ejs'),</span>
+                    <span class="line">users = ['geddy', 'neil', 'alex'];</span>
+                    <span class="line">// Just one template</span>
+                    <span class="line">ejs.render('&lt;?= users.join(" | "); ?&gt;', {users: users},</span>
+                    <span class="line">{delimiter: '?'});</span>
+                    <span class="line">// =&gt; 'geddy | neil | alex'</span>
+                    <span class="line">// Or globally</span>
+                    <span class="line">ejs.delimiter = '$';</span>
+                    <span class="line">ejs.render('&lt;$= users.join(" | "); $&gt;', {users: users});</span>
+                    <span class="line">// =&gt; 'geddy | neil | alex'</span>
+                </code>
         </section>
         <section class="main-section" id="Caching">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Caching</header>
             <hr>
-            <p>EJS ships with a basic in-process cache for caching the intermediate JavaScript functions used to render templates. It's easy to plug in LRU caching using Node's `lru-cache` library:</p>
-            <code>There is code in here.</code>
-            <p>If you want to clear the EJS cache, call <code>ejs.clearCache</code>. If you're using the LRU cache and need a different limit, simple reset `ejs.cache` to a new instance of the LRU.</p>
+            <p>EJS ships with a basic in-process cache for caching the intermediate JavaScript functions used to render
+                templates. It's easy to plug in LRU caching using Node's `lru-cache` library:</p>
+            <code class="code-block">
+                <span class="line">let ejs = require('ejs'),</span>
+                <span class="line">LRU = require('lru-cache');</span>
+                <span class="line">ejs.cache = LRU(100); // LRU cache with 100-item limit;</span>
+            </code>
+            <p>If you want to clear the EJS cache, call <code>ejs.clearCache</code>. If you're using the LRU cache and
+                need a different limit, simple reset `ejs.cache` to a new instance of the LRU.</p>
         </section>
         <section class="main-section" id="Custom_file_loader">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Custom file loader</header>
             <hr>
             <p>The default file loader is <code>fs.readFileSync</code>, if you want to customize it, you can set <code>ejs.fileLoader</code>.</p>
-            <code>There is code in here.</code>
+            <code class="code-block">
+                <span class="line">let ejs = require('ejs'),</span>
+                <span class="line">let myFileLoader = function (filePath) {</span>
+                <span class="line">return 'myFileLoader: ' + fs.readFileSync(filePath);</span>
+                <span class="line">};</span>
+                <span class="line">ejs.fileLoader = myFileLoad;</span>
+            </code>
             <p>With this feature, you can preprocess the template before reading it.</p>
         </section>
         <section class="main-section" id="Layouts">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Layouts</header>
             <hr>
-            <p>EJS does not specifically support blocks, but layouts can be implemented by including headers and footers, like so:</p>
-            <code>There is code in here.</code>
+            <p>EJS does not specifically support blocks, but layouts can be implemented by including headers and
+                footers, like so:</p>
+            <code class="code-block">
+                <span class="line">&lt;%- include('header'); -%&gt;</span>
+                <span class="line">&lt;h1&gt;</span>
+                <span class="line">Title</span>
+                <span class="line">&lt;/h1&gt;</span>
+                <span class="line">&lt;p&gt;</span>
+                <span class="line">My page</span>
+                <span class="line">&lt;/p&gt;</span>
+                <span class="line">&lt;%- include('footer'); -%&gt;</span>
+            </code>
         </section>
         <section class="main-section" id="Client-side_support">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Client-side support</header>
             <hr>
-            <p>Go to the latest release, download <code>./ejs.js</code> or <code>./ejs.min.js</code>. Alternately, you can compile it yourself by cloning the repository and running <code>jake build</code> (or <code>$(npm bin)/jake build</code> if jake is not installed globally).</p>
+            <p>Go to the latest release, download <code>./ejs.js</code> or <code>./ejs.min.js</code>. Alternately, you
+                can compile it yourself by cloning the repository and running <code>jake build</code> (or <code>$(npm bin)/jake build</code>
+                if jake is not installed globally).</p>
             <p>Include one of these files on your page, and <code>ejs</code> should be available globally</p>
-            <code>There is code in here.</code>
-            <code>There is code in here.</code>
+
+            <code class="code-block">
+                <span class="line">&lt;div id="output"&gt;&lt;/div&gt;</span>
+                <span class="line">&lt;script src="ejs.min.js"&gt;&lt;/script&gt;</span>
+                <span class="line">&lt;script&gt;</span>
+                <span class="line">let people = ['geddy', 'neil', 'alex'],</span>
+                <span class="line">html = ejs.render('&lt;%= people.join(", "); %&gt;', {people: people});</span>
+                <span class="line">// With jQuery:</span>
+                <span class="line">$('#output').html(html);</span>
+                <span class="line">// Vanilla JS:</span>
+                <span class="line">document.getElementById('output').innerHTML = html;</span>
+                <span class="line">&lt;/script&gt;</span>
+            </code>
             <p>Most of EJS will work as expected; however, there are a few things to note:</p>
             <ol>
                 <li>Obviously, since you do not have access to the filesystem, `ejs.renderFile` won't work.</li>
                 <li>For the same reason, includes do not work unless you use an include callback. Here is an example:</li>
             </ol>
-            <code>There is some code in here.</code>
+            <code class="code-block">
+                <span class="line">let str = "Hello &lt;%= include('file', {person: 'John'}); %&gt;",</span>
+                <span class="line">fn = ejs.compile(str, {client: true});</span>
+                <span class="line">fn(data, null, function(path, d){ // include callback</span>
+                <span class="line">// path -&gt; 'file'</span>
+                <span class="line">// d -&gt; {person: 'John'}</span>
+                <span class="line">// Put your code here</span>
+                <span class="line">// Return the contents of file as a string</span>
+                <span class="line">}); // returns rendered string</span>
+            </code>
         </section>
         <section class="main-section" id="Using_EJS_with_Express">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Using EJS with Express</header>
             <hr>
-            <p><a href="https://github.com/mde/ejs/wiki/Using-EJS-with-Express" target="_blank">This GitHub Wiki page</a> explains various ways of passing EJS options to Express.</p>
+            <p><a href="https://github.com/mde/ejs/wiki/Using-EJS-with-Express" target="_blank">This GitHub Wiki page</a>
+                explains various ways of passing EJS options to Express.</p>
         </section>
         <section class="main-section" id="Support">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Support</header>
             <hr>
-            <p>Ask questions about specific problems you have faced, including details about what exactly you are trying to do. Make sure you tag your question with ejs. You can also read through existing ejs questions.</p>
-            <p>The issue tracker is the preferred channel for bug reports, features requests and submitting pull requests.</p>
+            <p>Ask questions about specific problems you have faced, including details about what exactly you are
+                trying to do. Make sure you tag your question with ejs. You can also read through existing ejs
+                questions.</p>
+            <p>The issue tracker is the preferred channel for bug reports, features requests and submitting pull
+                requests.</p>
         </section>
         <section class="main-section" id="License">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>License</header>
             <hr>
-            <p>EJS is licensed under the Apache License, version 2.0. Information can found here: http://www.apache.org/licenses/.</p>
+            <p>EJS is licensed under the Apache License, version 2.0. Information can found here:
+                http://www.apache.org/licenses/.</p>
         </section>
     </main>
 
