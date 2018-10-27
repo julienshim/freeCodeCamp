@@ -7,7 +7,6 @@
     <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
     <link rel="stylesheet" type="text/css" href="Untitled-4.css">
 </head>
-
 <body>
     <nav id="navbar">
         <header><h1>EJS</h1><p>Embedded Javascript Documentation</p></header>
@@ -51,18 +50,18 @@
             <h3>Use</h3>
             <p>Pass EJS a template string and some data. BOOM, you've got some HTML.</p>
             <code class="code-block">
-                <span class="line">let ejs = require('ejs'),</span>
-                <span class="line">people = ['geddy', 'neil', 'alex'],</span>
-                <span class="line">html = ejs.render('&lt;%=people.join(", "); %&gt;', {people: people});</span>
+                <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
+                <span class="line">people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line">html = ejs.render(<span class="string">'&lt;%=people.join(", "); %&gt;'</span>, {people: people});</span>
             </code>
             <h3>Browser Support</h3>
             <p>Download a browser build from the latest release, and use it in a script tag.</p>
             <code class="code-block">
-                <span class="line">&lt;script src="ejs.js"&gt;&lt;/script&gt;</span>
-                <span class="line">&lt;script&gt;</span>
-                <span class="line">let people = ['geddy', 'neil', 'alex'],</span>
-                <span class="line">html = ejs.render('&lt;%= people.join(", "); %&gt;', {people: people});</span>
-                <span class="line">&lt;/script&gt;</span>
+                <span class="line">&lt;<span class="tag">script</span> <span class="attr">src</span>="ejs.js"&gt;&lt;/<span class="tag">script</span>&gt;</span>
+                <span class="line">&lt;<span class="tag">script</span>&gt;</span>
+                <span class="line"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
+                <span class="line">&lt;/<span class="tag">script</span>&gt;</span>
             </code>
         </section>
         <section class="main-section" id="Example">
@@ -71,7 +70,7 @@
             <hr>
             <code class="code-block">
                 <span class="line">&lt;% if (user) { %&gt;</span>
-                <span class="line"> &lt;h2&gt;&lt;%= user.name %&gt;&lt;/h2&gt;</span>
+                <span class="line"> &lt;<span class="tag">h2</span>&gt;&lt;%= user.name %&gt;&lt;/<span class="tag">h2</span>&gt;</span>
                 <span class="line">&lt;% } %&;gt;</span>
             </code>
         </section>
@@ -80,13 +79,13 @@
             <header>Usage</header>
             <hr>
             <code class="code-block">
-                <span class="line">let template = ejs.compile(str, options);</span>
+                <span class="line"><span class="statement">let</span> template = ejs.compile(str, options);</span>
                 <span class="line">template(data);</span>
-                <span class="line">// => Rendered HTML string</span>
+                <span class="line"><span class="comment">// => Rendered HTML string</span></span>
                 <span class="line">ejs.render(str, data, options);</span>
-                <span class="line">// => Rendered HTML string</span>
-                <span class="line">ejs.renderFile(filename, data, options, function(err, str){</span>
-                <span class="line">// str => Rendered HTML string</span>
+                <span class="line"><span class="comment">// => Rendered HTML string</span></span>
+                <span class="line">ejs.renderFile(filename, data, options, <span class="function">function</span>(err, str){</span>
+                <span class="line"><span class="comment">// str => Rendered HTML string</span></span>
                 <span class="line">});</span>
             </code>
         </section>
@@ -157,11 +156,11 @@
             <p>You'll likely want to use the raw output tag (<code class="inline-highlight">&lt;%-</code>) with your
                 include to avoid double-escaping the HTML output.</p>
             <code class="code-block">
-                <span class="line">&lt;ul&gt;</span>
+                <span class="line">&lt;<span class="tag">ul</span>&gt;</span>
                 <span class="line">&lt;% users.forEach(function(user){ %&gt;</span>
                 <span class="line">&lt;%- include('user/show', {user: user}); %&gt;</span>
                 <span class="line">&lt;% }); %&gt;</span>
-                <span class="line">&lt;/ul&gt;</span>
+                <span class="line">&lt;/<span class="tag">ul</span>&gt;</span>
             </code>
         </section>
         <section class="main-section" id="Custom_delimiters">
@@ -170,16 +169,16 @@
             <hr>
             <p>Custom delimiters can be applied on a per-template basis, or globally:</p>
             <code class="code-block">
-                    <span class="line">let ejs = require('ejs'),</span>
-                    <span class="line">users = ['geddy', 'neil', 'alex'];</span>
-                    <span class="line">// Just one template</span>
-                    <span class="line">ejs.render('&lt;?= users.join(" | "); ?&gt;', {users: users},</span>
-                    <span class="line">{delimiter: '?'});</span>
-                    <span class="line">// =&gt; 'geddy | neil | alex'</span>
-                    <span class="line">// Or globally</span>
-                    <span class="line">ejs.delimiter = '$';</span>
-                    <span class="line">ejs.render('&lt;$= users.join(" | "); $&gt;', {users: users});</span>
-                    <span class="line">// =&gt; 'geddy | neil | alex'</span>
+                    <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
+                    <span class="line">users = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>];</span>
+                    <span class="line"><span class="comment">// Just one template</span></span>
+                    <span class="line">ejs.render(<span class="string">'&lt;?= users.join(" | "); ?&gt;'</span>, {users: users},</span>
+                    <span class="line">{delimiter: <span class="string">'?'</span>});</span>
+                    <span class="line"><span class="comment">// =&gt; 'geddy | neil | alex'</span></span>
+                    <span class="line"><span class="comment">// Or globally</span></span>
+                    <span class="line">ejs.delimiter = <span class="string">'$'</span>;</span>
+                    <span class="line">ejs.render(<span class="string">'&lt;$= users.join(" | "); $&gt;'</span>, {users: users});</span>
+                    <span class="line"><span class="comment">// =&gt; 'geddy | neil | alex'</span></span>
                 </code>
         </section>
         <section class="main-section" id="Caching">
@@ -189,22 +188,22 @@
             <p>EJS ships with a basic in-process cache for caching the intermediate JavaScript functions used to render
                 templates. It's easy to plug in LRU caching using Node's `lru-cache` library:</p>
             <code class="code-block">
-                <span class="line">let ejs = require('ejs'),</span>
-                <span class="line">LRU = require('lru-cache');</span>
-                <span class="line">ejs.cache = LRU(100); // LRU cache with 100-item limit;</span>
+                <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
+                <span class="line">LRU = require(<span class="string">'lru-cache'</span>);</span>
+                <span class="line">ejs.cache = LRU(<span class="num">100</span>); <span class="comment">// LRU cache with 100-item limit;</span></span>
             </code>
-            <p>If you want to clear the EJS cache, call <code>ejs.clearCache</code>. If you're using the LRU cache and
+            <p>If you want to clear the EJS cache, call <code class="inline-highlight">ejs.clearCache</code>. If you're using the LRU cache and
                 need a different limit, simple reset `ejs.cache` to a new instance of the LRU.</p>
         </section>
         <section class="main-section" id="Custom_file_loader">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Custom file loader</header>
             <hr>
-            <p>The default file loader is <code>fs.readFileSync</code>, if you want to customize it, you can set <code>ejs.fileLoader</code>.</p>
+            <p>The default file loader is <code class="inline-highlight">fs.readFileSync</code>, if you want to customize it, you can set <code class="inline-highlight">ejs.fileLoader</code>.</p>
             <code class="code-block">
-                <span class="line">let ejs = require('ejs'),</span>
-                <span class="line">let myFileLoader = function (filePath) {</span>
-                <span class="line">return 'myFileLoader: ' + fs.readFileSync(filePath);</span>
+                <span class="line"><span class="statement">let</span> ejs = require(<span class="string">'ejs'</span>),</span>
+                <span class="line"><span class="statement">let</span> myFileLoader = <span class="function">function</span> (filePath) {</span>
+                <span class="line"><span class="statement">return</span> <span class="string">'myFileLoader: '</span> + fs.readFileSync(filePath);</span>
                 <span class="line">};</span>
                 <span class="line">ejs.fileLoader = myFileLoad;</span>
             </code>
@@ -217,51 +216,52 @@
             <p>EJS does not specifically support blocks, but layouts can be implemented by including headers and
                 footers, like so:</p>
             <code class="code-block">
-                <span class="line">&lt;%- include('header'); -%&gt;</span>
+                <span class="line">&lt;%- include(<span class="string">'header'</span>); -%&gt;</span>
                 <span class="line">&lt;h1&gt;</span>
                 <span class="line">Title</span>
                 <span class="line">&lt;/h1&gt;</span>
                 <span class="line">&lt;p&gt;</span>
                 <span class="line">My page</span>
                 <span class="line">&lt;/p&gt;</span>
-                <span class="line">&lt;%- include('footer'); -%&gt;</span>
+                <span class="line">&lt;%- include(<span class="string">'footer'</span>); -%&gt;</span>
             </code>
         </section>
         <section class="main-section" id="Client-side_support">
             <!--Don't know why freeCodeCamp doesn't have consistent casing.-->
             <header>Client-side support</header>
             <hr>
-            <p>Go to the latest release, download <code>./ejs.js</code> or <code>./ejs.min.js</code>. Alternately, you
-                can compile it yourself by cloning the repository and running <code>jake build</code> (or <code>$(npm bin)/jake build</code>
+            <p>Go to the latest release, download <code class="inline-highlight">./ejs.js</code> or <code class="inline-highlight">./ejs.min.js</code>. Alternately, you
+                can compile it yourself by cloning the repository and running <code class="inline-highlight">jake build</code> (or <code class="inline-highlight">$(npm bin)/jake build</code>
                 if jake is not installed globally).</p>
-            <p>Include one of these files on your page, and <code>ejs</code> should be available globally</p>
-
+            <p>Include one of these files on your page, and <code class="inline-highlight">ejs</code> should be available globally.</p>
+            <h3>Example</h3>
             <code class="code-block">
-                <span class="line">&lt;div id="output"&gt;&lt;/div&gt;</span>
-                <span class="line">&lt;script src="ejs.min.js"&gt;&lt;/script&gt;</span>
+                <span class="line">&lt;div id=<span class="string">"output"</span>&gt;&lt;/div&gt;</span>
+                <span class="line">&lt;script src=<span class="string">"ejs.min.js"</span>&gt;&lt;/script&gt;</span>
                 <span class="line">&lt;script&gt;</span>
-                <span class="line">let people = ['geddy', 'neil', 'alex'],</span>
-                <span class="line">html = ejs.render('&lt;%= people.join(", "); %&gt;', {people: people});</span>
-                <span class="line">// With jQuery:</span>
-                <span class="line">$('#output').html(html);</span>
-                <span class="line">// Vanilla JS:</span>
-                <span class="line">document.getElementById('output').innerHTML = html;</span>
+                <span class="line"><span class="statement">let</span> people = [<span class="string">'geddy'</span>, <span class="string">'neil'</span>, <span class="string">'alex'</span>],</span>
+                <span class="line">html = ejs.render(<span class="string">'&lt;%= people.join(", "); %&gt;'</span>, {people: people});</span>
+                <span class="line"><span class="comment">// With jQuery:</span></span>
+                <span class="line">$(<span class="string">'#output'</span>).html(html);</span>
+                <span class="line"><span class="comment">// Vanilla JS:</span></span>
+                <span class="line">document.getElementById(<span class="string">'output'</span>).innerHTML = html;</span>
                 <span class="line">&lt;/script&gt;</span>
             </code>
+            <h3>Caveats</h3>
             <p>Most of EJS will work as expected; however, there are a few things to note:</p>
             <ol>
                 <li>Obviously, since you do not have access to the filesystem, `ejs.renderFile` won't work.</li>
                 <li>For the same reason, includes do not work unless you use an include callback. Here is an example:</li>
             </ol>
             <code class="code-block">
-                <span class="line">let str = "Hello &lt;%= include('file', {person: 'John'}); %&gt;",</span>
-                <span class="line">fn = ejs.compile(str, {client: true});</span>
-                <span class="line">fn(data, null, function(path, d){ // include callback</span>
-                <span class="line">// path -&gt; 'file'</span>
-                <span class="line">// d -&gt; {person: 'John'}</span>
-                <span class="line">// Put your code here</span>
-                <span class="line">// Return the contents of file as a string</span>
-                <span class="line">}); // returns rendered string</span>
+                <span class="line"><span class="statement">let</span> str = <span class="string">"Hello &lt;%= include('file', {person: 'John'}); %&gt;"</span>,</span>
+                <span class="line">fn = ejs.compile(str, {client: <span class="boolean">true</span>});</span>
+                <span class="line">fn(data, <span class="value">null</span>, <span class="function">function</span>(path, d){ <span class="comment">// include callback</span></span>
+                <span class="line"><span class="comment">// path -&gt; 'file'</span></span>
+                <span class="line"><span class="comment">// d -&gt; {person: 'John'}</span></span>
+                <span class="line"><span class="comment">// Put your code here</span></span>
+                <span class="line"><span class="comment">// Return the contents of file as a string</span></span>
+                <span class="line">}); <span class="comment">// returns rendered string</span></span>
             </code>
         </section>
         <section class="main-section" id="Using_EJS_with_Express">
@@ -276,8 +276,8 @@
             <header>Support</header>
             <hr>
             <p>Ask questions about specific problems you have faced, including details about what exactly you are
-                trying to do. Make sure you tag your question with ejs. You can also read through existing ejs
-                questions.</p>
+                trying to do. Make sure you tag your question with <code class="inline-highlight">ejs</code>. You can also read through <a href="http://stackoverflow.com/questions/tagged/ejs" target="_blank">existing ejs
+                questions</a>.</p>
             <p>The issue tracker is the preferred channel for bug reports, features requests and submitting pull
                 requests.</p>
         </section>
@@ -286,7 +286,7 @@
             <header>License</header>
             <hr>
             <p>EJS is licensed under the Apache License, version 2.0. Information can found here:
-                http://www.apache.org/licenses/.</p>
+                <a href="http://www.apache.org/licenses/" target="_blank">http://www.apache.org/licenses/</a>.</p>
         </section>
     </main>
 

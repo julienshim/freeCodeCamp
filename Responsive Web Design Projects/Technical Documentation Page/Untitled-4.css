@@ -8,6 +8,8 @@ body {
 
 }
 
+/* Nav Bar */
+
 nav {
     width: 250px;
     height: 100%;
@@ -15,7 +17,15 @@ nav {
     padding: 40px 0 0 40px;
     top: 0;
     left: 0;
-    background-color: #525566;
+    background-color: #515662;
+}
+nav#navbar header {
+    color: #82bf32;
+}
+nav#navbar h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
 }
 
 nav ul {
@@ -28,11 +38,6 @@ nav ul li {
     margin-top: 5px;
 }
 
-code.inline-highlight {
-    color: #ff615b;
-    background-color: rgba(182, 216, 205, 0.3);
-}
-
 .active {
     font-weight: bold;
 }
@@ -41,15 +46,21 @@ span.active-marker {
     width: 20px;
     height: 30px;
     margin-top: -6px;
-    border-right: 6px solid red;
+    border-right: 6px solid #00a281;
     position: absolute;
     left: 0;
 }
+
+/* Main, General Sections */
 
 main {
     height: 100%;
     padding: 40px 40px 40px 360px;
     background-color: white;
+}
+
+header {
+    color: #00a281;
 }
 
 section {
@@ -65,7 +76,10 @@ section:first-child {
     font-size: 1.4rem;
 }
 
+/* Code Blocks */
+
 code.code-block {
+    font-size: 1.2rem;
     background-color: black;
     display: inline-block;
     padding: 20px;
@@ -79,9 +93,52 @@ code.code-block span.line {
     width: 100%;
 }
 
+code.inline-highlight {
+    color: #ff615b;
+    background-color: rgba(182, 216, 205, 0.3);
+}
+
+.statement, .tag {
+    color: #569cd6;
+}
+
+.function {
+    color: #90dcfe;
+}
+
+.string, .attr {
+    color: #ce8b55;
+}
+
+.num, .value, .boolean {
+    color: #b5cea8;
+}
+
+.comment {
+    color: #6a994c;
+}
+
+.indent-2 {
+    margin-left: 4px;
+}
+
+.indent-4 {
+    margin-left: 8px;
+}
+
+.indent-6 {
+    margin-left: 12px;
+}
+
+/* Links */
+
 a:link, a:hover, a:visited, a:active {
-    color: #000;
+    color: #2896eb;
     text-decoration: none;
+}
+
+ul#navlist a:link, a:visited, a:active {
+    color: #e8e6e7;
 }
 
 ul#navlist a:hover {
