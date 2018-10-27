@@ -20,12 +20,16 @@ nav {
     background-color: #515662;
 }
 nav#navbar header {
-    color: #82bf32;
+    color: #ccff66;
 }
 nav#navbar h1 {
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
+}
+
+nav#navbar p {
+    color: #aae75a;
 }
 
 nav ul {
