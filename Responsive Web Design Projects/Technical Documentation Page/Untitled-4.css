@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-body {
-    background-color: grey;
+html, body {
     padding: 0;
-    margin: 0;  
-    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
 
+body {
+    font-family: 'Lato', sans-serif;
 }
 
 /* Nav Bar */
 
 nav {
-    width: 250px;
-    height: 100%;
-    position: fixed;
-    padding: 40px 0 0 40px;
-    top: 0;
-    left: 0;
+    width: 100%;
     background-color: #515662;
+    padding: 40px;
+    box-sizing: border-box;
 }
+
 nav#navbar header {
     color: #ccff66;
 }
@@ -58,9 +57,8 @@ span.active-marker {
 /* Main, General Sections */
 
 main {
-    height: 100%;
-    padding: 40px 40px 40px 360px;
-    background-color: white;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 header {
@@ -95,6 +93,7 @@ code.code-block {
 code.code-block span.line {
     display: inline-block;
     width: 100%;
+    word-wrap: break-word;
 }
 
 code.inline-highlight {
@@ -134,9 +133,16 @@ code.inline-highlight {
     margin-left: 56px;
 }
 
-/* .return {
-    padding-bottom: 38px;
-} */
+/* Footer */
+
+footer {
+    padding: 4px 0;
+    background-color: #00a281;
+    color: #ffffff;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 60px;
+ }
 
 /* Links */
 
@@ -153,9 +159,20 @@ ul#navlist a:hover {
     font-weight: 700;
 }
 
-@media only screen and (max-width: 768px) {
-  
- body {
-  background-color: pink;
- }
+@media only screen and (min-width: 760px) {
+    nav {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        padding: 40px 0 0 40px;
+        top: 0;
+        left: 0;
+    }
+
+    main {
+        height: 100%;
+        box-sizing: border-box;
+        padding: 40px 40px 40px 360px;
+        background-color: white;
+    }
 }
