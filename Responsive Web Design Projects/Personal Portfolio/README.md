@@ -8,4 +8,6 @@ https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-proje
 
 https://codepen.io/julienshim/pen/Wagrze
 
-## Screenshot
+### GIF
+
+<img src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Personal%20Portfolio/assets/demo.gif" width="500" />
