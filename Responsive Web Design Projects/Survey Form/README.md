@@ -8,4 +8,6 @@ https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-proje
 
 https://codepen.io/julienshim/pen/yRqgOG
 
-## Screenshot
+### GIF
+
+<img src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Survey%20Form/demo.gif" width="500" />
