@@ -1,18 +1,24 @@
-// Unfinished
-
 function convertHTML(str) {
   // &colon;&rpar;
   let array = str.split("");
-  let entities = {
-    "&" : "&amp;",
-    ">" : "	&gt;",
-    "<" : "&lt;",
-    "\"" : "&quot;",
-    "\'" : "&apos;"
-  }
+
   for (let i = 0; i < array.length; i++) {
-    if (array[i] === "&") {
-      array[i] = "&amp;";
+    switch(array[i]) {
+      case "&":
+        array[i] = "&amp;";
+        break;
+      case ">":
+        array[i] = "&gt;";
+        break;
+      case "<": 
+        array[i] = "&lt;";
+        break;
+      case '"':
+        array[i] = "&quot;";
+        break;
+      case "'":
+        array[i] = "&apos;";
+        break;
     }
   }
   return array.join("");
