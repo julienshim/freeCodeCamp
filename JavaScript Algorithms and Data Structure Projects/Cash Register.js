@@ -1,9 +1,26 @@
 function checkCashRegister(price, cash, cid) {
   let difference = cash - price;
-  for (let i = cid.length - 1; i >= 0; i--) {
-    console.log(cid[i][0]);
+  let currency = {
+    "PENNY": .01,
+    "NICKEL": .05,
+    "DIME": .10,
+    "QUARTER": .25,
+    "ONE": 1,
+    "FIVE": 5,
+    "TEN": 10,
+    "TWENTY": 20,
+    "ONE HUNDRED": 100
   }
-  return "test"
+  let changeArray = [];
+  for (let i = cid.length - 1; i >= 0; i--) {
+    let value = cid[i][0];
+    let vir = cid[i][1];
+    if (currency.hasOwnProperty(value) && currency[value] < difference) {
+      console.log(value);
+      difference = difference - Math.floor(difference / currency[value]);
+
+    }
+  }
   // Here is your change, ma'am.
 }
 
