@@ -15,12 +15,13 @@ function checkCashRegister(price, cash, cid) {
   for (let i = cid.length - 1; i >= 0; i--) {
     let value = cid[i][0];
     let vir = cid[i][1];
-    if (currency.hasOwnProperty(value) && currency[value] < difference) {
-      console.log(value);
-      difference = difference - Math.floor(difference / currency[value]);
-
+    if (currency[value] < difference) {
+      let subtract = Math.floor(difference / currency[value]);
+      difference -= subtract;
+      changeArray.push([value, subtract * currency[value]])
     }
   }
+  return {status: "OPEN", change: changeArray}
   // Here is your change, ma'am.
 }
 
