@@ -16,9 +16,9 @@ function checkCashRegister(price, cash, cid) {
     let value = cid[i][0];
     let vir = cid[i][1];
     if (currency[value] < difference) {
-      let subtract = Math.floor(difference / currency[value]);
-      difference -= subtract;
-      changeArray.push([value, subtract * currency[value]])
+      let subtract = difference - (difference % currency[value]);
+      difference = difference - subtract;
+      changeArray.push([value, subtract])
     }
   }
   return {status: "OPEN", change: changeArray}
