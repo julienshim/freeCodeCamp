@@ -21,7 +21,7 @@
   "homepage": "https://github.com/julienshim/freeCodeCamp#readme",
   "dependencies": {
     "css-loader": "^1.0.1",
-    "live-server": "^1.2.0",
+    "live-server": "^1.2.1",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.0",
     "react": "^16.6.0",
