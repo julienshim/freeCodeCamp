@@ -5,6 +5,19 @@ export default class RandomQuoteMachineApp extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    fetch("https://api.myjson.com/bins/1b0y9w")
+    .then(res => res.json())
+    .then(
+       result => {
+          console.log(result.quotes)
+       },
+       error => {
+          console.log(error);
+       }
+    );
+  }
+
   render() {
     return (
       <div id="quote-box">
