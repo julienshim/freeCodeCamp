@@ -4,6 +4,7 @@ export default class RandomQuoteMachineApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      test: "test",
       quotes: []
     }
   }
@@ -25,17 +26,21 @@ export default class RandomQuoteMachineApp extends React.Component {
   }
 
   render() {
+    const ranNum = Math.floor(Math.random()*this.state.quotes.length);
     return (
-      <div id="quote-box">
-        Random Quote Machine
-        {this.state.quotes.map((quote, index) => (
-        <p key={index}>{index+1}. {quote.quote} - {quote.author}!</p>
-    ))}
-        <div id="text" />
-        <div id="author" />
-        <div id="new-quote" />
-        <a id="tweet-quote" />
+      <div>
+    Random Quote Machine
+    
+    {this.state.quotes.filter((val, index) => index === ranNum).map((quote, index) => (
+      <div id="quote-box" key={index}>
+        <div id="text">{quote.quote}</div> 
+        <div id="author">{quote.author}</div>
+        <a id="tweet-quote">Tweet Quote</a>
       </div>
+    ))}
+    
+
+   </div>
     );
   }
 }
