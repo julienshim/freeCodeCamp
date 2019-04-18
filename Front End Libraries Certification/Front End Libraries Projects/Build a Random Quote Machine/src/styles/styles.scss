@@ -1,2 +1,24 @@
-@import './base/settings';
-@import './base/base';
+@import "./base/settings";
+@import "./base/base";
+
+body {
+  color: black;
+}
+
+#container {
+  margin: 0 auto;
+  width: 500px;
+}
+
+#author {
+  margin-top: 25px;
+  font-weight: 700;
+}
+
+#tweet-quote {
+  margin-left: 25px;
+}
+
+#buttons-container {
+  margin: 25px 0;
+}
