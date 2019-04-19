@@ -58,4 +58,5 @@ export default class RandomQuoteMachineApp extends React.Component {
     </div>
    );
   }
- } 
+ }
+ 
