@@ -19,8 +19,7 @@ body {
 }
 
 #title {
-  width: 540px;
-  word-spacing: 100vw;
+  word-spacing: 100vh;
   margin: 0;
 }
 
@@ -51,7 +50,9 @@ body {
 
 #content {
   margin: 0 auto;
-  max-width: 50%;
+  max-width: 500px;
+  word-break: keep-all;
+  // background-color: pink;
 }
 
 #author {

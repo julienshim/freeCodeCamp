@@ -1,10 +1,10 @@
 import React from "react";
 
 const Title = props => {
-  const { handleColorChange, title, isInverted } = props;
+  const { handleLanguageTitle, title, isInverted } = props;
   const titleClass = isInverted ? "titleInverted" : "title"
   return (
-    <h1 id="title" className={titleClass} onClick={handleColorChange}>
+    <h1 id="title" className={titleClass} onClick={handleLanguageTitle} >
       {title}
     </h1>
   );
@@ -85,15 +85,19 @@ export default class RandomQuoteMachineApp extends React.Component {
     });
   };
 
+  handleLanguageTitle = () => {
+    this.setState({
+      title: this.state.title === "Random Quote Machine"
+        ? "랜덤 명언 제조기"
+        : "Random Quote Machine"
+    })
+
+  }
+
   handleColorChange = () => {
     this.setState(prevState => ({
-      backgroundColor:
-        this.state.backgroundColor === "black" ? "white" : "black",
+      backgroundColor: this.state.backgroundColor === "black" ? "white" : "black",
       color: this.state.backgroundColor === "black" ? "white" : "black",
-      title:
-        this.state.title === "Random Quote Machine"
-          ? "랜덤 명언 제조기"
-          : "Random Quote Machine",
       isInverted: !prevState.isInverted
     }));
   };
@@ -105,10 +109,11 @@ export default class RandomQuoteMachineApp extends React.Component {
     };
 
     return (
-      <div id="container" className={"disable-selection"} style={style}>
+      <div id="container" className={"disable-selection"} style={style} onClick={this.handleColorChange} >
         <div id="content">
           <Title
-            handleColorChange={this.handleColorChange}
+                      handleLanguageTitle={this.handleLanguageTitle}
+
             title={this.state.title}
             isInverted={this.state.isInverted}
           />
