@@ -114,10 +114,10 @@ exports.push([module.i, "/*! normalize.css v8.0.1 | MIT License | github.com/nec
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Sunflower:400);", ""]);
 
 // module
-exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n", ""]);
+exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n\nbody {\n  font-family: \"Sunflower\", sans-serif;\n  font-weight: 400;\n  line-height: 6rem;\n  font-size: 48px; }\n\n.disable-selection {\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer */\n  -khtml-user-select: none;\n  /* KHTML browsers (e.g. Konqueror) */\n  -webkit-user-select: none;\n  /* Chrome, Safari, and Opera */\n  -webkit-touch-callout: none;\n  /* Disable Android and iOS callouts*/ }\n\n#title {\n  color: white;\n  width: 540px;\n  word-spacing: 100vw;\n  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }\n\n#new-quote,\n#tweet-quote {\n  fill: white;\n  background: none;\n  border: none; }\n\n#container {\n  width: 100vw;\n  height: 100vh;\n  border-radius: 10px;\n  padding: 50px; }\n\n#content {\n  margin: 0 auto;\n  max-width: 50%; }\n\n#author {\n  margin-top: 25px;\n  font-weight: 700; }\n\n#tweet-quote {\n  margin-left: 25px; }\n\n#buttons-container {\n  margin: 25px 0; }\n", ""]);
 
 // exports
 
@@ -25524,13 +25524,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -25540,23 +25542,52 @@ function (_React$Component) {
   _inherits(RandomQuoteMachineApp, _React$Component);
 
   function RandomQuoteMachineApp(props) {
+    var _this;
+
     _classCallCheck(this, RandomQuoteMachineApp);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(RandomQuoteMachineApp).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RandomQuoteMachineApp).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleNewQuote", function () {
+      {
+        /*this.state.quotes.length-1 because myjson.com corrupts the last item*/
+      }
+
+      _this.setState({
+        randomQuoteIndex: Math.floor(Math.random() * _this.state.quotes.length - 1)
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleColorChange", function () {
+      _this.setState({
+        backgroundColor: _this.state.backgroundColor === "black" ? "white" : "black",
+        color: _this.state.backgroundColor === "black" ? "white" : "black",
+        title: _this.state.title === "Random Quote Machine" ? "랜덤 명언 제조기" : "Random Quote Machine"
+      });
+    });
+
+    _this.state = {
+      randomQuoteIndex: 0,
+      quotes: [],
+      backgroundColor: "white",
+      color: "black",
+      title: "랜덤 명언 제조기"
+    };
+    return _this;
   }
 
   _createClass(RandomQuoteMachineApp, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this = this;
+      var _this2 = this;
 
-      fetch("https://api.myjson.com/bins/1b0y9w").then(function (res) {
+      fetch("https://api.myjson.com/bins/myh5e").then(function (res) {
         return res.json();
       }).then(function (result) {
-        console.log(result.quotes.length);
-        _this.setState = {
-          items: _toConsumableArray(result.quotes)
-        };
+        // console.log(result.quotes);
+        _this2.setState({
+          quotes: _toConsumableArray(result.quotes)
+        });
       }, function (error) {
         console.log(error);
       });
@@ -25564,17 +25595,56 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
+      var style = {
+        backgroundColor: this.state.backgroundColor,
+        color: this.state.color
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "quote-box"
-      }, "Random Quote Machine", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "text"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "author"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "new-quote"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        id: "tweet-quote"
-      }));
+        id: "container",
+        className: "disable-selection",
+        style: style,
+        onClick: this.handleColorChange
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "title"
+      }, this.state.title), this.state.quotes.filter(function (val, index) {
+        return index === _this3.state.randomQuoteIndex;
+      }).map(function (quote, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "quote-box",
+          key: index
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "buttons-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          id: "new-quote",
+          onClick: _this3.handleNewQuote
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "24",
+          height: "24",
+          viewBox: "0 0 24 24"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+          d: "M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          id: "tweet-quote",
+          href: "https://twitter.com/intent/tweet?text=\"".concat(quote.quoteKR, "\"%0A- ").concat(quote.authorKR),
+          target: "_blank"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "24",
+          height: "24",
+          viewBox: "0 0 24 24"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+          d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "text"
+        }, quote.quoteKR), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "author"
+        }, "- ", quote.authorKR));
+      })));
     }
   }]);
 
