@@ -1,5 +1,15 @@
 import React from "react";
 
+const Title = props => {
+  const { handleColorChange, title, isInverted } = props;
+  const titleClass = isInverted ? "titleInverted" : "title"
+  return (
+    <h1 id="title" className={titleClass} onClick={handleColorChange}>
+      {title}
+    </h1>
+  );
+};
+
 const SocialMediaButtons = props => {
   const { handleNewQuote, quote, isInverted } = props;
   const fill = isInverted ? "#fff" : "#000";
@@ -71,15 +81,17 @@ export default class RandomQuoteMachineApp extends React.Component {
       /*this.state.quotes.length-1 because myjson.com corrupts the last item*/
     }
     this.setState({
-      randomQuoteIndex: Math.floor(Math.random() * this.state.quotes.length - 1)
+      randomQuoteIndex: Math.floor(Math.random() * this.state.quotes.length)
     });
   };
 
   handleColorChange = () => {
-    this.setState( prevState => ({
-      backgroundColor: this.state.backgroundColor === "black" ? "white" : "black",
+    this.setState(prevState => ({
+      backgroundColor:
+        this.state.backgroundColor === "black" ? "white" : "black",
       color: this.state.backgroundColor === "black" ? "white" : "black",
-      title: this.state.title === "Random Quote Machine"
+      title:
+        this.state.title === "Random Quote Machine"
           ? "랜덤 명언 제조기"
           : "Random Quote Machine",
       isInverted: !prevState.isInverted
@@ -93,14 +105,13 @@ export default class RandomQuoteMachineApp extends React.Component {
     };
 
     return (
-      <div
-        id="container"
-        className={"disable-selection"}
-        style={style}
-        onClick={this.handleColorChange}
-      >
+      <div id="container" className={"disable-selection"} style={style}>
         <div id="content">
-          <h1 id="title">{this.state.title}</h1>
+          <Title
+            handleColorChange={this.handleColorChange}
+            title={this.state.title}
+            isInverted={this.state.isInverted}
+          />
           {this.state.quotes
             .filter((val, index) => index === this.state.randomQuoteIndex)
             .map((quote, index) => (
@@ -110,8 +121,18 @@ export default class RandomQuoteMachineApp extends React.Component {
                   handleNewQuote={this.handleNewQuote}
                   quote={quote}
                 />
-                <div style={{color: "pink"}} id="text">{quote.quoteKR}</div>
-                <div style={{color: "pink"}} id="author">- {quote.authorKR}</div>
+                <div
+                  style={{ color: this.state.isInverted ? "white" : "black" }}
+                  id="text"
+                >
+                  {quote.quoteKR}
+                </div>
+                <div
+                  style={{ color: this.state.isInverted ? "white" : "black" }}
+                  id="author"
+                >
+                  - {quote.authorKR}
+                </div>
               </div>
             ))}
         </div>
