@@ -1,18 +1,19 @@
 import React from "react";
 
 const Title = props => {
-  const { handleLanguageTitle, title, isInverted } = props;
-  const titleClass = isInverted ? "titleInverted" : "title"
+  const { handleLanguageTitle, title, cutoutStyle } = props;
   return (
-    <h1 id="title" className={titleClass} onClick={handleLanguageTitle} >
+    <h1 id="title" className={cutoutStyle} onClick={handleLanguageTitle} >
       {title}
     </h1>
   );
 };
 
 const SocialMediaButtons = props => {
-  const { handleNewQuote, quote, isInverted } = props;
+  const { handleNewQuote, quote, isInverted, isKorean } = props;
   const fill = isInverted ? "#fff" : "#000";
+  const quotetext = isKorean ? quote.quoteKR : quote.quoteEN;
+  const quoteauthor = isKorean ? quote.authorKR : quote.authorEN;
   return (
     <div id="buttons-container">
       <button id="new-quote" onClick={handleNewQuote}>
@@ -28,8 +29,8 @@ const SocialMediaButtons = props => {
       </button>
       <a
         id="tweet-quote"
-        href={`https://twitter.com/intent/tweet?text="${quote.quoteKR}"%0A- ${
-          quote.authorKR
+        href={`https://twitter.com/intent/tweet?text="${quotetext}"%0A- ${
+          quoteauthor
         }`}
         target="_blank"
       >
@@ -54,6 +55,7 @@ export default class RandomQuoteMachineApp extends React.Component {
       randomQuoteIndex: 0,
       quotes: [],
       isInverted: false,
+      isKorean: false,
       backgroundColor: "white",
       color: "black",
       title: "랜덤 명언 제조기"
@@ -67,7 +69,9 @@ export default class RandomQuoteMachineApp extends React.Component {
         result => {
           // console.log(result.quotes);
           this.setState({
-            quotes: [...result.quotes]
+            quotes: [...result.quotes],
+            randomQuoteIndex: Math.floor(Math.random() * this.state.quotes.length),
+            isKorean: false
           });
         },
         error => {
@@ -77,22 +81,16 @@ export default class RandomQuoteMachineApp extends React.Component {
   }
 
   handleNewQuote = () => {
-    {
-      /*this.state.quotes.length-1 because myjson.com corrupts the last item*/
-    }
     this.setState({
       randomQuoteIndex: Math.floor(Math.random() * this.state.quotes.length)
     });
   };
 
-  handleLanguageTitle = () => {
-    this.setState({
-      title: this.state.title === "Random Quote Machine"
-        ? "랜덤 명언 제조기"
-        : "Random Quote Machine"
-    })
-
-  }
+  handleLanguageChange =() => {
+    this.setState(prevState => ({
+      isKorean: !prevState.isKorean
+    }))
+  };
 
   handleColorChange = () => {
     this.setState(prevState => ({
@@ -103,19 +101,21 @@ export default class RandomQuoteMachineApp extends React.Component {
   };
 
   render() {
+    
     const style = {
       backgroundColor: this.state.backgroundColor,
       color: this.state.color
     };
+    const cutoutStyle = this.state.isInverted ? "titleInverted" : "title";
+    const title = this.state.isKorean ? "랜덤 명언 제조기" : "Random Quote Machine";
 
     return (
       <div id="container" className={"disable-selection"} style={style} onClick={this.handleColorChange} >
         <div id="content">
           <Title
-                      handleLanguageTitle={this.handleLanguageTitle}
-
-            title={this.state.title}
-            isInverted={this.state.isInverted}
+            handleLanguageTitle={this.handleLanguageChange}
+            title={title}
+            cutoutStyle={cutoutStyle}
           />
           {this.state.quotes
             .filter((val, index) => index === this.state.randomQuoteIndex)
@@ -125,18 +125,22 @@ export default class RandomQuoteMachineApp extends React.Component {
                   isInverted={this.state.isInverted}
                   handleNewQuote={this.handleNewQuote}
                   quote={quote}
+                  isKorean={this.state.isKorean}
                 />
                 <div
                   style={{ color: this.state.isInverted ? "white" : "black" }}
+                  onClick={this.handleLanguageChange}
                   id="text"
                 >
-                  {quote.quoteKR}
+                  {this.state.isKorean ? quote.quoteKR : quote.quoteEN}
                 </div>
                 <div
-                  style={{ color: this.state.isInverted ? "white" : "black" }}
                   id="author"
+                  style={{ color: this.state.isInverted ? "black" : "white" }}
+                  className={cutoutStyle}
+                  onClick={this.handleLanguageChange}
                 >
-                  - {quote.authorKR}
+                {this.state.isKorean? quote.authorKR : quote.authorEN}
                 </div>
               </div>
             ))}
