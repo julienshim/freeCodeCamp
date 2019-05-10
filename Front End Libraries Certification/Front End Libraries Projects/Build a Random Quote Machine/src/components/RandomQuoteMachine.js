@@ -94,8 +94,8 @@ export default class RandomQuoteMachineApp extends React.Component {
 
   handleColorChange = () => {
     this.setState(prevState => ({
-      backgroundColor: this.state.backgroundColor === "black" ? "white" : "black",
-      color: this.state.backgroundColor === "black" ? "white" : "black",
+      backgroundColor: prevState.backgroundColor === "black" ? "white" : "black",
+      color: prevState.backgroundColor === "black" ? "white" : "black",
       isInverted: !prevState.isInverted
     }));
   };

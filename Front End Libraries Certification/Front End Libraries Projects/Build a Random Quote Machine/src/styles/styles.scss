@@ -5,8 +5,15 @@
 
 body {
   font-family: "Gothic A1", sans-serif;
-  font-weight: 900;
   font-size: 48px;
+  font-weight: 900;
+}
+
+svg,
+#text,
+#author,
+#title {
+  cursor: pointer;
 }
 
 h1 {
@@ -14,11 +21,11 @@ h1 {
 }
 
 .disable-selection {
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer */
-  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
-  -webkit-user-select: none; /* Chrome, Safari, and Opera */
-  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
 }
 
 #title {
@@ -41,34 +48,32 @@ h1 {
 
 #new-quote,
 #tweet-quote {
-  fill: white;
   background: none;
   border: none;
+  fill: white;
 }
 
 #container {
-  width: 100vw;
   height: 100vh;
   padding: 50px;
+  width: 100vw;
 }
 
 #content {
   font-weight: 900;
-  width: 500px;
   line-height: 1.2em;
   margin: 0 auto;
+  width: 500px;
   word-break: keep-all;
 }
 
 #text {
   display: inline-block;
-  // background: pink;
 }
 
 #author {
-  margin-top: 25px;
   display: inline-block;
-  // background: green;
+  margin-top: 25px;
 }
 
 #tweet-quote {
