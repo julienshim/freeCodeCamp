@@ -7,10 +7,9 @@ export default class MarkdownPreview extends React.Component {
   }
  
   render() {
+   const input = '# This is a header\n\nAnd this is a paragraph'
    return (
-    <div>
-     <p>This is the beginning.</p>
-    </div>
+    <ReactMarkdown source={input} />
    );
   }
  }
