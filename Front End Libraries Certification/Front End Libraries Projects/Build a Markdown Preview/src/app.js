@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RandomQuoteMachine from './components/RandomQuoteMachine';
+import MarkdownPreview from './components/MarkdownPreview';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render(<RandomQuoteMachine />, document.getElementById('app'));
+ReactDOM.render(<MarkdownPreview />, document.getElementById('app'));

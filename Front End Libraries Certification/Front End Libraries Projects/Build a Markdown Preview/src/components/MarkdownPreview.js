@@ -48,7 +48,7 @@ const SocialMediaButtons = props => {
   );
 };
 
-export default class RandomQuoteMachineApp extends React.Component {
+export default class MarkdownPreview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
