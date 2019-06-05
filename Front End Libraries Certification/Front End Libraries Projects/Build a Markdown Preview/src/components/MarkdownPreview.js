@@ -1,32 +1,38 @@
 import React from "react";
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
+import marked from 'marked';
 
 export default class MarkdownPreview extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      value:
-        '# h1\n## h2\n[link](http://julienshim.com)\n\n```codeblock```\n\n * list item \n\n > blockquote \n \n ![Alt](/wp.png "Title") \n **bold**'
-    };
+   super(props);
+   this.state = {
+    markdown: ''
+   };
   }
-
+  
+  componentDidMount() {
+   this.setState({
+    markdown: '# h1 size\n\n## h2 size\n\n[alink](http://www.google.com)\n\n*bolded text*\n\n![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text")\n\n> This is a block quote.\n\n1. This is a list item.\n\n```javascript var s = "JavaScript syntax highlighting"; alert(s);```\n\n<p>Is this inline code.</p>'
+   })
+  }
+  
+  handeCreateMarkup() {
+   return {__html: marked(this.state.markdown)};
+  }
+  
   handleChange = (event) => {
-   this.setState({value: event.target.value});
+   this.setState({markdown: event.target.markdown});
   }
-
+ 
   render() {
-    // const input = {this.state.value};
-    return (
-      <div>
-        <textarea
-          id="editor"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <div id="preview">
-          <ReactMarkdown source={this.state.value} escapeHtml={false} />
-        </div>
-      </div>
-    );
+   // const input = {this.state.markdown};
+   return (
+    <div>
+         <div id="preview" dangerouslySetInnerHTML={this.handeCreateMarkup()} >
+     </div>
+      <textarea id="editor" value={this.state.markdown} onChange={this.handleChange} />
+ 
+    </div>
+   );
   }
-}
+ }
