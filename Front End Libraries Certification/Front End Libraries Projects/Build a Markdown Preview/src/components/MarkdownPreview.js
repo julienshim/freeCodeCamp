@@ -21,11 +21,10 @@ export default class MarkdownPreview extends React.Component {
   }
   
   handleChange = (event) => {
-   this.setState({markdown: event.target.markdown});
+   this.setState({markdown: event.target.value});
   }
  
   render() {
-   // const input = {this.state.markdown};
    return (
     <div>
          <div id="preview" dangerouslySetInnerHTML={this.handeCreateMarkup()} >
