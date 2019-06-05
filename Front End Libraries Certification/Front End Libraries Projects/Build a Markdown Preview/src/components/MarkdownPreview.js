@@ -2,7 +2,12 @@ import React from "react";
 // import ReactMarkdown from 'react-markdown';
 import marked from 'marked';
 
-export default class MarkdownPreview extends React.Component {
+marked.setOptions({
+  gfm: true,
+    breaks: true
+ })
+
+ export default class MarkdownPreview extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
@@ -12,7 +17,7 @@ export default class MarkdownPreview extends React.Component {
   
   componentDidMount() {
    this.setState({
-    markdown: '# h1 size\n\n## h2 size\n\n[alink](http://www.google.com)\n\n*bolded text*\n\n![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text")\n\n> This is a block quote.\n\n1. This is a list item.\n\n```javascript var s = "JavaScript syntax highlighting"; alert(s);```\n\n<p>Is this inline code.</p>'
+    markdown: '# a header\n\n## a subheader\n\n[a link](http://google.com)\n\n`inline code`\n\n```\nThis is code block\n```\n\n1. a list item\n\n> a block quote\n\n![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")\n\n**bolded text**'
    })
   }
   
