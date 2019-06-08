@@ -25,7 +25,7 @@ export default class MarkdownPreview extends React.Component {
     return { __html: marked(this.state.markdown) };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ markdown: event.target.value });
   };
 
