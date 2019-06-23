@@ -18,7 +18,7 @@ textarea {
   resize: none;
   border: none;
   background-color: #ccc;
-  color: #333
+  color: #333;
 }
 
 #preview-container {
@@ -52,11 +52,10 @@ textarea {
 
 #toggle {
   position: absolute;
-  right: 10;
-  top: 10;
+  bottom: 0;
+  width: 100vw;
   z-index: 2;
   background-color: yellow;
-  width: 72px;
   height: 36px;
   text-align: center;
   padding-top: 9px;
