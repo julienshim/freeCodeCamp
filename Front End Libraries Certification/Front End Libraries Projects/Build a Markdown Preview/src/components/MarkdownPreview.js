@@ -45,7 +45,7 @@ marked.setOptions({
          <div id="preview" dangerouslySetInnerHTML={this.handeCreateMarkup()} >
      </div>
      </div>
-     <div id="editor-container" className={this.state.toggle ==='Editor' ? "visible" : "hidden"}>
+     <div id="editor-container" className={this.state.toggle ==='Editory' ? "visible" : "hidden"}>
       <textarea id="editor" value={this.state.markdown} onChange={this.handleChange} />
      </div>
     </div>
