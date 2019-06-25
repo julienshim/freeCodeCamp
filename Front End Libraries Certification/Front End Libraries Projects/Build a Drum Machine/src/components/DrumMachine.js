@@ -1,22 +1,18 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 
 export default class DrumMachine extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
-    nothing: ''
+    text: 'Nothing to see here.'
    };
   }
-  
-  componentDidMount() {
-
-  }
-
  
   render() {
    return (
     <div id="main">
-     "Nothing to see here."
+     {this.state.text}
     </div>
    )
  }
