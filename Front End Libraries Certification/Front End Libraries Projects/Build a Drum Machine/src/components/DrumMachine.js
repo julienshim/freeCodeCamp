@@ -1,6 +1,18 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
+const bank = {
+  "Q": '',
+  "W": '',
+  "E": '', 
+  "A": '', 
+  "S": '', 
+  "D": '', 
+  "Z": '',
+  "X": '', 
+  "C": ''
+}
+
 export default class DrumMachine extends React.Component {
   constructor(props) {
    super(props);
@@ -8,11 +20,18 @@ export default class DrumMachine extends React.Component {
     text: 'Nothing to see here.'
    };
   }
+
+  
  
   render() {
+
+  
+
    return (
-    <div id="main">
-     {this.state.text}
+    <div id="drum-machine">
+     <div id="display">
+
+     </div>
     </div>
    )
  }
