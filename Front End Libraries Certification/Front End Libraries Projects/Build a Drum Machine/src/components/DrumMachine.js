@@ -1,16 +1,25 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
-const bank = {
-  "Q": '',
-  "W": '',
-  "E": '', 
-  "A": '', 
-  "S": '', 
-  "D": '', 
-  "Z": '',
-  "X": '', 
-  "C": ''
+const bank = [
+  {"Q": '', id: "" },
+  {"W": '', id: "" },
+  {"E": '', id: "" }, 
+  {"A": '', id: "" }, 
+  {"S": '', id: "" }, 
+  {"D": '', id: "" }, 
+  {"Z": '', id: "" },
+  {"X": '', id: "" }, 
+  {"C": '', id: "" }
+]
+
+const DrumPad = (props) => {
+
+  return(
+    <div className={drumPad}>
+
+    </div>
+  )
 }
 
 export default class DrumMachine extends React.Component {
@@ -30,7 +39,7 @@ export default class DrumMachine extends React.Component {
    return (
     <div id="drum-machine">
      <div id="display">
-
+        {bank.map((key, index) => <DrumPad />)}
      </div>
     </div>
    )
