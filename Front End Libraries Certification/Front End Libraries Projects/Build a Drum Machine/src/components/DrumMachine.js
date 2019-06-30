@@ -4,67 +4,88 @@ import ReactDOM from 'react-dom';
 
 
 
-const bank = [
+const audioBank = [
   {
     'key': 'Q',
-    'id': 'Snare-01',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-808',
+    'src': './audio/clap-808.wav'
   },
   {
     'key': 'W',
-    'id': 'Snare-02',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-analog',
+    'src': './audio/clap-analog.wav'
   },
   {
     'key': 'E',
-    'id': 'Snare-03',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-crushed',
+    'src': './audio/clap-crushed.wav'
   },
   {
     'key': 'A',
-    'id': 'Snare-04',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-fat',
+    'src': './audio/clap-fat.wav'
   },
   {
     'key': 'S',
-    'id': 'Snare-05',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-slapper',
+    'src': './audio/clap-slapper.wav'
   },
   {
     'key': 'D',
-    'id': 'Snare-06',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'clap-tape',
+    'src': './audio/clap-tape.wav'
   },  
   {
     'key': 'Z',
-    'id': 'Snare-07',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'cowbell-808',
+    'src': './audio/cowbell-808.wav'
   },
   {
     'key': 'X',
-    'id': 'Snare-08',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'crash-808',
+    'src': './audio/crash-808.wav'
   },
   {
     'key': 'C',
-    'id': 'Snare-09',
-    'src': 'http://cdn.mos.musicradar.com/audio/samples/drum-demo-samples/CYCdh_K4-Snr05.mp3'
+    'id': 'crash-acoustic',
+    'src': './audio/crash-acoustic.wav'
   }
 ]
 
-const DrumPad = (props) => {
-  const { value, src, id, handleClick } = props;
+class DrumPad extends React.Component {
 
+  audioRef = React.createRef();
+
+  handleClick = () => {
+    const {id, handleDisplay} = this.props;
+    // Because Chrome audio issues
+    this.audioRef.current.play().then(response => {
+      // console.log('response', response);
+    }).catch(error => {
+      console.log(error);
+    })
+    this.audioRef.current.currentTime = 0
+    handleDisplay(id);
+  }
+
+  render() {
+    const {id, value, src} = this.props;
     return (
       <div 
-        className="drum-pad" 
+        className='drum-pad'
         id={id} 
-        onClick={handleClick}
+        onClick={this.handleClick}
       >
-        <p>{value}</p>
-        <audio ref={ref => self.audio = ref} className="clip" src={src} id={value}></audio>
+        <h1>{value}</h1>
+        <audio 
+          id={value}
+          className="clip"
+          src={src} 
+          ref={this.audioRef} 
+        ></audio>
       </div>
     )
+  }
 
 }
 
@@ -72,27 +93,31 @@ export default class DrumMachine extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
-    text: 'Nothing to see here.'
+    display: 'Nothing to see here.'
    };
   }
 
-  handleClick() {
-    audio.play()
-    audio.currentTime = 0
+  handleDisplay (event) {
+    console.log(event);
+    // this.setState({
+    //   display: 
+    // })
   }
+  
+
 
   render() {
    return (
     <div id="drum-machine">
      <div id="display">
-      {bank.map(bankie => {
+      {audioBank.map(element => {
         return (
           <DrumPad 
-            key={bankie.id} 
-            id={bankie.id}
-            value={bankie.key} 
-            src={bankie.src}
-            handleClick={this.handleClick}
+            key={element.id} 
+            id={element.id}
+            value={element.key} 
+            src={element.src}
+            handleDisplay={this.handleDisplay}
           />
         )
       })}
