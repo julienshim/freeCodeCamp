@@ -53,13 +53,19 @@ const bank = [
 ]
 
 const DrumPad = (props) => {
-  const { value, src, id } = props;
-  return(
-    <div className="drum-pad" id={id}>
-      <p>{value}</p>
-      <audio className="clip"src={src} id={value}></audio>
-    </div>
-  )
+  const { value, src, id, handleClick } = props;
+
+    return (
+      <div 
+        className="drum-pad" 
+        id={id} 
+        onClick={handleClick}
+      >
+        <p>{value}</p>
+        <audio ref={ref => self.audio = ref} className="clip" src={src} id={value}></audio>
+      </div>
+    )
+
 }
 
 export default class DrumMachine extends React.Component {
@@ -68,6 +74,11 @@ export default class DrumMachine extends React.Component {
    this.state = {
     text: 'Nothing to see here.'
    };
+  }
+
+  handleClick() {
+    audio.play()
+    audio.currentTime = 0
   }
 
   render() {
@@ -81,6 +92,7 @@ export default class DrumMachine extends React.Component {
             id={bankie.id}
             value={bankie.key} 
             src={bankie.src}
+            handleClick={this.handleClick}
           />
         )
       })}
