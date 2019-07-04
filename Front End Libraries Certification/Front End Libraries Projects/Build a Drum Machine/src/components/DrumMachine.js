@@ -65,6 +65,19 @@ class DrumPad extends React.Component {
     handleDisplay(id);
   }
 
+  handleKeydown = (event) => {
+    const { value } = this.props;
+    event.key.toUpperCase() === value && console.log(value);
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.handleKeydown, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown, false);
+  }
+
   render() {
     const {id, value, src} = this.props;
     return (
@@ -95,7 +108,7 @@ export default class DrumMachine extends React.Component {
   }
 
   handleDisplay (event) {
-    console.log(event);
+    // console.log(event);
     // this.setState({
     //   display: 
     // })
