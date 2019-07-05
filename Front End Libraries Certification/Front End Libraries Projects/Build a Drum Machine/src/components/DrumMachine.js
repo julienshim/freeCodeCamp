@@ -67,7 +67,7 @@ class DrumPad extends React.Component {
 
   handleKeydown = (event) => {
     const { value } = this.props;
-    event.key.toUpperCase() === value && console.log(value);
+    event.key.toUpperCase() === value && this.handleClick()
   }
 
   componentDidMount(){
@@ -114,8 +114,6 @@ export default class DrumMachine extends React.Component {
     })
   }
   
-
-
   render() {
    return (
     <div id="drum-machine">
@@ -129,7 +127,6 @@ export default class DrumMachine extends React.Component {
             id={element.id}
             value={element.key} 
             src={element.src}
-            // This is passing the 'id' through handleDisplay by default vs () => this.handleDisplay(passing);
             handleDisplay={this.handleDisplay}
           />
         )
