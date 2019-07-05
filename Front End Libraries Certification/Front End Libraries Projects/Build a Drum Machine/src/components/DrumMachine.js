@@ -107,11 +107,11 @@ export default class DrumMachine extends React.Component {
    };
   }
 
-  handleDisplay (event) {
+  handleDisplay = (id) => {
     // console.log(event);
-    // this.setState({
-    //   display: 
-    // })
+    this.setState({
+      display: id
+    })
   }
   
 
@@ -120,19 +120,20 @@ export default class DrumMachine extends React.Component {
    return (
     <div id="drum-machine">
      <div id="display">
-      {audioBank.map(element => {
+      {this.state.display}
+     </div>
+     {audioBank.map(element => {
         return (
           <DrumPad 
             key={element.id} 
             id={element.id}
             value={element.key} 
             src={element.src}
+            // This is passing the 'id' through handleDisplay by default vs () => this.handleDisplay(passing);
             handleDisplay={this.handleDisplay}
           />
         )
       })}
-   
-     </div>
     </div>
    )
  }
