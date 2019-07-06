@@ -4,48 +4,48 @@ import ReactDOM from 'react-dom';
 const audioBank = [
   {
     'key': 'Q',
-    'id': 'clap-808',
-    'src': './audio/clap-808.wav'
+    'id': 'Kick 1',
+    'src': './audio/ToyKit1 - Kick 1.mp3'
   },
   {
     'key': 'W',
-    'id': 'clap-analog',
-    'src': './audio/clap-analog.wav'
+    'id': 'Close Hat 1',
+    'src': './audio/ToyKit2 - Close Hat 1.mp3'
   },
   {
     'key': 'E',
-    'id': 'clap-crushed',
-    'src': './audio/clap-crushed.wav'
+    'id': 'Hi Hat 1',
+    'src': './audio/ToyKit3 - Hi Hat 1.mp3'
   },
   {
     'key': 'A',
-    'id': 'clap-fat',
-    'src': './audio/clap-fat.wav'
+    'id': 'Snare 1',
+    'src': './audio/ToyKit4 - Snare 1.mp3'
   },
   {
     'key': 'S',
-    'id': 'clap-slapper',
-    'src': './audio/clap-slapper.wav'
+    'id': 'Kick 2',
+    'src': './audio/ToyKit5 - Kick 2.mp3'
   },
   {
     'key': 'D',
-    'id': 'clap-tape',
-    'src': './audio/clap-tape.wav'
+    'id': 'Close Hat 2',
+    'src': './audio/ToyKit6 - Close Hat 2.mp3'
   },  
   {
     'key': 'Z',
-    'id': 'cowbell-808',
-    'src': './audio/cowbell-808.wav'
+    'id': 'Hi Hat 2',
+    'src': './audio/ToyKit7 - Hi Hat 2.mp3'
   },
   {
     'key': 'X',
-    'id': 'crash-808',
-    'src': './audio/crash-808.wav'
+    'id': 'Snare 2',
+    'src': './audio/ToyKit8 - Snare 2.mp3'
   },
   {
     'key': 'C',
-    'id': 'crash-acoustic',
-    'src': './audio/crash-acoustic.wav'
+    'id': 'Kick 3',
+    'src': './audio/ToyKit9 - Kick 3.mp3'
   }
 ]
 
