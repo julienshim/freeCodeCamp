@@ -120,6 +120,7 @@ export default class DrumMachine extends React.Component {
      <div id="display">
       {this.state.display}
      </div>
+     <div id="audio-bank">
      {audioBank.map(element => {
         return (
           <DrumPad 
@@ -131,6 +132,7 @@ export default class DrumMachine extends React.Component {
           />
         )
       })}
+     </div>
     </div>
    )
  }

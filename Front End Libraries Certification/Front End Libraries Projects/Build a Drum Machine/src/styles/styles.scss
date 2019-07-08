@@ -4,3 +4,18 @@
 * {
   color: pink;
 }
+
+#drum-machine {
+    margin: 0 auto;
+    width: 500px;
+}
+
+#audio-bank {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.drum-pad {
+    background: blue;
+    text-align: center;
+}
