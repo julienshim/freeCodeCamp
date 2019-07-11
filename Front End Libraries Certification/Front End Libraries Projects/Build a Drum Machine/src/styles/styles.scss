@@ -2,20 +2,58 @@
 @import "./base/base";
 
 * {
-  color: pink;
+  color: grey;
 }
 
 #drum-machine {
-    margin: 0 auto;
-    width: 500px;
+  margin: 0 auto;
+  width: 500px;
 }
 
-#audio-bank {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+#audio-bank,
+#audio-bank-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
 }
 
 .drum-pad {
-    background: blue;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+  align-items: center;
+}
+
+.drum-pad::before {
+  content: " ";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.tom {
+  background: teal;
+}
+
+.horn {
+  background: red;
+}
+
+.crash {
+  background: coral;
+}
+
+.close {
+  background: blue;
+}
+
+.kick {
+  background: purple;
+}
+
+.snare {
+  background: green;
+}
+
+.hi {
+  background: yellow;
 }

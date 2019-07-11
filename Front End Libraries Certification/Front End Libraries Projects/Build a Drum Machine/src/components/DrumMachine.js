@@ -128,9 +128,10 @@ class DrumPad extends React.Component {
 
   render() {
     const {id, value, src} = this.props;
+    const color = `drum-pad ${id.split(' ')[0].toLowerCase()}`
     return (
       <div 
-        className='drum-pad'
+        className={color} 
         id={id} 
         onClick={this.handleClick}
       >
@@ -181,7 +182,7 @@ export default class DrumMachine extends React.Component {
         )
       })}
      </div>
-     {/* <div id="audio-bank-2">
+     <div id="audio-bank-2">
      {audioBankExtended.map(element => {
         return (
           <DrumPad 
@@ -193,7 +194,7 @@ export default class DrumMachine extends React.Component {
           />
         )
       })}
-     </div> */}
+     </div>
     </div>
    )
  }
