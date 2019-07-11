@@ -49,6 +49,54 @@ const audioBank = [
   }
 ]
 
+const audioBankExtended = [
+  {
+    'key': 'R',
+    'id': 'Close Hat 3',
+    'src': './audio/ToyKit10 - Close Hat 3.mp3'
+  },
+  {
+    'key': 'T',
+    'id': 'Tom 1',
+    'src': './audio/ToyKit11 - Tom 1.mp3'
+  },
+  {
+    'key': 'Y',
+    'id': 'Crash 1',
+    'src': './audio/ToyKit12 - Crash 1.mp3'
+  },
+  {
+    'key': 'F',
+    'id': 'Crash 2',
+    'src': './audio/ToyKit13 - Crash 2.mp3'
+  },
+  {
+    'key': 'G',
+    'id': 'Tom 2',
+    'src': './audio/ToyKit14 - Tom 2.mp3'
+  },
+  {
+    'key': 'H',
+    'id': 'Horn 1',
+    'src': './audio/ToyKit15 - Horn 1.mp3'
+  },  
+  {
+    'key': 'V',
+    'id': 'Horn 2',
+    'src': './audio/ToyKit16 - Horn 2.mp3'
+  },
+  {
+    'key': 'B',
+    'id': 'Horn 3',
+    'src': './audio/ToyKit17 - Horn 3.mp3'
+  },
+  {
+    'key': 'N',
+    'id': 'Horn 4',
+    'src': './audio/ToyKit18 - Horn 4.mp3'
+  }
+]
+
 class DrumPad extends React.Component {
 
   audioRef = React.createRef();
@@ -133,6 +181,19 @@ export default class DrumMachine extends React.Component {
         )
       })}
      </div>
+     {/* <div id="audio-bank-2">
+     {audioBankExtended.map(element => {
+        return (
+          <DrumPad 
+            key={element.id} 
+            id={element.id}
+            value={element.key} 
+            src={element.src}
+            handleDisplay={this.handleDisplay}
+          />
+        )
+      })}
+     </div> */}
     </div>
    )
  }
