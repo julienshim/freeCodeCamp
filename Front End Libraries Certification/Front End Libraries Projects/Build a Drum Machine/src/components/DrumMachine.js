@@ -18,65 +18,66 @@ const audioBank = [
     'src': './audio/ToyKit3 - Hi Hat 1.mp3'
   },
   {
-    'key': 'A',
+    'key': 'R',
+    'id': 'Crash 1',
+    'src': './audio/ToyKit12 - Crash 1.mp3'
+  },
+  {
+    'key': 'T',
     'id': 'Snare 1',
     'src': './audio/ToyKit4 - Snare 1.mp3'
   },
   {
-    'key': 'S',
-    'id': 'Kick 2',
-    'src': './audio/ToyKit5 - Kick 2.mp3'
-  },
-  {
-    'key': 'D',
-    'id': 'Close Hat 2',
-    'src': './audio/ToyKit6 - Close Hat 2.mp3'
-  },  
-  {
-    'key': 'Z',
-    'id': 'Hi Hat 2',
-    'src': './audio/ToyKit7 - Hi Hat 2.mp3'
-  },
-  {
-    'key': 'X',
-    'id': 'Snare 2',
-    'src': './audio/ToyKit8 - Snare 2.mp3'
-  },
-  {
-    'key': 'C',
-    'id': 'Kick 3',
-    'src': './audio/ToyKit9 - Kick 3.mp3'
-  }
-]
-
-const audioBankExtended = [
-  {
-    'key': 'R',
-    'id': 'Close Hat 3',
-    'src': './audio/ToyKit10 - Close Hat 3.mp3'
-  },
-  {
-    'key': 'T',
+    'key': 'Y',
     'id': 'Tom 1',
     'src': './audio/ToyKit11 - Tom 1.mp3'
   },
   {
-    'key': 'Y',
-    'id': 'Crash 1',
-    'src': './audio/ToyKit12 - Crash 1.mp3'
+    'key': 'A',
+    'id': 'Kick 2',
+    'src': './audio/ToyKit5 - Kick 2.mp3'
+  },
+  {
+    'key': 'S',
+    'id': 'Close Hat 2',
+    'src': './audio/ToyKit6 - Close Hat 2.mp3'
+  },  
+  {
+    'key': 'D',
+    'id': 'Hi Hat 2',
+    'src': './audio/ToyKit7 - Hi Hat 2.mp3'
   },
   {
     'key': 'F',
     'id': 'Crash 2',
     'src': './audio/ToyKit13 - Crash 2.mp3'
+
   },
   {
     'key': 'G',
+    'id': 'Snare 2',
+    'src': './audio/ToyKit8 - Snare 2.mp3'
+
+  },
+  {
+    'key': 'H',
     'id': 'Tom 2',
     'src': './audio/ToyKit14 - Tom 2.mp3'
   },
   {
-    'key': 'H',
+    'key': 'Z',
+    'id': 'Kick 3',
+    'src': './audio/ToyKit9 - Kick 3.mp3'
+
+  },
+  {
+    'key': 'X',
+    'id': 'Close Hat 3',
+    'src': './audio/ToyKit10 - Close Hat 3.mp3'
+
+  },
+  {
+    'key': 'C',
     'id': 'Horn 1',
     'src': './audio/ToyKit15 - Horn 1.mp3'
   },  
@@ -128,7 +129,8 @@ class DrumPad extends React.Component {
 
   render() {
     const {id, value, src} = this.props;
-    const color = `drum-pad ${id.split(' ')[0].toLowerCase()}`
+    const primary = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+    const color = `${primary.includes(value) ? 'drum-pad' : 'drum-pad-extended'} ${id.split(' ')[0].toLowerCase()}`
     return (
       <div 
         className={color} 
@@ -171,19 +173,6 @@ export default class DrumMachine extends React.Component {
      </div>
      <div id="audio-bank">
      {audioBank.map(element => {
-        return (
-          <DrumPad 
-            key={element.id} 
-            id={element.id}
-            value={element.key} 
-            src={element.src}
-            handleDisplay={this.handleDisplay}
-          />
-        )
-      })}
-     </div>
-     <div id="audio-bank-2">
-     {audioBankExtended.map(element => {
         return (
           <DrumPad 
             key={element.id} 

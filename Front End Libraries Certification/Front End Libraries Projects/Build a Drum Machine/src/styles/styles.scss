@@ -15,24 +15,25 @@ body {
 
 #drum-machine {
   margin: 0 auto;
-  width: 500px;
+  width: 700px;
 }
 
-#audio-bank,
-#audio-bank-2 {
+#audio-bank {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-auto-rows: 1fr;
 }
 
-.drum-pad {
+.drum-pad,
+.drum-pad-extended {
   display: flex;
   justify-content: center;
   margin: 2px;
   align-items: center;
 }
 
-.drum-pad::before {
+.drum-pad::before,
+.drum-pad-extended::before {
   content: " ";
   display: block;
   padding-bottom: 100%;
