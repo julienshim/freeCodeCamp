@@ -58,7 +58,7 @@ export default class DrumMachine extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
-    display: 'Nothing to see here.',
+    display: 'Press Any Key To Get Started',
     audiobank: [
       {
         'key': 'Q',

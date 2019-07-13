@@ -30,6 +30,12 @@ body {
   justify-content: center;
   margin: 2px;
   align-items: center;
+  user-select: none;
+}
+
+.drum-pad:active,
+.drum-pad-extended:active {
+  background: lime;
 }
 
 .drum-pad::before,
