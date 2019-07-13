@@ -1,16 +1,38 @@
 @import "./base/settings";
 @import "./base/base";
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
 
 * {
   color: #222;
+  font-size: 12px;
+  font-family: "Didact Gothic", sans-serif;
 }
 
 body {
-  background: #222;
+  background: rgba(51, 51, 51, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#drum-machine {
+  background: rgba(33, 33, 33, 1);
+  box-shadow: 0 5px 15px rgba(33, 33, 33, 0.4);
+  border-radius: 2.5px;
+  padding: 30px 15px;
 }
 
 #display {
-  color: grey;
+  color: #eaeaea;
+  background: #000;
+  height: 100px;
+  margin: 10px 2.5px;
+  user-select: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
 
 #drum-machine {
@@ -26,49 +48,55 @@ body {
 
 .drum-pad,
 .drum-pad-extended {
+  align-items: center;
+  border-radius: 5%;
   display: flex;
   justify-content: center;
-  margin: 2px;
-  align-items: center;
+  margin: 5px;
   user-select: none;
-}
-
-.drum-pad:active,
-.drum-pad-extended:active {
-  background: lime;
-}
-
-.drum-pad::before,
-.drum-pad-extended::before {
-  content: " ";
-  display: block;
-  padding-bottom: 100%;
+  &:before {
+    content: " ";
+    display: block;
+    padding-bottom: 100%;
+  }
 }
 
 .tom {
-  background: #6559ad;
+  background: rgba(145, 60, 205, 1);
+  box-shadow: 0 5px 15px rgba(145, 60, 205, 0.4);
 }
 
 .horn {
-  background: #ff22a7;
+  background: rgba(241, 95, 116, 1);
+  box-shadow: 0 5px 15px rgba(241, 95, 116, 0.4);
 }
 
 .crash {
-  background: #34a386;
+  background: rgba(247, 109, 60, 1);
+  box-shadow: 0 5px 15px rgba(247, 109, 60, 0.4);
 }
 
 .close {
-  background: #c9aa29;
+  background: rgba(247, 216, 66, 1);
+  box-shadow: 0 5px 15px rgba(247, 216, 66, 0.4);
 }
 
 .kick {
-  background: #2287fd;
+  background: rgba(44, 168, 194, 1);
+  box-shadow: 0 5px 15px rgba(44, 168, 194, 0.4);
 }
 
 .snare {
-  background: #f4542c;
+  background: rgba(131, 144, 152, 1);
+  box-shadow: 0 5px 15px rgba(131, 144, 152, 0.4);
 }
 
 .hi {
-  background: yellow;
+  background: rgba(84, 129, 233, 1);
+  box-shadow: 0 5px 15px rgba(84, 129, 233, 0.4);
+}
+
+.active {
+  background: rgba(152, 203, 74, 1);
+  box-shadow: 0 5px 15px rgba(152, 203, 74, 0.4);
 }

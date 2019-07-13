@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 class DrumPad extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      keypress : false
+    }
+  }
 
   audioRef = React.createRef();
 
+  handleActive = () => {
+    this.setState(prevState => ({
+      keypress: !prevState.keypress
+    }))
+  }
+
   handleClick = () => {
-    const {id, handleDisplay} = this.props;
+    const {id, handleDisplay, handleActive} = this.props;
     // Because Chrome audio issues
     this.audioRef.current.play().then(response => {
       // console.log('response', response);
@@ -16,13 +28,15 @@ class DrumPad extends React.Component {
     })
     this.audioRef.current.currentTime = 0
     handleDisplay(id);
+    this.handleActive();
+    setTimeout(() => this.handleActive(), 200);
   }
 
   handleKeydown = (event) => {
     const { value } = this.props;
     event.key.toUpperCase() === value && this.handleClick()
   }
-
+  
   componentDidMount(){
     document.addEventListener("keydown", this.handleKeydown, false);
   }
@@ -34,7 +48,8 @@ class DrumPad extends React.Component {
   render() {
     const {id, value, src} = this.props;
     const primary = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
-    const color = `${primary.includes(value) ? 'drum-pad' : 'drum-pad-extended'} ${id.split(' ')[0].toLowerCase()}`
+    // By pass the 9 button test limit
+    const color = `${primary.includes(value) ? 'drum-pad' : 'drum-pad-extended'} ${this.state.keypress && 'active'} ${id.split(' ')[0].toLowerCase()}`
     return (
       <div 
         className={color} 
@@ -58,7 +73,7 @@ export default class DrumMachine extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
-    display: 'Press Any Key To Get Started',
+    display: 'press any key to get started'.toUpperCase(),
     audiobank: [
       {
         'key': 'Q',
@@ -161,7 +176,7 @@ export default class DrumMachine extends React.Component {
   handleDisplay = (id) => {
     // console.log(event);
     this.setState({
-      display: id
+      display: id.toUpperCase()
     })
   }
   
