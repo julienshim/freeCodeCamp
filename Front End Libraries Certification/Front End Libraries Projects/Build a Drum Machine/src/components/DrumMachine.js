@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 class DrumPad extends React.Component {
   constructor(props) {
