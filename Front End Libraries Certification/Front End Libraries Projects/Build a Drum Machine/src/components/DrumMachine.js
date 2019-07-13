@@ -36,7 +36,7 @@ class DrumPad extends React.Component {
     const { value } = this.props;
     event.key.toUpperCase() === value && this.handleClick()
   }
-  
+
   componentDidMount(){
     document.addEventListener("keydown", this.handleKeydown, false);
   }
