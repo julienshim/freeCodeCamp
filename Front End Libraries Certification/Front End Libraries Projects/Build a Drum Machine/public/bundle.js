@@ -25512,8 +25512,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DrumMachine; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _DrumPad__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DrumPad */ "./src/components/DrumPad.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25534,6 +25533,168 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+
+
+
+var DrumMachine =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(DrumMachine, _React$Component);
+
+  function DrumMachine(props) {
+    var _this;
+
+    _classCallCheck(this, DrumMachine);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DrumMachine).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleDisplay", function (id) {
+      // console.log(event);
+      _this.setState({
+        display: id.toUpperCase()
+      });
+    });
+
+    _this.state = {
+      display: 'press any key to get started'.toUpperCase(),
+      audiobank: [{
+        'key': 'Q',
+        'id': 'Kick 1',
+        'src': './audio/ToyKit1 - Kick 1.mp3'
+      }, {
+        'key': 'W',
+        'id': 'Close Hat 1',
+        'src': './audio/ToyKit2 - Close Hat 1.mp3'
+      }, {
+        'key': 'E',
+        'id': 'Hi Hat 1',
+        'src': './audio/ToyKit3 - Hi Hat 1.mp3'
+      }, {
+        'key': 'R',
+        'id': 'Crash 1',
+        'src': './audio/ToyKit12 - Crash 1.mp3'
+      }, {
+        'key': 'T',
+        'id': 'Snare 1',
+        'src': './audio/ToyKit4 - Snare 1.mp3'
+      }, {
+        'key': 'Y',
+        'id': 'Tom 1',
+        'src': './audio/ToyKit11 - Tom 1.mp3'
+      }, {
+        'key': 'A',
+        'id': 'Kick 2',
+        'src': './audio/ToyKit5 - Kick 2.mp3'
+      }, {
+        'key': 'S',
+        'id': 'Close Hat 2',
+        'src': './audio/ToyKit6 - Close Hat 2.mp3'
+      }, {
+        'key': 'D',
+        'id': 'Hi Hat 2',
+        'src': './audio/ToyKit7 - Hi Hat 2.mp3'
+      }, {
+        'key': 'F',
+        'id': 'Crash 2',
+        'src': './audio/ToyKit13 - Crash 2.mp3'
+      }, {
+        'key': 'G',
+        'id': 'Snare 2',
+        'src': './audio/ToyKit8 - Snare 2.mp3'
+      }, {
+        'key': 'H',
+        'id': 'Tom 2',
+        'src': './audio/ToyKit14 - Tom 2.mp3'
+      }, {
+        'key': 'Z',
+        'id': 'Kick 3',
+        'src': './audio/ToyKit9 - Kick 3.mp3'
+      }, {
+        'key': 'X',
+        'id': 'Close Hat 3',
+        'src': './audio/ToyKit10 - Close Hat 3.mp3'
+      }, {
+        'key': 'C',
+        'id': 'Horn 1',
+        'src': './audio/ToyKit15 - Horn 1.mp3'
+      }, {
+        'key': 'V',
+        'id': 'Horn 2',
+        'src': './audio/ToyKit16 - Horn 2.mp3'
+      }, {
+        'key': 'B',
+        'id': 'Horn 3',
+        'src': './audio/ToyKit17 - Horn 3.mp3'
+      }, {
+        'key': 'N',
+        'id': 'Horn 4',
+        'src': './audio/ToyKit18 - Horn 4.mp3'
+      }]
+    };
+    return _this;
+  }
+
+  _createClass(DrumMachine, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "drum-machine"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "display"
+      }, this.state.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "audio-bank"
+      }, this.state.audiobank.map(function (element) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DrumPad__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: element.id,
+          id: element.id,
+          value: element.key,
+          src: element.src,
+          handleDisplay: _this2.handleDisplay
+        });
+      })));
+    }
+  }]);
+
+  return DrumMachine;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
+
+/***/ }),
+
+/***/ "./src/components/DrumPad.js":
+/*!***********************************!*\
+  !*** ./src/components/DrumPad.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DrumPad; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -25627,132 +25788,7 @@ function (_React$Component) {
   return DrumPad;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-var DrumMachine =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(DrumMachine, _React$Component2);
 
-  function DrumMachine(props) {
-    var _this2;
-
-    _classCallCheck(this, DrumMachine);
-
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(DrumMachine).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this2), "handleDisplay", function (id) {
-      // console.log(event);
-      _this2.setState({
-        display: id.toUpperCase()
-      });
-    });
-
-    _this2.state = {
-      display: 'press any key to get started'.toUpperCase(),
-      audiobank: [{
-        'key': 'Q',
-        'id': 'Kick 1',
-        'src': './audio/ToyKit1 - Kick 1.mp3'
-      }, {
-        'key': 'W',
-        'id': 'Close Hat 1',
-        'src': './audio/ToyKit2 - Close Hat 1.mp3'
-      }, {
-        'key': 'E',
-        'id': 'Hi Hat 1',
-        'src': './audio/ToyKit3 - Hi Hat 1.mp3'
-      }, {
-        'key': 'R',
-        'id': 'Crash 1',
-        'src': './audio/ToyKit12 - Crash 1.mp3'
-      }, {
-        'key': 'T',
-        'id': 'Snare 1',
-        'src': './audio/ToyKit4 - Snare 1.mp3'
-      }, {
-        'key': 'Y',
-        'id': 'Tom 1',
-        'src': './audio/ToyKit11 - Tom 1.mp3'
-      }, {
-        'key': 'A',
-        'id': 'Kick 2',
-        'src': './audio/ToyKit5 - Kick 2.mp3'
-      }, {
-        'key': 'S',
-        'id': 'Close Hat 2',
-        'src': './audio/ToyKit6 - Close Hat 2.mp3'
-      }, {
-        'key': 'D',
-        'id': 'Hi Hat 2',
-        'src': './audio/ToyKit7 - Hi Hat 2.mp3'
-      }, {
-        'key': 'F',
-        'id': 'Crash 2',
-        'src': './audio/ToyKit13 - Crash 2.mp3'
-      }, {
-        'key': 'G',
-        'id': 'Snare 2',
-        'src': './audio/ToyKit8 - Snare 2.mp3'
-      }, {
-        'key': 'H',
-        'id': 'Tom 2',
-        'src': './audio/ToyKit14 - Tom 2.mp3'
-      }, {
-        'key': 'Z',
-        'id': 'Kick 3',
-        'src': './audio/ToyKit9 - Kick 3.mp3'
-      }, {
-        'key': 'X',
-        'id': 'Close Hat 3',
-        'src': './audio/ToyKit10 - Close Hat 3.mp3'
-      }, {
-        'key': 'C',
-        'id': 'Horn 1',
-        'src': './audio/ToyKit15 - Horn 1.mp3'
-      }, {
-        'key': 'V',
-        'id': 'Horn 2',
-        'src': './audio/ToyKit16 - Horn 2.mp3'
-      }, {
-        'key': 'B',
-        'id': 'Horn 3',
-        'src': './audio/ToyKit17 - Horn 3.mp3'
-      }, {
-        'key': 'N',
-        'id': 'Horn 4',
-        'src': './audio/ToyKit18 - Horn 4.mp3'
-      }]
-    };
-    return _this2;
-  }
-
-  _createClass(DrumMachine, [{
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "drum-machine"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "display"
-      }, this.state.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "audio-bank"
-      }, this.state.audiobank.map(function (element) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DrumPad, {
-          key: element.id,
-          id: element.id,
-          value: element.key,
-          src: element.src,
-          handleDisplay: _this3.handleDisplay
-        });
-      })));
-    }
-  }]);
-
-  return DrumMachine;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DrumMachine, null), document.getElementById("app"));
 
 /***/ }),
 
