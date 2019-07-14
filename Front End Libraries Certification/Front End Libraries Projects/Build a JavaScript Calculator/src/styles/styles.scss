@@ -1,0 +1,25 @@
+@import "./base/settings";
+@import "./base/base";
+@import url("https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap");
+
+* {
+  color: #222;
+  font-size: 12px;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#javascript-calculator {
+  border: 1px solid black;
+}
