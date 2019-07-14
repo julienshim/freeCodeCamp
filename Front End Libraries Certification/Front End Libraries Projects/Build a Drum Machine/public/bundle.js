@@ -98,7 +98,6 @@ exports = module.exports = __webpack_require__(/*! ../css-loader/dist/runtime/ap
 exports.push([module.i, "/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */\n/* Document\n   ========================================================================== */\n/**\n * 1. Correct the line height in all browsers.\n * 2. Prevent adjustments of font size after orientation changes in iOS.\n */\nhtml {\n  line-height: 1.15;\n  /* 1 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */ }\n\n/* Sections\n   ========================================================================== */\n/**\n * Remove the margin in all browsers.\n */\nbody {\n  margin: 0; }\n\n/**\n * Render the `main` element consistently in IE.\n */\nmain {\n  display: block; }\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\nhr {\n  box-sizing: content-box;\n  /* 1 */\n  height: 0;\n  /* 1 */\n  overflow: visible;\n  /* 2 */ }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\npre {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Remove the gray background on active links in IE 10.\n */\na {\n  background-color: transparent; }\n\n/**\n * 1. Remove the bottom border in Chrome 57-\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\nabbr[title] {\n  border-bottom: none;\n  /* 1 */\n  text-decoration: underline;\n  /* 2 */\n  text-decoration: underline dotted;\n  /* 2 */ }\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\nb,\nstrong {\n  font-weight: bolder; }\n\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\ncode,\nkbd,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/**\n * Add the correct font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsub {\n  bottom: -0.25em; }\n\nsup {\n  top: -0.5em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove the border on images inside links in IE 10.\n */\nimg {\n  border-style: none; }\n\n/* Forms\n   ========================================================================== */\n/**\n * 1. Change the font styles in all browsers.\n * 2. Remove the margin in Firefox and Safari.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit;\n  /* 1 */\n  font-size: 100%;\n  /* 1 */\n  line-height: 1.15;\n  /* 1 */\n  margin: 0;\n  /* 2 */ }\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\nbutton,\ninput {\n  /* 1 */\n  overflow: visible; }\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\nbutton,\nselect {\n  /* 1 */\n  text-transform: none; }\n\n/**\n * Correct the inability to style clickable types in iOS and Safari.\n */\nbutton,\n[type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; }\n\n/**\n * Remove the inner border and padding in Firefox.\n */\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0; }\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText; }\n\n/**\n * Correct the padding in Firefox.\n */\nfieldset {\n  padding: 0.35em 0.75em 0.625em; }\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\nlegend {\n  box-sizing: border-box;\n  /* 1 */\n  color: inherit;\n  /* 2 */\n  display: table;\n  /* 1 */\n  max-width: 100%;\n  /* 1 */\n  padding: 0;\n  /* 3 */\n  white-space: normal;\n  /* 1 */ }\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\nprogress {\n  vertical-align: baseline; }\n\n/**\n * Remove the default vertical scrollbar in IE 10+.\n */\ntextarea {\n  overflow: auto; }\n\n/**\n * 1. Add the correct box sizing in IE 10.\n * 2. Remove the padding in IE 10.\n */\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  outline-offset: -2px;\n  /* 2 */ }\n\n/**\n * Remove the inner padding in Chrome and Safari on macOS.\n */\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n::-webkit-file-upload-button {\n  -webkit-appearance: button;\n  /* 1 */\n  font: inherit;\n  /* 2 */ }\n\n/* Interactive\n   ========================================================================== */\n/*\n * Add the correct display in Edge, IE 10+, and Firefox.\n */\ndetails {\n  display: block; }\n\n/*\n * Add the correct display in all browsers.\n */\nsummary {\n  display: list-item; }\n\n/* Misc\n   ========================================================================== */\n/**\n * Add the correct display in IE 10+.\n */\ntemplate {\n  display: none; }\n\n/**\n * Add the correct display in IE 10.\n */\n[hidden] {\n  display: none; }\n", ""]);
 
 
-
 /***/ }),
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js!./src/styles/styles.scss":
@@ -109,9 +108,10 @@ exports.push([module.i, "/*! normalize.css v8.0.1 | MIT License | github.com/nec
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap);", ""]);
 // Module
-exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n\n* {\n  color: pink; }\n", ""]);
-
+exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n\n* {\n  color: #222;\n  font-size: 12px;\n  font-family: \"Didact Gothic\", sans-serif; }\n\nhtml,\nbody {\n  height: 100%;\n  width: 100%; }\n\nbody {\n  background: #333333;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n#drum-machine {\n  background: #212121;\n  box-shadow: 0 5px 15px rgba(33, 33, 33, 0.4);\n  border-radius: 2.5px;\n  padding: 30px 15px; }\n\n#display {\n  color: #eaeaea;\n  background: #000;\n  height: 100px;\n  margin: 10px 2.5px;\n  user-select: none;\n  border-radius: 5px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 24px; }\n\n#drum-machine {\n  margin: 0 auto;\n  width: 700px; }\n\n#audio-bank {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;\n  grid-auto-rows: 1fr; }\n\n.drum-pad,\n.drum-pad-extended {\n  align-items: center;\n  border-radius: 5%;\n  display: flex;\n  justify-content: center;\n  margin: 5px;\n  user-select: none; }\n  .drum-pad:before,\n  .drum-pad-extended:before {\n    content: \" \";\n    display: block;\n    padding-bottom: 100%; }\n\n.tom {\n  background: #913ccd;\n  box-shadow: 0 5px 15px rgba(145, 60, 205, 0.4); }\n\n.horn {\n  background: #f15f74;\n  box-shadow: 0 5px 15px rgba(241, 95, 116, 0.4); }\n\n.crash {\n  background: #f76d3c;\n  box-shadow: 0 5px 15px rgba(247, 109, 60, 0.4); }\n\n.close {\n  background: #f7d842;\n  box-shadow: 0 5px 15px rgba(247, 216, 66, 0.4); }\n\n.kick {\n  background: #2ca8c2;\n  box-shadow: 0 5px 15px rgba(44, 168, 194, 0.4); }\n\n.snare {\n  background: #839098;\n  box-shadow: 0 5px 15px rgba(131, 144, 152, 0.4); }\n\n.hi {\n  background: #5481e9;\n  box-shadow: 0 5px 15px rgba(84, 129, 233, 0.4); }\n\n.active {\n  background: #98cb4a;\n  box-shadow: 0 5px 15px rgba(152, 203, 74, 0.4); }\n", ""]);
 
 
 /***/ }),
@@ -131,6 +131,7 @@ exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family:
   Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
+// eslint-disable-next-line func-names
 module.exports = function (useSourceMap) {
   var list = []; // return the list of modules as css string
 
@@ -139,22 +140,25 @@ module.exports = function (useSourceMap) {
       var content = cssWithMappingToString(item, useSourceMap);
 
       if (item[2]) {
-        return '@media ' + item[2] + '{' + content + '}';
-      } else {
-        return content;
+        return "@media ".concat(item[2], "{").concat(content, "}");
       }
+
+      return content;
     }).join('');
   }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
 
 
   list.i = function (modules, mediaQuery) {
     if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
       modules = [[null, modules, '']];
     }
 
     var alreadyImportedModules = {};
 
     for (var i = 0; i < this.length; i++) {
+      // eslint-disable-next-line prefer-destructuring
       var id = this[i][0];
 
       if (id != null) {
@@ -162,8 +166,8 @@ module.exports = function (useSourceMap) {
       }
     }
 
-    for (i = 0; i < modules.length; i++) {
-      var item = modules[i]; // skip already imported module
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = modules[_i]; // skip already imported module
       // this implementation is not 100% perfect for weird media query combinations
       // when a module is imported multiple times with different media queries.
       // I hope this will never occur (Hey this way we have smaller bundles)
@@ -172,7 +176,7 @@ module.exports = function (useSourceMap) {
         if (mediaQuery && !item[2]) {
           item[2] = mediaQuery;
         } else if (mediaQuery) {
-          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+          item[2] = "(".concat(item[2], ") and (").concat(mediaQuery, ")");
         }
 
         list.push(item);
@@ -184,7 +188,8 @@ module.exports = function (useSourceMap) {
 };
 
 function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || '';
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
   var cssMapping = item[3];
 
   if (!cssMapping) {
@@ -194,7 +199,7 @@ function cssWithMappingToString(item, useSourceMap) {
   if (useSourceMap && typeof btoa === 'function') {
     var sourceMapping = toComment(cssMapping);
     var sourceURLs = cssMapping.sources.map(function (source) {
-      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot).concat(source, " */");
     });
     return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
   }
@@ -206,8 +211,8 @@ function cssWithMappingToString(item, useSourceMap) {
 function toComment(sourceMap) {
   // eslint-disable-next-line no-undef
   var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-  return '/*# ' + data + ' */';
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
 }
 
 /***/ }),
@@ -25531,109 +25536,213 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var bank = [{
-  'key': 'Q',
-  'id': 'clap-808',
-  'src': './audio/clap-808.wav'
-}, {
-  'key': 'W',
-  'id': 'clap-analog',
-  'src': './audio/clap-analog.wav'
-}, {
-  'key': 'E',
-  'id': 'clap-crushed',
-  'src': './audio/clap-crushed.wav'
-}, {
-  'key': 'A',
-  'id': 'clap-fat',
-  'src': './audio/clap-fat.wav'
-}, {
-  'key': 'S',
-  'id': 'clap-slapper',
-  'src': './audio/clap-slapper.wav'
-}, {
-  'key': 'D',
-  'id': 'clap-tape',
-  'src': './audio/clap-tape.wav'
-}, {
-  'key': 'Z',
-  'id': 'cowbell-808',
-  'src': './audio/cowbell-808.wav'
-}, {
-  'key': 'X',
-  'id': 'crash-808',
-  'src': './audio/crash-808.wav'
-}, {
-  'key': 'C',
-  'id': 'crash-acoustic',
-  'src': './audio/crash-acoustic.wav'
-}];
 
-var DrumPad = function DrumPad(props) {
-  var value = props.value,
-      src = props.src,
-      id = props.id,
-      handleClick = props.handleClick,
-      audioRef = props.audioRef;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "drum-pad",
-    id: id,
-    onClick: handleClick
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, value), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
-    id: value,
-    className: "clip",
-    src: src,
-    ref: audioRef
-  }));
-};
-
-var DrumMachine =
+var DrumPad =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(DrumMachine, _React$Component);
+  _inherits(DrumPad, _React$Component);
 
-  function DrumMachine(props) {
+  function DrumPad(props) {
     var _this;
 
-    _classCallCheck(this, DrumMachine);
+    _classCallCheck(this, DrumPad);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DrumMachine).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DrumPad).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "audioRef", react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef());
 
-    _this.state = {
-      text: 'Nothing to see here.'
-    };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
-  }
+    _defineProperty(_assertThisInitialized(_this), "handleActive", function () {
+      _this.setState(function (prevState) {
+        return {
+          keypress: !prevState.keypress
+        };
+      });
+    });
 
-  _createClass(DrumMachine, [{
-    key: "handleClick",
-    value: function handleClick() {
-      this.audioRef.current.play().then(function (response) {// console.log(response);
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
+      var _this$props = _this.props,
+          id = _this$props.id,
+          handleDisplay = _this$props.handleDisplay,
+          handleActive = _this$props.handleActive; // Because Chrome audio issues
+
+      _this.audioRef.current.play().then(function (response) {// console.log('response', response);
       })["catch"](function (error) {
         console.log(error);
       });
-      this.audioRef.current.currentTime = 0;
+
+      _this.audioRef.current.currentTime = 0;
+      handleDisplay(id);
+
+      _this.handleActive();
+
+      setTimeout(function () {
+        return _this.handleActive();
+      }, 200);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleKeydown", function (event) {
+      var value = _this.props.value;
+      event.key.toUpperCase() === value && _this.handleClick();
+    });
+
+    _this.state = {
+      keypress: false
+    };
+    return _this;
+  }
+
+  _createClass(DrumPad, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener("keydown", this.handleKeydown, false);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener("keydown", this.handleKeyDown, false);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this$props2 = this.props,
+          id = _this$props2.id,
+          value = _this$props2.value,
+          src = _this$props2.src;
+      var primary = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C']; // By pass the 9 button test limit
+
+      var color = "".concat(primary.includes(value) ? 'drum-pad' : 'drum-pad-extended', " ").concat(this.state.keypress && 'active', " ").concat(id.split(' ')[0].toLowerCase());
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: color,
+        id: id,
+        onClick: this.handleClick
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, value), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+        id: value,
+        className: "clip",
+        src: src,
+        ref: this.audioRef
+      }));
+    }
+  }]);
+
+  return DrumPad;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var DrumMachine =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(DrumMachine, _React$Component2);
+
+  function DrumMachine(props) {
+    var _this2;
+
+    _classCallCheck(this, DrumMachine);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(DrumMachine).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this2), "handleDisplay", function (id) {
+      // console.log(event);
+      _this2.setState({
+        display: id.toUpperCase()
+      });
+    });
+
+    _this2.state = {
+      display: 'press any key to get started'.toUpperCase(),
+      audiobank: [{
+        'key': 'Q',
+        'id': 'Kick 1',
+        'src': './audio/ToyKit1 - Kick 1.mp3'
+      }, {
+        'key': 'W',
+        'id': 'Close Hat 1',
+        'src': './audio/ToyKit2 - Close Hat 1.mp3'
+      }, {
+        'key': 'E',
+        'id': 'Hi Hat 1',
+        'src': './audio/ToyKit3 - Hi Hat 1.mp3'
+      }, {
+        'key': 'R',
+        'id': 'Crash 1',
+        'src': './audio/ToyKit12 - Crash 1.mp3'
+      }, {
+        'key': 'T',
+        'id': 'Snare 1',
+        'src': './audio/ToyKit4 - Snare 1.mp3'
+      }, {
+        'key': 'Y',
+        'id': 'Tom 1',
+        'src': './audio/ToyKit11 - Tom 1.mp3'
+      }, {
+        'key': 'A',
+        'id': 'Kick 2',
+        'src': './audio/ToyKit5 - Kick 2.mp3'
+      }, {
+        'key': 'S',
+        'id': 'Close Hat 2',
+        'src': './audio/ToyKit6 - Close Hat 2.mp3'
+      }, {
+        'key': 'D',
+        'id': 'Hi Hat 2',
+        'src': './audio/ToyKit7 - Hi Hat 2.mp3'
+      }, {
+        'key': 'F',
+        'id': 'Crash 2',
+        'src': './audio/ToyKit13 - Crash 2.mp3'
+      }, {
+        'key': 'G',
+        'id': 'Snare 2',
+        'src': './audio/ToyKit8 - Snare 2.mp3'
+      }, {
+        'key': 'H',
+        'id': 'Tom 2',
+        'src': './audio/ToyKit14 - Tom 2.mp3'
+      }, {
+        'key': 'Z',
+        'id': 'Kick 3',
+        'src': './audio/ToyKit9 - Kick 3.mp3'
+      }, {
+        'key': 'X',
+        'id': 'Close Hat 3',
+        'src': './audio/ToyKit10 - Close Hat 3.mp3'
+      }, {
+        'key': 'C',
+        'id': 'Horn 1',
+        'src': './audio/ToyKit15 - Horn 1.mp3'
+      }, {
+        'key': 'V',
+        'id': 'Horn 2',
+        'src': './audio/ToyKit16 - Horn 2.mp3'
+      }, {
+        'key': 'B',
+        'id': 'Horn 3',
+        'src': './audio/ToyKit17 - Horn 3.mp3'
+      }, {
+        'key': 'N',
+        'id': 'Horn 4',
+        'src': './audio/ToyKit18 - Horn 4.mp3'
+      }]
+    };
+    return _this2;
+  }
+
+  _createClass(DrumMachine, [{
+    key: "render",
+    value: function render() {
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "drum-machine"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "display"
-      }, bank.map(function (bankie) {
+      }, this.state.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "audio-bank"
+      }, this.state.audiobank.map(function (element) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DrumPad, {
-          key: bankie.id,
-          id: bankie.id,
-          value: bankie.key,
-          src: bankie.src,
-          handleClick: _this2.handleClick,
-          audioRef: _this2.audioRef
+          key: element.id,
+          id: element.id,
+          value: element.key,
+          src: element.src,
+          handleDisplay: _this3.handleDisplay
         });
       })));
     }
