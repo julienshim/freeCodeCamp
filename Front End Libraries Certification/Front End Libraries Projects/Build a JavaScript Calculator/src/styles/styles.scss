@@ -14,12 +14,46 @@ body {
   width: 100%;
 }
 
+#display {
+  text-align: right;
+  padding: 12px;
+  font-size: 48px;
+  border: 1px solid black;
+}
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.buttons {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  &:hover {
+    background-color: green;
+  }
+}
+
 #javascript-calculator {
+  border: 1px solid black;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#zero {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   border: 1px solid black;
 }

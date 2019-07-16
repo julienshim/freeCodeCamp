@@ -4,14 +4,105 @@ export default class JavaScriptCalculator extends React.Component {
   constructor(props) {
    super(props);
    this.state = {
-    display: 'Nothing to see here'
-   };
+    display: '0',
+    buttons: [
+      { 
+        id: "clear",
+        value: "ac".toUpperCase()
+        },
+      { 
+        id: "plus-minus",
+        value: "+/-"
+      },
+      { 
+        id: "percent",
+        value: "%"
+      },
+      { 
+        id: "divide",
+        value: "/"
+      },
+      { 
+        id: "seven",
+        value: "7"
+      },
+      { 
+        id: "eight",
+        value: "8"
+      },
+      { 
+        id: "nine",
+        value: "9"
+      },
+      { 
+        id: "multiply",
+        value: "x"
+      },
+      { 
+        id: "four",
+        value: "6"
+      },
+      { 
+        id: "five",
+        value: "5"
+      },
+      { 
+        id: "six",
+        value: "4"
+      },
+      { 
+        id: "subtract",
+        value: "-"
+      },
+      { 
+        id: "one",
+        value: "1"
+      },
+      { 
+        id: "two",
+        value: "2"
+      },
+      { 
+        id: "three",
+        value: "3"
+      },
+      { 
+        id: "add",
+        value: "+"
+      },
+      { 
+        id: "zero",
+        value: "0"
+      },
+      { 
+        id: "decimal",
+        value: "."
+      },
+      { 
+        id: "equals",
+        value: "="
+      }]
+    }
   }
   
+  handleClick = (event) => {
+    event.preventDefault()
+    console.log(event);
+  }
+
   render() {
+
+
    return (
     <div id="javascript-calculator">
-      {this.state.display}
+      <div id="display">
+        {this.state.display}
+      </div>
+      <div id="buttons">
+        { this.state.buttons.map(button => {
+          return <div key={button.id} id={button.id} className={"buttons"} onClick={this.handleClick}>{button.value}</div>
+        })}
+      </div>
     </div>
    )
  }
