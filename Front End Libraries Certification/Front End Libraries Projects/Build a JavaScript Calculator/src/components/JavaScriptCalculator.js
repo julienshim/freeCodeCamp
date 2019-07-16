@@ -84,10 +84,11 @@ export default class JavaScriptCalculator extends React.Component {
       }]
     }
   }
+
   
   handleClick = (event) => {
     event.preventDefault()
-    console.log(event);
+    const input = event.target.innerHTML;
   }
 
   render() {
