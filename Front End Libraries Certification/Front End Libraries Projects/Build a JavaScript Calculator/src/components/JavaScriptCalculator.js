@@ -40,7 +40,7 @@ export default class JavaScriptCalculator extends React.Component {
       },
       { 
         id: "four",
-        value: "6"
+        value: "4"
       },
       { 
         id: "five",
@@ -48,7 +48,7 @@ export default class JavaScriptCalculator extends React.Component {
       },
       { 
         id: "six",
-        value: "4"
+        value: "6"
       },
       { 
         id: "subtract",
@@ -89,6 +89,9 @@ export default class JavaScriptCalculator extends React.Component {
   handleClick = (event) => {
     event.preventDefault()
     const input = event.target.innerHTML;
+    this.setState({
+      display: this.state.display === "0" ? `${input}` : this.state.display += input
+    })
   }
 
   render() {
