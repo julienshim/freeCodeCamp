@@ -89,9 +89,13 @@ export default class JavaScriptCalculator extends React.Component {
   handleClick = (event) => {
     event.preventDefault()
     const input = event.target.innerHTML;
-    this.setState({
-      display: this.state.display === "0" ? `${input}` : this.state.display += input
-    })
+    if(input.match(/[0-9]/g)) {
+      this.setState({
+        display: this.state.display === "0" ? `${input}` : this.state.display += input
+      })
+    } else {
+      console.log('Psych!')
+    }
   }
 
   render() {
