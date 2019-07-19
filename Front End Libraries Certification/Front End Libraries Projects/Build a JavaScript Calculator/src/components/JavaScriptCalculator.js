@@ -97,6 +97,12 @@ export default class JavaScriptCalculator extends React.Component {
     }));
   }
 
+  handleClear() {
+    this.setState({
+      display: '0'
+    })
+  }
+
 
   handleClick = (event) => {
     event.preventDefault()
@@ -112,7 +118,10 @@ export default class JavaScriptCalculator extends React.Component {
         console.log('Operator', input);
         break;
       case /AC/g.test(input):
-        console.log('Clear', input);
+        this.handleClear();
+        break;
+      case /%/g.test(input):
+        console.log('Percent', input);
         break;
       case /\./g.test(input):
         !this.state.display.includes(".") && this.handleDisplayUpdate(input);
@@ -126,8 +135,6 @@ export default class JavaScriptCalculator extends React.Component {
   }
 
   render() {
-
-
    return (
     <div id="javascript-calculator">
       <div id="display">
