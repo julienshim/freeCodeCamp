@@ -84,10 +84,17 @@ export default class JavaScriptCalculator extends React.Component {
       }]
     }
   }
+
   handleDisplayUpdate = (input) => {
     this.setState({
       display: this.state.display === "0" ? `${input}` : this.state.display += input
     })
+  }
+
+  handlePlusMinus() {
+    this.setState(prevState => ({
+      display: -prevState.display
+    }));
   }
 
 
@@ -96,19 +103,19 @@ export default class JavaScriptCalculator extends React.Component {
     const input = event.target.innerHTML;
     switch (true) {
       case /[0-9]/g.test(input):
-        console.log('Number', input);
+        this.handleDisplayUpdate(input);
         break;
       case /\+\/\-/g.test(input):
-        console.log('Plus Minus', input);
+        this.handlePlusMinus();
         break;
       case /[-+x/]/g.test(input):
-          console.log('Operator', input);
-          break;
+        console.log('Operator', input);
+        break;
       case /AC/g.test(input):
         console.log('Clear', input);
         break;
       case /\./g.test(input):
-        console.log('Decimal', input);
+        !this.state.display.includes(".") && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
         console.log('Equal', input);
