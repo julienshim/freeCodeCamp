@@ -24,28 +24,43 @@ export default class JavaScriptCalculator extends React.Component {
       { id: "add", value: "+" },
       { id: "zero", value: "0" },
       { id: "decimal", value: "." },
-      { id: "equals", value: "=" }]
+      { id: "equals", value: "=" }],
+      operatorPressedLast: true,
+      calcBank: []
     }
   }
 
   handleDisplayUpdate = (input) => {
     this.setState({
-      display: this.state.display === "0" ? `${input}` : this.state.display += input
+      display: this.state.display === "0" ? `${input}` : this.state.display += input,
+      operatorPressedLast: false
     })
   }
 
   handlePlusMinus() {
-    this.setState(prevState => ({
-      display: -prevState.display
-    }));
+    const newDisplay = -parseInt(this.state.display, 10);
+    this.setState({
+      display: String(newDisplay)
+    })
   }
 
   handleClear() {
     this.setState({
-      display: '0'
+      display: '0',
+      calcBank: []
     })
   }
 
+  handleOperatorPressed(input) {
+    this.setState(prevState => ({
+      calcBank: prevState.calcBank.concat(this.state.display, input),
+      operatorPressedLast: true
+    }))
+  }
+
+  handleEqualPressed() {
+
+  }
 
   handleClick = (event) => {
     event.preventDefault()
@@ -58,7 +73,7 @@ export default class JavaScriptCalculator extends React.Component {
         this.handlePlusMinus();
         break;
       case /[-+x/]/g.test(input):
-        console.log('Operator', input);
+        this.handleOperatorPressed(input);
         break;
       case /AC/g.test(input):
         this.handleClear();
@@ -67,10 +82,10 @@ export default class JavaScriptCalculator extends React.Component {
         console.log('Percent', input);
         break;
       case /\./g.test(input):
-        !this.state.display.includes(".") && this.handleDisplayUpdate(input);
+        this.state.display.indexOf('.') === -1 && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        console.log('Equal', input);
+        this.equalPressed();
         break;
       default:
         console.log('Uh oh something went wrong');
