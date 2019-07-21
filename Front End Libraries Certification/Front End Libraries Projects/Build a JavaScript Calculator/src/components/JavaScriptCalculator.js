@@ -26,13 +26,14 @@ export default class JavaScriptCalculator extends React.Component {
       { id: "decimal", value: "." },
       { id: "equals", value: "=" }],
       operatorPressedLast: true,
-      calcBank: []
+      calcBank: [],
+      master: 0
     }
   }
 
   handleDisplayUpdate = (input) => {
     this.setState({
-      display: this.state.display === "0" ? `${input}` : this.state.display += input,
+      display: this.state.display === "0" || this.state.operatorPressedLast ? `${input}` : this.state.display += input,
       operatorPressedLast: false
     })
   }
@@ -59,7 +60,35 @@ export default class JavaScriptCalculator extends React.Component {
   }
 
   handleEqualPressed() {
+    let calculation = undefined;
+    switch (this.state.calcBank[1]) {
+      case "/":
+        calculation = parseInt(this.state.calcBank[0], 10) / parseInt(this.state.display, 10);
+        this.handleCalculate(String(calculation));
+        break;
+      case "x":
+        calculation = parseInt(this.state.calcBank[0], 10) * parseInt(this.state.display, 10);
+        this.handleCalculate(String(calculation));
+        break;
+      case "-":
+        calculation = parseInt(this.state.calcBank[0], 10) - parseInt(this.state.display, 10);
+        this.handleCalculate(String(calculation));
+        break;
+      case "+":
+        calculation = parseInt(this.state.calcBank[0], 10) + parseInt(this.state.display, 10);
+        this.handleCalculate(String(calculation));
+        break;
+      default:
+        console.log("No operators");
+    }
+  }
 
+  handleCalculate(input) {
+    this.setState({
+      calcBank: [],
+      master: input,
+      display: input
+    })
   }
 
   handleClick = (event) => {
@@ -68,6 +97,9 @@ export default class JavaScriptCalculator extends React.Component {
     switch (true) {
       case /[0-9]/g.test(input):
         this.handleDisplayUpdate(input);
+        this.setState({
+          operatorPressedLast: false
+        })
         break;
       case /\+\/\-/g.test(input):
         this.handlePlusMinus();
@@ -85,7 +117,7 @@ export default class JavaScriptCalculator extends React.Component {
         this.state.display.indexOf('.') === -1 && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        this.equalPressed();
+        this.handleEqualPressed();
         break;
       default:
         console.log('Uh oh something went wrong');
