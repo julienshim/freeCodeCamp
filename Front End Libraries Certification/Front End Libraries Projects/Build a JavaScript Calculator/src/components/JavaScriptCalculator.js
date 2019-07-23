@@ -63,19 +63,19 @@ export default class JavaScriptCalculator extends React.Component {
     let calculation = undefined;
     switch (this.state.calcBank[1]) {
       case "/":
-        calculation = parseInt(this.state.calcBank[0], 10) / parseInt(this.state.display, 10);
+        calculation = parseFloat(this.state.calcBank[0]) / parseFloat(this.state.display);
         this.handleCalculate(String(calculation));
         break;
       case "x":
-        calculation = parseInt(this.state.calcBank[0], 10) * parseInt(this.state.display, 10);
+        calculation = parseFloat(this.state.calcBank[0]) * parseFloat(this.state.display);
         this.handleCalculate(String(calculation));
         break;
       case "-":
-        calculation = parseInt(this.state.calcBank[0], 10) - parseInt(this.state.display, 10);
+        calculation = parseFloat(this.state.calcBank[0]) - parseFloat(this.state.display);
         this.handleCalculate(String(calculation));
         break;
       case "+":
-        calculation = parseInt(this.state.calcBank[0], 10) + parseInt(this.state.display, 10);
+        calculation = parseFloat(this.state.calcBank[0]) + parseFloat(this.state.display);
         this.handleCalculate(String(calculation));
         break;
       default:
