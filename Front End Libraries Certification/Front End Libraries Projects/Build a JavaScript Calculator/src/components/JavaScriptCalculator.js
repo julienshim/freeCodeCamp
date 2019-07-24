@@ -48,7 +48,8 @@ export default class JavaScriptCalculator extends React.Component {
   handleClear() {
     this.setState({
       display: '0',
-      calcBank: []
+      calcBank: [],
+      master: 0
     })
   }
 
