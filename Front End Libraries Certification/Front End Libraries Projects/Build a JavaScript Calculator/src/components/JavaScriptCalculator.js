@@ -54,6 +54,8 @@ export default class JavaScriptCalculator extends React.Component {
   }
 
   handleOperatorPressed(input) {
+    const operators = {"+": true, "x": true, "/": true};
+    // const operator = operators[this.state.calcBank[-1]] === input;
     this.setState(prevState => ({
       calcBank: prevState.calcBank.concat(this.state.display, input),
       operatorPressedLast: true
