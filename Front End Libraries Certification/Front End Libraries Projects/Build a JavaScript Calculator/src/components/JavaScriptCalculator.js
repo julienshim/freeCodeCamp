@@ -34,7 +34,9 @@ export default class JavaScriptCalculator extends React.Component {
 
   handleDisplayUpdate = (input) => {
     this.setState({
-      display: this.state.display === "0" || this.state.operatorPressedLast ? `${input}` : this.state.display += input,
+      display: this.state.display === "0" || this.state.operatorPressedLast ? 
+               `${input}` : 
+               this.state.display += input,
       operatorPressedLast: false
     })
   }
@@ -56,44 +58,38 @@ export default class JavaScriptCalculator extends React.Component {
 
   handleOperatorPressed(input) {
     this.setState(prevState => ({
-      calcBank: this.state.operatorPressedLast  ? input === "-" ? prevState.calcBank :  prevState.calcBank.splice(0, prevState.calcBank.length-1).concat(input) : this.state.calcBank[0] === String(this.state.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(this.state.display, input),
+      calcBank: prevState.operatorPressedLast  ? 
+                input === "-" ? prevState.calcBank : prevState.calcBank.splice(0, prevState.calcBank.length-1).concat(input) : 
+                prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
       operatorPressedLast: true,
+      isMinus: input === "-" ? 
+      this.state.operatorPressedLast ? true : false : 
+      false
     }))
-    if (input === "-") {
-      this.setState({
-        isMinus: this.state.operatorPressedLast ? true : false
-      })
-    } else {
-      this.setState({
-        isMinus: false
-      })
-    }
-
   }
 
   handleEqualPressed() {
     let calculation = undefined;
-    const base = this.state.isMinus ? -parseFloat(this.state.display) : parseFloat(this.state.display);
+    const base = this.state.isMinus ? 
+                 -parseFloat(this.state.display) : 
+                 parseFloat(this.state.display);
     switch (this.state.calcBank[1]) {
       case "/":
-        calculation = parseFloat(this.state.calcBank[0]) / (base);
-        this.handleCalculate(String(calculation));
+        calculation = parseFloat(this.state.calcBank[0]) / base;
         break;
       case "x":
-        calculation = parseFloat(this.state.calcBank[0]) * (base);
-        this.handleCalculate(String(calculation));
+        calculation = parseFloat(this.state.calcBank[0]) * base;
         break;
       case "-":
-        calculation = parseFloat(this.state.calcBank[0]) - (base);
-        this.handleCalculate(String(calculation));
+        calculation = parseFloat(this.state.calcBank[0]) - base;
         break;
       case "+":
-        calculation = parseFloat(this.state.calcBank[0]) + (base);
-        this.handleCalculate(String(calculation));
+        calculation = parseFloat(this.state.calcBank[0]) + base;
         break;
       default:
         console.log("No operators");
     }
+    this.handleCalculate(String(calculation));
   }
 
   handleCalculate(input) {
