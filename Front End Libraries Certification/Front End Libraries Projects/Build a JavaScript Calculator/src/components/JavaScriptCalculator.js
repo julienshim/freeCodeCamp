@@ -66,33 +66,53 @@ export default class JavaScriptCalculator extends React.Component {
       this.state.operatorPressedLast ? true : false : 
       false
     }))
+    this.state.calcBank.length >= 4 && this.handleOrderOfOperations(this.state.calcBank);
   }
 
-  handleEqualPressed() {
+  handleOrderOfOperations(input) {
+    const operator1 = input[1]
+    const operator2 = input[3]
+    const operator3 = input[5]
+    switch(input.length) {
+      case 4:
+        if (operator1 === "x") {
+          
+        }
+        break;
+      case 2:
+        break;
+      case 5:
+        break;
+      default:
+        console.log("This should be possible");
+    }
+  }
+
+  handleCalculate(input) {
     let calculation = undefined;
     const base = this.state.isMinus ? 
                  -parseFloat(this.state.display) : 
                  parseFloat(this.state.display);
-    switch (this.state.calcBank[1]) {
+    switch (input[1]) {
       case "/":
-        calculation = parseFloat(this.state.calcBank[0]) / base;
+        calculation = parseFloat(input[0]) / base;
         break;
       case "x":
-        calculation = parseFloat(this.state.calcBank[0]) * base;
+        calculation = parseFloat(input[0]) * base;
         break;
       case "-":
-        calculation = parseFloat(this.state.calcBank[0]) - base;
+        calculation = parseFloat(input[0]) - base;
         break;
       case "+":
-        calculation = parseFloat(this.state.calcBank[0]) + base;
+        calculation = parseFloat(input[0]) + base;
         break;
       default:
         console.log("No operators");
     }
-    this.handleCalculate(String(calculation));
+    this.handleUpdate(String(calculation));
   }
 
-  handleCalculate(input) {
+  handleUpdate(input) {
     this.setState({
       calcBank: [input],
       master: input,
@@ -126,7 +146,7 @@ export default class JavaScriptCalculator extends React.Component {
         this.state.display.indexOf('.') === -1 && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        this.handleEqualPressed();
+        this.handleCalculate(this.state.calcBank);
         break;
       default:
         console.log('Uh oh something went wrong');
