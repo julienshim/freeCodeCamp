@@ -28,7 +28,8 @@ export default class JavaScriptCalculator extends React.Component {
       operatorPressedLast: true,
       isMinus: false,
       calcBank: [],
-      master: 0
+      master: 0,
+      test: []
     }
   }
 
@@ -65,27 +66,17 @@ export default class JavaScriptCalculator extends React.Component {
       isMinus: input === "-" ? 
       this.state.operatorPressedLast ? true : false : 
       false
-    }))
-    this.state.calcBank.length >= 4 && this.handleOrderOfOperations(this.state.calcBank);
+    }), () =>  {
+      this.state.calcBank.length >= 4 && this.handleOrderOfOperations(String("hello"));
+    })
   }
 
   handleOrderOfOperations(input) {
-    const operator1 = input[1]
-    const operator2 = input[3]
-    const operator3 = input[5]
-    switch(input.length) {
-      case 4:
-        if (operator1 === "x") {
-          
-        }
-        break;
-      case 2:
-        break;
-      case 5:
-        break;
-      default:
-        console.log("This should be possible");
-    }
+    
+    this.setState({
+      test: input
+    })
+    
   }
 
   handleCalculate(input) {
@@ -96,20 +87,24 @@ export default class JavaScriptCalculator extends React.Component {
     switch (input[1]) {
       case "/":
         calculation = parseFloat(input[0]) / base;
+        this.handleUpdate(calculation)
         break;
       case "x":
         calculation = parseFloat(input[0]) * base;
+        this.handleUpdate(calculation)
         break;
       case "-":
         calculation = parseFloat(input[0]) - base;
+        this.handleUpdate(calculation)
         break;
       case "+":
         calculation = parseFloat(input[0]) + base;
+        this.handleUpdate(calculation)
         break;
       default:
         console.log("No operators");
     }
-    this.handleUpdate(String(calculation));
+    return String(calculation);
   }
 
   handleUpdate(input) {
@@ -146,7 +141,7 @@ export default class JavaScriptCalculator extends React.Component {
         this.state.display.indexOf('.') === -1 && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        this.handleCalculate(this.state.calcBank);
+        this.handleUpdate(String(this.handleCalculate(this.state.calcBank)));
         break;
       default:
         console.log('Uh oh something went wrong');
