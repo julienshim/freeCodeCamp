@@ -67,15 +67,26 @@ export default class JavaScriptCalculator extends React.Component {
       this.state.operatorPressedLast ? true : false : 
       false
     }), () =>  {
-      this.state.calcBank.length >= 4 && this.handleOrderOfOperations(String("hello"));
+      this.state.calcBank.length >= 4 && this.handleOrderOfOperations(this.state.calcBank);
     })
   }
 
   handleOrderOfOperations(input) {
-    
-    this.setState({
-      test: input
-    })
+    let calculation = [];
+    const [num1, op1, num2, op2, num3] = input;
+    switch(input.length) {
+      case 4:
+        calculation = [this.handleCalculate([num1, op1, num2]), op2]
+        this.setState({
+          calcBank: calculation
+        })
+        break;
+      case 5:
+        break;
+      default: 
+        console.log("should be possible");
+    }
+ 
     
   }
 

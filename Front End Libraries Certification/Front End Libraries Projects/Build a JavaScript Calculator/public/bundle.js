@@ -25591,7 +25591,7 @@ function (_React$Component) {
           break;
 
         case /\=/g.test(input):
-          _this.handleEqualPressed();
+          _this.handleUpdate(String(_this.handleCalculate(_this.state.calcBank)));
 
           break;
 
@@ -25661,8 +25661,10 @@ function (_React$Component) {
         value: "="
       }],
       operatorPressedLast: true,
+      isMinus: false,
       calcBank: [],
-      master: 0
+      master: 0,
+      test: []
     };
     return _this;
   }
@@ -25670,7 +25672,7 @@ function (_React$Component) {
   _createClass(JavaScriptCalculator, [{
     key: "handlePlusMinus",
     value: function handlePlusMinus() {
-      var newDisplay = -parseInt(this.state.display, 10);
+      var newDisplay = -parseFloat(this.state.display, 10);
       this.setState({
         display: String(newDisplay)
       });
@@ -25689,54 +25691,74 @@ function (_React$Component) {
     value: function handleOperatorPressed(input) {
       var _this2 = this;
 
-      var operators = {
-        "+": true,
-        "x": true,
-        "/": true
-      }; // const operator = operators[this.state.calcBank[-1]] === input;
-
       this.setState(function (prevState) {
         return {
-          calcBank: prevState.calcBank.concat(_this2.state.display, input),
-          operatorPressedLast: true
+          calcBank: prevState.operatorPressedLast ? input === "-" ? prevState.calcBank : prevState.calcBank.splice(0, prevState.calcBank.length - 1).concat(input) : prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
+          operatorPressedLast: true,
+          isMinus: input === "-" ? _this2.state.operatorPressedLast ? true : false : false
         };
+      }, function () {
+        _this2.state.calcBank.length >= 4 && _this2.handleOrderOfOperations(String("hello"));
       });
     }
   }, {
-    key: "handleEqualPressed",
-    value: function handleEqualPressed() {
+    key: "handleOrderOfOperations",
+    value: function handleOrderOfOperations(input) {
+      this.setState({
+        test: input
+      }); // let calculation = [];
+      // const [num1, op1, num2, op2, num3] = input;
+      // switch(input.length) {
+      //   case 4:
+      //     calculation = [this.handleCalculate([num1, op1, num2]), op2]
+      //     this.setState({
+      //       calcBank: calculation
+      //     })
+      //     break;
+      //   case 5:
+      //     break;
+      //   default: 
+      //     console.log("should be possible");
+      // }
+    }
+  }, {
+    key: "handleCalculate",
+    value: function handleCalculate(input) {
       var calculation = undefined;
+      var base = this.state.isMinus ? -parseFloat(this.state.display) : parseFloat(this.state.display);
 
-      switch (this.state.calcBank[1]) {
+      switch (input[1]) {
         case "/":
-          calculation = parseFloat(this.state.calcBank[0]) / parseFloat(this.state.display);
-          this.handleCalculate(String(calculation));
+          calculation = parseFloat(input[0]) / base;
+          this.handleUpdate(calculation);
           break;
 
         case "x":
-          calculation = parseFloat(this.state.calcBank[0]) * parseFloat(this.state.display);
-          this.handleCalculate(String(calculation));
+          calculation = parseFloat(input[0]) * base;
+          this.handleUpdate(calculation);
           break;
 
         case "-":
-          calculation = parseFloat(this.state.calcBank[0]) - parseFloat(this.state.display);
-          this.handleCalculate(String(calculation));
+          calculation = parseFloat(input[0]) - base;
+          this.handleUpdate(calculation);
           break;
 
         case "+":
-          calculation = parseFloat(this.state.calcBank[0]) + parseFloat(this.state.display);
-          this.handleCalculate(String(calculation));
+          calculation = parseFloat(input[0]) + base;
+          this.handleUpdate(calculation);
           break;
 
         default:
           console.log("No operators");
       }
+
+      return String(calculation);
     }
   }, {
-    key: "handleCalculate",
-    value: function handleCalculate(input) {
+    key: "handleUpdate",
+    value: function handleUpdate(input) {
       this.setState({
-        calcBank: [],
+        calcBank: [input],
         master: input,
         display: input
       });
