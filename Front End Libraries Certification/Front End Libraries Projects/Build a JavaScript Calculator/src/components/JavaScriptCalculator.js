@@ -73,15 +73,31 @@ export default class JavaScriptCalculator extends React.Component {
 
   handleOrderOfOperations(input) {
     let calculation = [];
-    const [num1, op1, num2, op2, num3] = input;
+    const [num1, op1, num2, op2, num3, op3] = input;
     switch(input.length) {
       case 4:
+        // if op1 equals multiply
         calculation = [this.handleCalculate([num1, op1, num2]), op2]
+        // if op1 equals divide
+        calculation = [this.handleCalculate([num1, op1, num2]), op2]
+        // if op1 equals add
+            // if op2 equals add or subtract
+            calculation = [num1, op1, num2, op2]
+            // if op2 equals multiply or divide
+            calculation = [num1, op1, num2, op2]
+        // if op1 equals subtractk
+            // if op2 equals add or subtract
+            calculation = [num1, op1, num2, op2]
+            // if op2 equals multiply or divide
+            calculation = [num1, op1, num2, op2]
         this.setState({
           calcBank: calculation
         })
         break;
       case 5:
+        calculation = [num1, op1, num2, op2, num3] // think of equal here
+      case 6: 
+        calculation = [num1, op1, num2, op2, num3, op3] // think of equal here
         break;
       default: 
         console.log("should be possible");
