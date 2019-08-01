@@ -25514,6 +25514,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -25698,28 +25706,55 @@ function (_React$Component) {
           isMinus: input === "-" ? _this2.state.operatorPressedLast ? true : false : false
         };
       }, function () {
-        _this2.state.calcBank.length >= 4 && _this2.handleOrderOfOperations(String("hello"));
+        _this2.state.calcBank.length >= 4 && _this2.handleOrderOfOperations(_this2.state.calcBank);
       });
     }
   }, {
     key: "handleOrderOfOperations",
     value: function handleOrderOfOperations(input) {
-      this.setState({
-        test: input
-      }); // let calculation = [];
-      // const [num1, op1, num2, op2, num3] = input;
-      // switch(input.length) {
-      //   case 4:
-      //     calculation = [this.handleCalculate([num1, op1, num2]), op2]
-      //     this.setState({
-      //       calcBank: calculation
-      //     })
-      //     break;
-      //   case 5:
-      //     break;
-      //   default: 
-      //     console.log("should be possible");
-      // }
+      var calculation = [];
+
+      var _input = _slicedToArray(input, 6),
+          num1 = _input[0],
+          op1 = _input[1],
+          num2 = _input[2],
+          op2 = _input[3],
+          num3 = _input[4],
+          op3 = _input[5];
+
+      switch (input.length) {
+        case 4:
+          // if op1 equals multiply
+          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op1 equals divide
+
+          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op1 equals add
+          // if op2 equals add or subtract
+
+          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op2 equals multiply or divide
+
+          calculation = [num1, op1, num2, op2]; // if op1 equals subtractk
+          // if op2 equals add or subtract
+
+          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op2 equals multiply or divide
+
+          calculation = [num1, op1, num2, op2];
+          this.setState({
+            calcBank: calculation
+          });
+          break;
+
+        case 5:
+          calculation = [num1, op1, num2, op2, num3];
+        // think of equal here
+
+        case 6:
+          calculation = [num1, op1, num2, op2, num3, op3]; // think of equal here
+
+          break;
+
+        default:
+          console.log("should be possible");
+      }
     }
   }, {
     key: "handleCalculate",

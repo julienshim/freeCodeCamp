@@ -82,12 +82,12 @@ export default class JavaScriptCalculator extends React.Component {
         calculation = [this.handleCalculate([num1, op1, num2]), op2]
         // if op1 equals add
             // if op2 equals add or subtract
-            calculation = [num1, op1, num2, op2]
+            calculation = [this.handleCalculate([num1, op1, num2]), op2]
             // if op2 equals multiply or divide
             calculation = [num1, op1, num2, op2]
         // if op1 equals subtractk
             // if op2 equals add or subtract
-            calculation = [num1, op1, num2, op2]
+            calculation = [this.handleCalculate([num1, op1, num2]), op2]
             // if op2 equals multiply or divide
             calculation = [num1, op1, num2, op2]
         this.setState({
