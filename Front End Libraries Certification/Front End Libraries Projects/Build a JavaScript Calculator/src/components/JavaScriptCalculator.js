@@ -77,19 +77,11 @@ export default class JavaScriptCalculator extends React.Component {
     switch(input.length) {
       case 4:
         // if op1 equals multiply
-        calculation = [this.handleCalculate([num1, op1, num2]), op2]
-        // if op1 equals divide
-        calculation = [this.handleCalculate([num1, op1, num2]), op2]
-        // if op1 equals add
-            // if op2 equals add or subtract
-            calculation = [this.handleCalculate([num1, op1, num2]), op2]
-            // if op2 equals multiply or divide
-            calculation = [num1, op1, num2, op2]
-        // if op1 equals subtractk
-            // if op2 equals add or subtract
-            calculation = [this.handleCalculate([num1, op1, num2]), op2]
-            // if op2 equals multiply or divide
-            calculation = [num1, op1, num2, op2]
+        if (op1 === "*" || op1 == "/" || op2 === "+" || op2 === "-") {
+          calculation = [this.handleCalculate([num1, op1, num2]), op2]
+        } else {
+          calculation = [num1, op1, num2, op2]
+        }
         this.setState({
           calcBank: calculation
         })
