@@ -29,8 +29,7 @@ export default class JavaScriptCalculator extends React.Component {
       isMinus: false,
       calcBank: [],
       master: 0,
-      test: []
-    }
+      test: []    }
   }
 
   handleDisplayUpdate = (input) => {
@@ -61,7 +60,9 @@ export default class JavaScriptCalculator extends React.Component {
     this.setState(prevState => ({
       calcBank: prevState.operatorPressedLast  ? 
                 input === "-" ? prevState.calcBank : prevState.calcBank.splice(0, prevState.calcBank.length-1).concat(input) : 
-                prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
+                this.state.calcBank.length % 2 == 1 ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
+                // Above fixes the running problem, but keeping bottom just incase for reference.
+                // prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
       operatorPressedLast: true,
       isMinus: input === "-" ? 
       this.state.operatorPressedLast ? true : false : 
