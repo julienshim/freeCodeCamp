@@ -28,8 +28,7 @@ export default class JavaScriptCalculator extends React.Component {
       operatorPressedLast: true,
       isMinus: false,
       calcBank: [],
-      master: 0,
-      test: []    }
+      master: 0    }
   }
 
   handleDisplayUpdate = (input) => {
@@ -37,12 +36,20 @@ export default class JavaScriptCalculator extends React.Component {
       display: this.state.display === "0" || this.state.operatorPressedLast ? 
                `${input}` : 
                this.state.display += input,
-      operatorPressedLast: false
+      operatorPressedLast: false,
+      equalPressedLast: false
     })
   }
 
   handlePlusMinus() {
     const newDisplay = -parseFloat(this.state.display, 10);
+    this.setState({
+      display: String(newDisplay)
+    })
+  }
+
+  handlePercent() {
+    const newDisplay = parseFloat(this.state.display, 10) * .01;
     this.setState({
       display: String(newDisplay)
     })
@@ -85,12 +92,11 @@ export default class JavaScriptCalculator extends React.Component {
         }
         break;
       case 5:
-        calculation = [num1, op1, num2, op2, num3] // think of equal here
+        let third = this.handleCalculate([num2, op2, num3])
+        calculation = [this.handleCalculate([num1, op1, third])] // think of equal here
       case 6: 
         let first = this.handleCalculate([num2, op2, num3])
-        console.log("first", first);
         let second = [num1, op1, first];
-        console.log("second", second)
         calculation = [this.handleCalculate(second), op3];
         break;
       default: 
@@ -104,13 +110,9 @@ export default class JavaScriptCalculator extends React.Component {
 
   handleCalculate(input) {
     let calculation = undefined;
-    console.log("input", input);
-    console.log("input2", input[2]);
-    console.log("opopop", this.state.operatorPressedLast);
-    const base = this.state.operatorPressedLast ? input[2] : this.state.isMinus ? 
+    const base = (this.state.operatorPressedLast || this.state.equalPressedLast) ? parseFloat(input[2]) : this.state.isMinus ? 
                  -parseFloat(this.state.display) : 
                  parseFloat(this.state.display);
-    console.log("base", base);
     switch (input[1]) {
       case "/":
         calculation = parseFloat(input[0]) / base;
@@ -127,12 +129,10 @@ export default class JavaScriptCalculator extends React.Component {
       case "+":
         calculation = parseFloat(input[0]) + base;
         this.handleUpdate(calculation)
-        console.log("here", calculation);
         break;
       default:
         console.log("No operators");
     }
-    console.log('handleCalculation', calculation);
     return String(calculation);
   }
 
@@ -151,7 +151,8 @@ export default class JavaScriptCalculator extends React.Component {
       case /[0-9]/g.test(input):
         this.handleDisplayUpdate(input);
         this.setState({
-          operatorPressedLast: false
+          operatorPressedLast: false,
+          equalPressedLast: false
         })
         break;
       case /\+\/\-/g.test(input):
@@ -164,13 +165,19 @@ export default class JavaScriptCalculator extends React.Component {
         this.handleClear();
         break;
       case /%/g.test(input):
-        console.log('Percent', input);
+        this.handlePercent();
         break;
       case /\./g.test(input):
         this.state.display.indexOf('.') === -1 && this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        this.handleUpdate(String(this.handleCalculate(this.state.calcBank)));
+        this.state.calcBank.length >= 4 ?
+        this.setState({
+          equalPressedLast: true,
+        }, () => {
+          this.handleOrderOfOperations([...this.state.calcBank, this.state.display]) 
+        })
+        : this.handleUpdate(String(this.handleCalculate(this.state.calcBank)));
         break;
       default:
         console.log('Uh oh something went wrong');
