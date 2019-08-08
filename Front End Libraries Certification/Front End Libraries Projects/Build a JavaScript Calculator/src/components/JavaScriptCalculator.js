@@ -65,8 +65,8 @@ export default class JavaScriptCalculator extends React.Component {
                 // prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
       operatorPressedLast: true,
       isMinus: input === "-" ? 
-      this.state.operatorPressedLast ? true : false : 
-      false
+               this.state.operatorPressedLast ? 
+               true : false : false
     }), () =>  {
       this.state.calcBank.length >= 4 && this.handleOrderOfOperations(this.state.calcBank);
     })
@@ -83,27 +83,34 @@ export default class JavaScriptCalculator extends React.Component {
         } else {
           calculation = [num1, op1, num2, op2]
         }
-        this.setState({
-          calcBank: calculation
-        })
         break;
       case 5:
         calculation = [num1, op1, num2, op2, num3] // think of equal here
       case 6: 
-        calculation = [num1, op1, num2, op2, num3, op3] // think of equal here
+        let first = this.handleCalculate([num2, op2, num3])
+        console.log("first", first);
+        let second = [num1, op1, first];
+        console.log("second", second)
+        calculation = [this.handleCalculate(second), op3];
         break;
       default: 
         console.log("should be possible");
     }
- 
+    this.setState({
+      calcBank: calculation
+    })
     
   }
 
   handleCalculate(input) {
     let calculation = undefined;
-    const base = this.state.isMinus ? 
+    console.log("input", input);
+    console.log("input2", input[2]);
+    console.log("opopop", this.state.operatorPressedLast);
+    const base = this.state.operatorPressedLast ? input[2] : this.state.isMinus ? 
                  -parseFloat(this.state.display) : 
                  parseFloat(this.state.display);
+    console.log("base", base);
     switch (input[1]) {
       case "/":
         calculation = parseFloat(input[0]) / base;
@@ -120,10 +127,12 @@ export default class JavaScriptCalculator extends React.Component {
       case "+":
         calculation = parseFloat(input[0]) + base;
         this.handleUpdate(calculation)
+        console.log("here", calculation);
         break;
       default:
         console.log("No operators");
     }
+    console.log('handleCalculation', calculation);
     return String(calculation);
   }
 
