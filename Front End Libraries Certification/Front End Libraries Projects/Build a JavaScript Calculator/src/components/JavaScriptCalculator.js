@@ -81,9 +81,12 @@ export default class JavaScriptCalculator extends React.Component {
           ? prevState.calcBank.concat(input)
           : prevState.calcBank.concat(prevState.display, input),
         operatorPressedLast: true,
-        isMinus: input === "-" ? 
-                 this.state.operatorPressedLast ? 
-                 true : false : false
+        isMinus:
+          input === "-"
+            ? this.state.operatorPressedLast
+              ? true
+              : false
+            : false
       }),
       () => {
         this.state.calcBank.length >= 4 &&
@@ -95,24 +98,21 @@ export default class JavaScriptCalculator extends React.Component {
   handleOrderOfOperations(input) {
     let calculation = [];
     const [num1, op1, num2, op2, num3, op3] = input;
+    const preCalc = input.length > 4 && this.handleCalculate([num2, op2, num3]);
     switch (input.length) {
       case 4:
-        if (op1 === "*" || op1 == "/" || op2 === "+" || op2 === "-") {
-          calculation = [this.handleCalculate([num1, op1, num2]), op2];
-        } else {
-          calculation = [num1, op1, num2, op2];
-        }
+        calculation =
+          op1 === "*" || op1 == "/" || op2 === "+" || op2 === "-"
+            ? [this.handleCalculate([num1, op1, num2]), op2]
+            : [num1, op1, num2, op2];
         break;
       case 5:
-        let third = this.handleCalculate([num2, op2, num3]);
-        calculation = [this.handleCalculate([num1, op1, third])];
+        calculation = [this.handleCalculate([num1, op1, preCalc])];
       case 6:
-        let first = this.handleCalculate([num2, op2, num3]);
-        let second = [num1, op1, first];
-        calculation = [this.handleCalculate(second), op3];
+        calculation = [this.handleCalculate([num1, op1, preCalc]), op3];
         break;
       default:
-        console.log("should be possible");
+        console.log("This should be possible.");
     }
     this.setState({
       calcBank: calculation
@@ -214,7 +214,8 @@ export default class JavaScriptCalculator extends React.Component {
         <div id="display">{this.state.display}</div>
         <div id="buttons">
           {this.state.buttons.map(button => {
-            const text = button.id === "clear" ? this.state.clearText : button.value;
+            const text =
+              button.id === "clear" ? this.state.clearText : button.value;
             return (
               <div
                 key={button.id}
