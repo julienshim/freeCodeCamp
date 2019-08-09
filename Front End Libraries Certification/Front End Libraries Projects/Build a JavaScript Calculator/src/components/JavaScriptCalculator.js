@@ -216,11 +216,24 @@ export default class JavaScriptCalculator extends React.Component {
           {this.state.buttons.map(button => {
             const text =
               button.id === "clear" ? this.state.clearText : button.value;
+            const operators = {
+              "add": true,
+              "subtract": true,
+              "divide": true,
+              "multiply": true,
+              "equals": true
+            }
+            const tops = {
+              "plus-minus": true,
+              "percent": true,
+              "clear": true
+            }
+            const equal = operators[button.id] ? "buttons operators" : tops[button.id] ? "buttons tops" : "buttons";  
             return (
               <div
                 key={button.id}
                 id={button.id}
-                className={"buttons"}
+                className={equal}
                 onClick={this.handleClick}
               >
                 {text}
