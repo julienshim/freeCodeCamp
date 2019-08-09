@@ -110,8 +110,10 @@ exports.push([module.i, "/*! normalize.css v8.0.1 | MIT License | github.com/nec
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap);", ""]);
+var getUrl = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../../public/images/mare.png */ "./public/images/mare.png"));
 // Module
-exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n\n* {\n  color: #222;\n  font-size: 12px;\n  font-family: \"Didact Gothic\", sans-serif; }\n\nhtml,\nbody {\n  height: 100%;\n  width: 100%; }\n\n#display {\n  text-align: right;\n  padding: 12px;\n  font-size: 48px;\n  border: 1px solid black; }\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.buttons {\n  font-size: 24px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100px;\n  width: 100px;\n  border: 1px solid black; }\n  .buttons:hover {\n    background-color: green; }\n\n#javascript-calculator {\n  border: 1px solid black; }\n\n#buttons {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr); }\n\n#zero {\n  grid-column-start: 1;\n  grid-column-end: 3;\n  box-sizing: border-box;\n  height: 100%;\n  width: 100%;\n  border: 1px solid black; }\n", ""]);
+exports.push([module.i, "html {\n  font-size: 62.5%; }\n\nbody {\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 1.6rem; }\n\nbutton {\n  cursor: pointer; }\n\nbutton:disabled {\n  cursor: default; }\n\n* {\n  color: #222;\n  font-size: 12px;\n  font-family: \"Didact Gothic\", sans-serif; }\n\nhtml,\nbody {\n  height: 100%;\n  width: 100%; }\n\nbody {\n  background-image: url(" + ___CSS_LOADER_URL___0___ + "); }\n\n#display {\n  text-align: right;\n  padding: 12px;\n  font-size: 48px;\n  border: 1px solid black; }\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n\n.buttons {\n  font-size: 24px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100px;\n  width: 100px;\n  border: 1px solid black; }\n  .buttons:hover {\n    background-color: green; }\n\n#javascript-calculator {\n  border: 1px solid black; }\n\n#buttons {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr); }\n\n#zero {\n  grid-column-start: 1;\n  grid-column-end: 3;\n  box-sizing: border-box;\n  height: 100%;\n  width: 100%;\n  border: 1px solid black; }\n", ""]);
 
 
 /***/ }),
@@ -214,6 +216,38 @@ function toComment(sourceMap) {
   var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
   return "/*# ".concat(data, " */");
 }
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, needQuotes) {
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
 
 /***/ }),
 
@@ -25473,6 +25507,17 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./public/images/mare.png":
+/*!********************************!*\
+  !*** ./public/images/mare.png ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n(Source code omitted for this binary file)");
+
+/***/ }),
+
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
@@ -25522,6 +25567,14 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -25557,7 +25610,8 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "handleDisplayUpdate", function (input) {
       _this.setState({
         display: _this.state.display === "0" || _this.state.operatorPressedLast ? "".concat(input) : _this.state.display += input,
-        operatorPressedLast: false
+        operatorPressedLast: false,
+        equalPressedLast: false
       });
     });
 
@@ -25570,7 +25624,9 @@ function (_React$Component) {
           _this.handleDisplayUpdate(input);
 
           _this.setState({
-            operatorPressedLast: false
+            operatorPressedLast: false,
+            equalPressedLast: false,
+            clearText: "C"
           });
 
           break;
@@ -25585,31 +25641,35 @@ function (_React$Component) {
 
           break;
 
-        case /AC/g.test(input):
+        case /([AC])/g.test(input):
           _this.handleClear();
 
           break;
 
         case /%/g.test(input):
-          console.log('Percent', input);
+          _this.handlePercent();
+
           break;
 
         case /\./g.test(input):
-          _this.state.display.indexOf('.') === -1 && _this.handleDisplayUpdate(input);
+          _this.state.display.indexOf(".") === -1 && _this.handleDisplayUpdate(input);
           break;
 
         case /\=/g.test(input):
-          _this.handleUpdate(String(_this.handleCalculate(_this.state.calcBank)));
-
+          _this.state.calcBank.length >= 4 ? _this.setState({
+            equalPressedLast: true
+          }, function () {
+            _this.handleOrderOfOperations([].concat(_toConsumableArray(_this.state.calcBank), [_this.state.display]));
+          }) : _this.handleUpdate(String(_this.handleCalculate(_this.state.calcBank)));
           break;
 
         default:
-          console.log('Uh oh something went wrong');
+          console.log("Uh oh something went wrong");
       }
     });
 
     _this.state = {
-      display: '0',
+      display: "0",
       buttons: [{
         id: "clear",
         value: "ac".toUpperCase()
@@ -25672,7 +25732,7 @@ function (_React$Component) {
       isMinus: false,
       calcBank: [],
       master: 0,
-      test: []
+      clearText: "AC"
     };
     return _this;
   }
@@ -25686,12 +25746,21 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "handlePercent",
+    value: function handlePercent() {
+      var newDisplay = parseFloat(this.state.display, 10) * 0.01;
+      this.setState({
+        display: String(newDisplay)
+      });
+    }
+  }, {
     key: "handleClear",
     value: function handleClear() {
       this.setState({
-        display: '0',
+        display: "0",
         calcBank: [],
-        master: 0
+        master: 0,
+        clearText: "AC"
       });
     }
   }, {
@@ -25701,7 +25770,7 @@ function (_React$Component) {
 
       this.setState(function (prevState) {
         return {
-          calcBank: prevState.operatorPressedLast ? input === "-" ? prevState.calcBank : prevState.calcBank.splice(0, prevState.calcBank.length - 1).concat(input) : prevState.calcBank[0] === String(prevState.master) ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
+          calcBank: prevState.operatorPressedLast ? input === "-" ? prevState.calcBank : prevState.calcBank.splice(0, prevState.calcBank.length - 1).concat(input) : _this2.state.calcBank.length % 2 == 1 ? prevState.calcBank.concat(input) : prevState.calcBank.concat(prevState.display, input),
           operatorPressedLast: true,
           isMinus: input === "-" ? _this2.state.operatorPressedLast ? true : false : false
         };
@@ -25722,45 +25791,33 @@ function (_React$Component) {
           num3 = _input[4],
           op3 = _input[5];
 
+      var preCalc = input.length > 4 && this.handleCalculate([num2, op2, num3]);
+
       switch (input.length) {
         case 4:
-          // if op1 equals multiply
-          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op1 equals divide
-
-          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op1 equals add
-          // if op2 equals add or subtract
-
-          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op2 equals multiply or divide
-
-          calculation = [num1, op1, num2, op2]; // if op1 equals subtractk
-          // if op2 equals add or subtract
-
-          calculation = [this.handleCalculate([num1, op1, num2]), op2]; // if op2 equals multiply or divide
-
-          calculation = [num1, op1, num2, op2];
-          this.setState({
-            calcBank: calculation
-          });
+          calculation = op1 === "*" || op1 == "/" || op2 === "+" || op2 === "-" ? [this.handleCalculate([num1, op1, num2]), op2] : [num1, op1, num2, op2];
           break;
 
         case 5:
-          calculation = [num1, op1, num2, op2, num3];
-        // think of equal here
+          calculation = [this.handleCalculate([num1, op1, preCalc])];
 
         case 6:
-          calculation = [num1, op1, num2, op2, num3, op3]; // think of equal here
-
+          calculation = [this.handleCalculate([num1, op1, preCalc]), op3];
           break;
 
         default:
-          console.log("should be possible");
+          console.log("This should be possible.");
       }
+
+      this.setState({
+        calcBank: calculation
+      });
     }
   }, {
     key: "handleCalculate",
     value: function handleCalculate(input) {
       var calculation = undefined;
-      var base = this.state.isMinus ? -parseFloat(this.state.display) : parseFloat(this.state.display);
+      var base = this.state.operatorPressedLast || this.state.equalPressedLast ? parseFloat(input[2]) : this.state.isMinus ? -parseFloat(this.state.display) : parseFloat(this.state.display);
 
       switch (input[1]) {
         case "/":
@@ -25810,12 +25867,13 @@ function (_React$Component) {
       }, this.state.display), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "buttons"
       }, this.state.buttons.map(function (button) {
+        var text = button.id === "clear" ? _this3.state.clearText : button.value;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: button.id,
           id: button.id,
           className: "buttons",
           onClick: _this3.handleClick
-        }, button.value);
+        }, text);
       })));
     }
   }]);
