@@ -1,2 +1,14 @@
 @import "./base/settings";
 @import "./base/base";
+
+body {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.buttons {
+  background-color: green;
+  height: 25px;
+  width: 25px;
+  margin: 5px;
+}

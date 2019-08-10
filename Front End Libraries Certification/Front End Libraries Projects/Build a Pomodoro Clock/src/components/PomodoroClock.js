@@ -11,34 +11,26 @@ export default class MarkdownPreview extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.clock = setInterval(() => {
-      this.setState(prevState => ({
-        current: prevState.current - 1
-      }));
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.clock);
-  }
-
   handleStartStop = () =>  {
-    this.setState(prevState=>{
+    this.setState(prevState => {
       if(prevState.isRunning) {
         clearInterval(this.clock);
       } else {
-        const newStart = this.state.current;
-        this.clock = setInterval(()=> {
-          this.setState({
-            current: newStart
-          })
-        });
-
+        this.clock = setInterval(this.handleDecrement, 1000);
       }
       return {isRunning: !prevState.isRunning}
     })
   }
+
+  handleDecrement = () => {
+    this.setState(prevState => {
+      // Temporary for testing purposes.
+      if (prevState.current === 0) { clearInterval(this.clock)};
+      return {
+      current: prevState.current - 1
+       }
+    });
+  } 
 
   handleReset = () => {
     clearInterval(this.clock)
@@ -50,24 +42,10 @@ export default class MarkdownPreview extends React.Component {
     })
   }
 
-  handleRun(){
-    this.interval = setInterval(this.handleDecrement, 1000);
-  }
-
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      current: prevState - 1
-    }));
-  } 
-
   handleSet(isIncrementing, type){
     this.setState(prevState => ({
-      [type]: prevState[type] + isIncrementing ? 1 : -1 
+      [type]: prevState[type] + (isIncrementing ? 1 : -1)
     }))
-  }
-
-  handleStop(){
-    clearInterval(this.interval)
   }
 
   handleTimeFormat(){
@@ -79,18 +57,17 @@ export default class MarkdownPreview extends React.Component {
   render() {
     return (
       <div id="main">
-        <div id="break-label">Break</div>
-        <div id="break-decrement" onClick={() => this.handleSet(false, "break")}>-</div>
-        <div id="break-increment" onClick={() => this.handleSet(true, "break")}>+</div>
-        <div id="break-length">{this.state.break}</div>
-        <div id="session-label">Session</div>
-        <div id="session-decrement" onClick={() => this.handleSet(false, "session")}>-</div>
-        <div id="session-increment" onClick={() => this.handleSet(true, "session")}>+</div>
-        <div id="session-length">{this.state.session}</div>
-        <div id="timer-label">Timer</div>
-        <div id="time-left">{this.handleTimeFormat()}</div>
-        <div id="timer-length">{this.state.session}</div>
-        <div id="start_stop" onClick={this.handleStartStop}>
+        <div className={""} id="break-label">Break</div>
+        <div className={"buttons"} id="break-decrement" onClick={() => this.handleSet(false, "break")}>-</div>
+        <div className={"buttons"} id="break-increment" onClick={() => this.handleSet(true, "break")}>+</div>
+        <div className={""} id="break-length">{this.state.break}</div>
+        <div className={""}id="session-label">Session</div>
+        <div className={"buttons"}id="session-decrement" onClick={() => this.handleSet(false, "session")}>-</div>
+        <div className={"buttons"}id="session-increment" onClick={() => this.handleSet(true, "session")}>+</div>
+        <div className={""}id="session-length">{this.state.session}</div>
+        <div className={""}id="timer-label">Timer</div>
+        <div className={""}id="time-left">{this.handleTimeFormat()}</div>
+        <div className={""}id="start_stop" onClick={this.handleStartStop}>
           Start Stop
         </div>
         <div id="reset" onClick={this.handleReset}>
