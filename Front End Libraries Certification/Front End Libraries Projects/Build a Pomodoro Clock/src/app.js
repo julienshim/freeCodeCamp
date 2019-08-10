@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MarkdownPreview from './components/MarkdownPreview';
+import PomodoroClock from './components/PomodoroClock';
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 
-ReactDOM.render(<MarkdownPreview />, document.getElementById("app"));
+ReactDOM.render(<PomodoroClock />, document.getElementById("app"));
