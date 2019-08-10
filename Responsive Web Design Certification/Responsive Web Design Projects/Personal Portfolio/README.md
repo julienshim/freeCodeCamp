@@ -10,4 +10,4 @@ https://codepen.io/julienshim/pen/Wagrze
 
 ### GIF
 
-<img src="https://raw.githubusercontent.com/julienshim/freeCodeCamp/master/Responsive%20Web%20Design%20Projects/Personal%20Portfolio/assets/demo.gif" width="500" />
+<img src="https://github.com/julienshim/freeCodeCamp/blob/master/Responsive%20Web%20Design%20Certification/Responsive%20Web%20Design%20Projects/Personal%20Portfolio/assets/demo.gif?raw=true" width="500" />
