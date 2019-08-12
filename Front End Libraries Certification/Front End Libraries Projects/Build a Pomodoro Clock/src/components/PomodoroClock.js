@@ -44,8 +44,12 @@ export default class MarkdownPreview extends React.Component {
     })
   }
 
-  handleLengthSet(isIncrementing, type){
+  handleSetLength(isIncrementing, type){
     if (this.state.isRunning) return;
+    // If decrementing set length and length of either type is 1 return
+    if (!isIncrementing && this.state[type] === 1) return;
+    // If incremeanting set length and length of either type is 60 return
+    if (isIncrementing && this.state[type] === 60) return;
     this.setState(prevState => ({
       [type]: prevState[type] + (isIncrementing ? 1 : -1)
     }))
@@ -62,12 +66,12 @@ export default class MarkdownPreview extends React.Component {
     return (
       <div id="main">
         <div className={""} id="break-label">Break</div>
-        <div className={"buttons"} id="break-decrement" onClick={() => this.handleLengthSet(false, "break")}>-</div>
-        <div className={"buttons"} id="break-increment" onClick={() => this.handleLengthSet(true, "break")}>+</div>
+        <div className={"buttons"} id="break-decrement" onClick={() => this.handleSetLength(false, "break")}>-</div>
+        <div className={"buttons"} id="break-increment" onClick={() => this.handleSetLength(true, "break")}>+</div>
         <div className={""} id="break-length">{this.state.break}</div>
         <div className={""}id="session-label">Session</div>
-        <div className={"buttons"}id="session-decrement" onClick={() => this.handleLengthSet(false, "session")}>-</div>
-        <div className={"buttons"}id="session-increment" onClick={() => this.handleLengthSet(true, "session")}>+</div>
+        <div className={"buttons"}id="session-decrement" onClick={() => this.handleSetLength(false, "session")}>-</div>
+        <div className={"buttons"}id="session-increment" onClick={() => this.handleSetLength(true, "session")}>+</div>
         <div className={""}id="session-length">{this.state.session}</div>
         <div className={""}id="timer-label">{this.state.type}</div>
         <div className={""}id="time-left">{this.handleTimeFormat()}</div>
