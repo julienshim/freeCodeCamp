@@ -28,7 +28,7 @@ export default class MarkdownPreview extends React.Component {
       // Temporary for testing purposes.
       if (prevState.current === 1) { clearInterval(this.clock)};
       return {
-      current: prevState.current - 1
+        current: prevState.current - 1
        }
     });
   } 
@@ -56,7 +56,9 @@ export default class MarkdownPreview extends React.Component {
   }
 
   handleTimeFormat(){
-    const time = this.state.type === "Session" ? this.state.session * 60 : this.state.break * 60;
+    const time = this.state.current;
+    // Above with pass 11 and 12 but below with pass 8. Think a method is needed for phases.
+    // const time = this.state.type === "Session" ? this.state.session * 60 : this.state.break * 60;
     const minutes = String(Math.floor(time / 60)).padStart(2,"0");
     const seconds = String(time % 60).padStart(2,"0");
     return `${minutes}:${seconds}`
