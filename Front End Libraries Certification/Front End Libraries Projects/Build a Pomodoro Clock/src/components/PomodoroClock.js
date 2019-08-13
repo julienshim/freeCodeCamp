@@ -14,16 +14,13 @@ export default class MarkdownPreview extends React.Component {
   }
 
   componentDidUpdate(){
-    if(this.state.current === 0 && this.state.type === 'Session') {
+    if(this.state.current === 0) {
+      this.state.running && this.handleStartStop();
       this.setState({
-        current: this.state.break * 60,
-        type: "Break"
-      })
-    }
-    if (this.state === 0 && this.state.type === 'Break') {
-      this.setState({
-        current: this.state.session * 60,
-        type: 'Session'
+        current: this.state.type === 'Session' ? this.state.break * 60 : this.state.session * 60,
+        type: this.state.type === 'Session' ?  'Break' : 'Session'
+      }, () => {
+        this.handleStartStop();
       })
     }
   }
@@ -68,7 +65,7 @@ export default class MarkdownPreview extends React.Component {
     if (isIncrementing && this.state[type] === 60) return;
     this.setState(prevState => ({
       [type]: prevState[type] + (isIncrementing ? 1 : -1),
-      current: prevState[type] * 60 + (isIncrementing ? 60 : -60)
+      current: prevState.type !== type ? prevState[type] * 60 + (isIncrementing ? 60 : -60) : prevState.current
     }))
   }
 
