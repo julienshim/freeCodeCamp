@@ -1,5 +1,20 @@
 import React from "react";
 
+const Label = (props) => {
+  const { name, type } = props;
+  const string = name === "timer" ? type : name;
+  return (
+    <div className={""} id={`${name}-label`}>{`${string}`.charAt(0).toUpperCase() + `${string}`.slice(1)}</div>
+  )
+}
+
+const Button = (props) => {
+  const { className, type, isIncrementing, handleSetLength} = props;
+  return (
+    <div className={className} id={`${type}-${isIncrementing ? "increment" : "decrement"}`} onClick={handleSetLength}>-</div>
+  )
+}
+
 export default class MarkdownPreview extends React.Component {
   constructor(props) {
     super(props);
@@ -92,50 +107,15 @@ export default class MarkdownPreview extends React.Component {
   render() {
     return (
       <div id="main">
-        <div className={""} id="break-label">
-          Break
-        </div>
-        <div
-          className={"buttons"}
-          id="break-decrement"
-          onClick={() => this.handleSetLength(false, "break")}
-        >
-          -
-        </div>
-        <div
-          className={"buttons"}
-          id="break-increment"
-          onClick={() => this.handleSetLength(true, "break")}
-        >
-          +
-        </div>
-        <div className={""} id="break-length">
-          {this.state.break}
-        </div>
-        <div className={""} id="session-label">
-          Session
-        </div>
-        <div
-          className={"buttons"}
-          id="session-decrement"
-          onClick={() => this.handleSetLength(false, "session")}
-        >
-          -
-        </div>
-        <div
-          className={"buttons"}
-          id="session-increment"
-          onClick={() => this.handleSetLength(true, "session")}
-        >
-          +
-        </div>
-        <div className={""} id="session-length">
-          {this.state.session}
-        </div>
-        <div className={""} id="timer-label">
-          {/* Capitalize First Letter */}
-          {this.state.type.charAt(0).toUpperCase() + this.state.type.slice(1)}
-        </div>
+        <Label name={"break"} type={this.state.type} />
+        <Button className={"buttons"} type={"break"} isIncrementing={false} handleSetLength={() => this.handleSetLength(false, "break")} /> 
+        <Button className={"buttons"} type={"break"} isIncrementing={true} handleSetLength={() => this.handleSetLength(true, "break")} /> 
+        <div className={""} id="break-length">{this.state.break}</div>
+        <Label name={"session"} type={this.state.type}/>
+        <Button className={"buttons"} type={"session"} isIncrementing={false} handleSetLength={() => this.handleSetLength(false, "session")} /> 
+        <Button className={"buttons"} type={"session"} isIncrementing={true} handleSetLength={() => this.handleSetLength(true, "session")} /> 
+        <div className={""} id="session-length">{this.state.session}</div>
+        <Label name={"timer"} type={this.state.type} />
         <div className={""} id="time-left">
           {this.handleTimeFormat()}
         </div>
@@ -149,7 +129,7 @@ export default class MarkdownPreview extends React.Component {
           id='beep'
           src='/audio/ebeep.mp3' 
           ref={this.beep}>
-      </audio>
+        </audio>
       </div>
     );
   }
