@@ -2,7 +2,6 @@
 @import "./base/base";
 
 body {
-  width: 50%;
   margin: 0 auto;
 }
 
@@ -11,4 +10,12 @@ body {
   height: 25px;
   width: 25px;
   margin: 5px;
+}
+
+#fizz {
+  height: 100vh;
+  background-color: yellow;
+  z-index: -1;
+  position: absolute;
+  top: 0;
 }

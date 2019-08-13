@@ -11,7 +11,7 @@ const Label = (props) => {
 const Button = (props) => {
   const { className, type, isIncrementing, handleSetLength} = props;
   return (
-    <div className={className} id={`${type}-${isIncrementing ? "increment" : "decrement"}`} onClick={handleSetLength}>-</div>
+    <div className={className} id={`${type}-${isIncrementing ? "increment" : "decrement"}`} onClick={handleSetLength}>{isIncrementing ? '+' : '-'}</div>
   )
 }
 
@@ -29,8 +29,13 @@ export default class MarkdownPreview extends React.Component {
 
   beep = React.createRef();
 
+  componentDidMount() {
+    document.body.style.background = 'rgb(255,181, 17)';
+  }
+
   componentDidUpdate() {
     this.handleAudio(this.state.timer);
+    this.handleColor();
     if (this.state.timer < 0) {
       this.state.isRunning && this.handleStartStop();
       this.setState(
@@ -42,6 +47,10 @@ export default class MarkdownPreview extends React.Component {
         }, this.handleStartStop
       );
     }
+  }
+
+  handleColor() {
+    document.body.style.background = this.state.type === "session" ? 'rgb(18, 149, 216)' : 'rgb(255,181, 17)';
   }
 
   handleAudio(time) {
@@ -57,7 +66,8 @@ export default class MarkdownPreview extends React.Component {
       if (prevState.isRunning) {
         clearInterval(this.clock);
       } else {
-        this.clock = setInterval(this.handleDecrement, 1000);
+        this.clock = setInterval(this.handleDecrement, 1
+          );
       }
       return { isRunning: !prevState.isRunning };
     });
@@ -105,8 +115,25 @@ export default class MarkdownPreview extends React.Component {
   }
 
   render() {
+    const totalTime = this.state[this.state.type] * 60;
+    const dynamic =  this.state.timer / totalTime;
+
+    const sessionStyle = {
+        width: 100 * dynamic + 'vw',
+        backgroundColor: 'rgb(255,181, 17)',
+        right: 0
+    };
+
+    const breakStyle = {
+      width: 100 * dynamic + 'vw',
+      backgroundColor: 'rgb(18, 149, 216)',
+      left: 0
+    };
+
     return (
+
       <div id="main">
+        <div id="fizz" style={this.state.type === "session" ? sessionStyle : breakStyle } ></div>
         <Label name={"break"} type={this.state.type} />
         <Button className={"buttons"} type={"break"} isIncrementing={false} handleSetLength={() => this.handleSetLength(false, "break")} /> 
         <Button className={"buttons"} type={"break"} isIncrementing={true} handleSetLength={() => this.handleSetLength(true, "break")} /> 
