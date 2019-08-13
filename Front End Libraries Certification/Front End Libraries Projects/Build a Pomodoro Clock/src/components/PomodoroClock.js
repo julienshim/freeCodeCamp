@@ -90,11 +90,11 @@ export default class MarkdownPreview extends React.Component {
     if (isIncrementing && this.state[type] === 60) return;
 
     this.setState(prevState => {
-      const newStateA = { [type]: prevState[type] + (isIncrementing ? 1 : -1) };
-      const newStateB = { [type]: prevState[type] + (isIncrementing ? 1 : -1),
-                          timer: prevState[type] * 60 + (isIncrementing ? 60 : -60)
-      };
-      return this.state.type !== type ? newStateA : newStateB;
+      const newStateLinked = { [type]: prevState[type] + (isIncrementing ? 1 : -1),
+                                timer: prevState[type] * 60 + (isIncrementing ? 60 : -60) };
+      const newStateUnLinked = { [type]: prevState[type] + (isIncrementing ? 1 : -1) };
+     
+      return this.state.type === type ? newStateLinked : newStateUnLinked;
     });
   }
 
