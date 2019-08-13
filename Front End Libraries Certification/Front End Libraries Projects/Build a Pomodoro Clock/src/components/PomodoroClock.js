@@ -1,34 +1,40 @@
 import React from "react";
-import { timingSafeEqual } from "crypto";
 
 export default class MarkdownPreview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: "break",
+      type: "session",
       break: 5,
       session: 25,
-      current: 1500,
+      timer: 1500,
       isRunning: false
     };
   }
 
+  beep = React.createRef();
+
   componentDidUpdate() {
-    if (this.state.current === 0) {
-      this.state.running && this.handleStartStop();
+    this.handleAudio(this.state.timer);
+    if (this.state.timer < 0) {
+      this.state.isRunning && this.handleStartStop();
       this.setState(
         {
-          current:
-            this.state.type === "session"
-              ? this.state.break * 60
-              : this.state.session * 60,
+          timer: this.state.type === "session"
+                    ? this.state.break * 60
+                    : this.state.session * 60,
           type: this.state.type === "session" ? "break" : "session"
-        },
-        () => {
-          this.handleStartStop();
-        }
+        }, this.handleStartStop
       );
     }
+  }
+
+  handleAudio(time) {
+    time === 0 && this.beep.current.play().then(response => {
+        // console.log('response', response);
+      }).catch(error => {
+        console.log(error);
+      })
   }
 
   handleStartStop = () => {
@@ -43,15 +49,9 @@ export default class MarkdownPreview extends React.Component {
   };
 
   handleDecrement = () => {
-    this.setState(prevState => {
-      // Temporary for testing purposes.
-      if (prevState.current === 1) {
-        clearInterval(this.clock);
-      }
-      return {
-        current: prevState.current - 1
-      };
-    });
+    this.setState(prevState => ({
+      timer: prevState.timer - 1
+    }));
   };
 
   handleReset = () => {
@@ -60,9 +60,11 @@ export default class MarkdownPreview extends React.Component {
       type: "session",
       break: 5,
       session: 25,
-      current: 1500,
+      timer: 1500,
       isRunning: false
     });
+    this.beep.current.pause();
+    this.beep.current.currentTime = 0
   };
 
   handleSetLength(isIncrementing, type) {
@@ -75,17 +77,15 @@ export default class MarkdownPreview extends React.Component {
     this.setState(prevState => {
       const newStateA = { [type]: prevState[type] + (isIncrementing ? 1 : -1) };
       const newStateB = { [type]: prevState[type] + (isIncrementing ? 1 : -1),
-                          current: prevState[type] * 60 + (isIncrementing ? 60 : -60)
+                          timer: prevState[type] * 60 + (isIncrementing ? 60 : -60)
       };
       return this.state.type !== type ? newStateA : newStateB;
     });
   }
 
   handleTimeFormat() {
-    const time = this.state.current;
-    // Above with pass 11 and 12 but below with pass 8. Think a method is needed for phases.
-    const minutes = String(Math.floor(time / 60)).padStart(2, "0");
-    const seconds = String(time % 60).padStart(2, "0");
+    const minutes = String(Math.floor(this.state.timer / 60)).padStart(2, "0");
+    const seconds = String(this.state.timer % 60).padStart(2, "0");
     return `${minutes}:${seconds}`;
   }
 
@@ -145,6 +145,11 @@ export default class MarkdownPreview extends React.Component {
         <div id="reset" onClick={this.handleReset}>
           Reset
         </div>
+        <audio 
+          id='beep'
+          src='/audio/ebeep.mp3' 
+          ref={this.beep}>
+      </audio>
       </div>
     );
   }
