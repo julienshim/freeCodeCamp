@@ -131,7 +131,6 @@ export default class JavaScriptCalculator extends React.Component {
   }
 
   handleCalculate(input) {
-    console.log("handCalculate", input);
     let calculation = undefined;
     const base =
       this.state.operatorPressedLast || this.state.equalPressedLast
@@ -179,45 +178,32 @@ export default class JavaScriptCalculator extends React.Component {
           isRunning: false
         },
         () => {
-          const input = String(
-            this.handleCalculate([
-              ...this.state.calcBank,
-              this.state.calcBank[0]
-            ])
-          );
-          console.log("blah de blah", [input, this.state.memory[1]]);
-          this.setState(
-            {
-              calcBank: [input, this.state.memory[1]],
-              master: input,
-              display: input
-            },
-            () => {
-              console.log("upperCalcBank", this.state.calcBank);
-            }
-          );
+          const input = this.handleCalculate([
+            ...this.state.calcBank,
+            this.state.calcBank[0]
+          ]);
+          this.setState({
+            calcBank: [input, this.state.memory[1]],
+            master: input,
+            display: input
+          });
         }
       );
     } else {
       const input = this.state.operatorPressedLast
-        ? String(
-            this.handleCalculate([...this.state.calcBank, this.state.memory[0]])
-          )
+        ? this.handleCalculate([...this.state.calcBank, this.state.memory[0]])
         : Number(this.state.memory[1])
-        ? String(
-            this.handleCalculate([
-              this.state.display,
-              this.state.memory[0],
-              this.state.memory[1]
-            ])
-          )
-        : String(
-            this.handleCalculate([
-              this.state.display,
-              this.state.memory[1],
-              this.state.memory[0]
-            ])
-          );
+        ? this.handleCalculate([
+            this.state.display,
+            this.state.memory[0],
+            this.state.memory[1]
+          ])
+        : this.handleCalculate([
+            this.state.display,
+            this.state.memory[1],
+            this.state.memory[0]
+          ]);
+
       this.setState({
         calcBank:
           this.state.equalPressedLast && !this.state.operatorPressedLast
@@ -239,7 +225,8 @@ export default class JavaScriptCalculator extends React.Component {
           operatorPressedLast: false,
           equalPressedLast: false,
           clearText: "C",
-          calcBank: this.state.equalPressedLast ? [] : this.state.calcBank
+          calcBank: this.state.equalPressedLast ? [] : this.state.calcBank,
+          memory: this.state.equalPressedLast ? [] : this.state.memory
         });
         break;
       case /\+\/\-/g.test(input):
@@ -304,14 +291,12 @@ export default class JavaScriptCalculator extends React.Component {
               }),
               () => {
                 this.handleUpdate(
-                  String(
-                    this.handleCalculate([
-                      ...this.state.calcBank,
-                      this.state.isMinus
-                        ? -this.state.display
-                        : this.state.display
-                    ])
-                  )
+                  this.handleCalculate([
+                    ...this.state.calcBank,
+                    this.state.isMinus
+                      ? -this.state.display
+                      : this.state.display
+                  ])
                 );
               }
             );
@@ -324,7 +309,13 @@ export default class JavaScriptCalculator extends React.Component {
   render() {
     return (
       <div id="javascript-calculator">
-        <div id="display">{this.state.display}</div>
+        <div id="display">
+          {this.state.display.length > 14
+            ? Number.isInteger(Number(this.state.display))
+              ? Number(this.state.display).toExponential(9)
+              : Number(this.state.display).toFixed(9)
+            : this.state.display}
+        </div>
         <div id="buttons">
           {this.state.buttons.map(button => {
             const text =
