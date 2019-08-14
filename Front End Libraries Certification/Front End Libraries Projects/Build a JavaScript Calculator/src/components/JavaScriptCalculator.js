@@ -248,7 +248,9 @@ export default class JavaScriptCalculator extends React.Component {
       case /\=/g.test(input):
         this.state.calcBank.length === 0 || this.state.calcBank.length === 1
           ? this.state.memory.length === 0
-            ? this.handleUpdate(this.state.display)
+            ? this.setState({ equalPressedLast: true }, () => {
+                this.handleUpdate(this.state.display);
+              })
             : this.setState(
                 prevState => ({
                   equalPressedLast: true,
