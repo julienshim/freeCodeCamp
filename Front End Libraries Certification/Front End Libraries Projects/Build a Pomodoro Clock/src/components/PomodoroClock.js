@@ -17,7 +17,7 @@ const Button = (props) => {
   )
 }
 
-export default class MarkdownPreview extends React.Component {
+export default class PomodoroClock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,7 +68,7 @@ export default class MarkdownPreview extends React.Component {
       if (prevState.isRunning) {
         clearInterval(this.clock);
       } else {
-        this.clock = setInterval(this.handleDecrement, 1
+        this.clock = setInterval(this.handleDecrement, 1000
           );
       }
       return { isRunning: !prevState.isRunning };
