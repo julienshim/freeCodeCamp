@@ -26,18 +26,23 @@ export default class JavaScriptCalculator extends React.Component {
         { id: "decimal", value: "." },
         { id: "equals", value: "=" }
       ],
-      operatorPressedLast: true,
+      operatorPressedLast: false,
       isMinus: false,
       calcBank: [],
       master: 0,
-      clearText: "AC"
+      clearText: "AC",
+      memory: [],
+      isRunning: false
     };
   }
 
   handleDisplayUpdate = input => {
     this.setState({
       display:
-        this.state.display === "0" || this.state.operatorPressedLast
+        this.state.display === "0" ||
+        (this.state.calcBank[0] === this.state.display &&
+          this.state.equalPressedLast) ||
+        this.state.operatorPressedLast
           ? `${input}`
           : (this.state.display += input),
       operatorPressedLast: false,
@@ -64,7 +69,11 @@ export default class JavaScriptCalculator extends React.Component {
       display: "0",
       calcBank: [],
       master: 0,
-      clearText: "AC"
+      clearText: "AC",
+      memory: [],
+      isRunning: false,
+      operatorPressedLast: false,
+      equalPressedLast: false
     });
   }
 
@@ -81,6 +90,7 @@ export default class JavaScriptCalculator extends React.Component {
           ? prevState.calcBank.concat(input)
           : prevState.calcBank.concat(prevState.display, input),
         operatorPressedLast: true,
+        equalPressedLast: false,
         isMinus:
           input === "-"
             ? this.state.operatorPressedLast
@@ -115,11 +125,13 @@ export default class JavaScriptCalculator extends React.Component {
         console.log("This should be possible.");
     }
     this.setState({
-      calcBank: calculation
+      calcBank: calculation,
+      isRunning: true
     });
   }
 
   handleCalculate(input) {
+    console.log("handCalculate", input);
     let calculation = undefined;
     const base =
       this.state.operatorPressedLast || this.state.equalPressedLast
@@ -158,6 +170,65 @@ export default class JavaScriptCalculator extends React.Component {
     });
   }
 
+  handleRunOn = () => {
+    if (this.state.memory.length === 0 && !this.state.equalPressedLast) {
+      this.setState(
+        {
+          memory: [...this.state.calcBank],
+          equalPressedLast: true,
+          isRunning: false
+        },
+        () => {
+          const input = String(
+            this.handleCalculate([
+              ...this.state.calcBank,
+              this.state.calcBank[0]
+            ])
+          );
+          console.log("blah de blah", [input, this.state.memory[1]]);
+          this.setState(
+            {
+              calcBank: [input, this.state.memory[1]],
+              master: input,
+              display: input
+            },
+            () => {
+              console.log("upperCalcBank", this.state.calcBank);
+            }
+          );
+        }
+      );
+    } else {
+      const input = this.state.operatorPressedLast
+        ? String(
+            this.handleCalculate([...this.state.calcBank, this.state.memory[0]])
+          )
+        : Number(this.state.memory[1])
+        ? String(
+            this.handleCalculate([
+              this.state.display,
+              this.state.memory[0],
+              this.state.memory[1]
+            ])
+          )
+        : String(
+            this.handleCalculate([
+              this.state.display,
+              this.state.memory[1],
+              this.state.memory[0]
+            ])
+          );
+      this.setState({
+        calcBank:
+          this.state.equalPressedLast && !this.state.operatorPressedLast
+            ? [input, this.state.memory[0], this.state.memory[1]]
+            : [input, this.state.memory[1]],
+        master: input,
+        display: input
+      });
+    }
+  };
+
   handleClick = event => {
     event.preventDefault();
     const input = event.target.innerHTML;
@@ -167,7 +238,8 @@ export default class JavaScriptCalculator extends React.Component {
         this.setState({
           operatorPressedLast: false,
           equalPressedLast: false,
-          clearText: "C"
+          clearText: "C",
+          calcBank: this.state.equalPressedLast ? [] : this.state.calcBank
         });
         break;
       case /\+\/\-/g.test(input):
@@ -187,11 +259,34 @@ export default class JavaScriptCalculator extends React.Component {
           this.handleDisplayUpdate(input);
         break;
       case /\=/g.test(input):
-        this.state.calcBank.length >= 4
+        this.state.calcBank.length === 0 || this.state.calcBank.length === 1
+          ? this.state.memory.length === 0
+            ? this.handleUpdate(this.state.display)
+            : this.setState(
+                prevState => ({
+                  equalPressedLast: true,
+                  memory:
+                    prevState.memory.length === 0
+                      ? [prevState.calcBank[1], prevState.display]
+                      : prevState.memory
+                }),
+                () => {
+                  this.handleRunOn();
+                }
+              )
+          : this.state.calcBank.length === 2 &&
+            !this.state.isRunning &&
+            this.state.operatorPressedLast
+          ? this.handleRunOn()
+          : this.state.calcBank.length >= 4
           ? this.setState(
-              {
-                equalPressedLast: true
-              },
+              prevState => ({
+                equalPressedLast: true,
+                memory:
+                  prevState.memory.length === 0
+                    ? [prevState.calcBank[1], prevState.display]
+                    : prevState.memory
+              }),
               () => {
                 this.handleOrderOfOperations([
                   ...this.state.calcBank,
@@ -199,8 +294,26 @@ export default class JavaScriptCalculator extends React.Component {
                 ]);
               }
             )
-          : this.handleUpdate(
-              String(this.handleCalculate(this.state.calcBank))
+          : this.setState(
+              prevState => ({
+                equalPressedLast: true,
+                memory:
+                  prevState.memory.length === 0
+                    ? [prevState.calcBank[1], prevState.display]
+                    : prevState.memory
+              }),
+              () => {
+                this.handleUpdate(
+                  String(
+                    this.handleCalculate([
+                      ...this.state.calcBank,
+                      this.state.isMinus
+                        ? -this.state.display
+                        : this.state.display
+                    ])
+                  )
+                );
+              }
             );
         break;
       default:
@@ -217,18 +330,22 @@ export default class JavaScriptCalculator extends React.Component {
             const text =
               button.id === "clear" ? this.state.clearText : button.value;
             const operators = {
-              "add": true,
-              "subtract": true,
-              "divide": true,
-              "multiply": true,
-              "equals": true
-            }
+              add: true,
+              subtract: true,
+              divide: true,
+              multiply: true,
+              equals: true
+            };
             const tops = {
               "plus-minus": true,
-              "percent": true,
-              "clear": true
-            }
-            const equal = operators[button.id] ? "buttons operators" : tops[button.id] ? "buttons tops" : "buttons";  
+              percent: true,
+              clear: true
+            };
+            const equal = operators[button.id]
+              ? "buttons operators"
+              : tops[button.id]
+              ? "buttons tops"
+              : "buttons";
             return (
               <div
                 key={button.id}
